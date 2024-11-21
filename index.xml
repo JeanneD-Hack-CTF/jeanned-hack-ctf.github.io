@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>http://jeanne-hack-ctf.org/</link>
+    <description>Recent content on </description>
+    <generator>Hugo</generator>
+    <language>fr-FR</language>
+    <copyright>2024 Jeanne d&#39;Hack CTF. Tous droits réservés.</copyright>
+    <atom:link href="http://jeanne-hack-ctf.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Edition 2024</title>
+      <link>http://jeanne-hack-ctf.org/post/2024/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://jeanne-hack-ctf.org/post/2024/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://jeanne-hack-ctf.org/images/jdhack-logo-2024.jpg&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Le 31 janvier 2024, la première édition du Jeanne d&amp;rsquo;HACK CTF s&amp;rsquo;est tenue au sein de l&amp;rsquo;Université de Rouen. Cette compétition&#xA;a mis à l&amp;rsquo;épreuve les compétences des étudiant(e)s à travers une série de défis variés. Les participants ont eu l&amp;rsquo;occasion&#xA;de se mesurer à des challenges en cryptographie, OSINT, Pwn, reverse engineering, web, Windows et hardware !&lt;/p&gt;&#xA;&lt;p&gt;Pour ceux qui souhaitent explorer davantage, le GitHub du CTF est disponible à cette &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2024&#34;&gt;adresse&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mentions légales</title>
+      <link>http://jeanne-hack-ctf.org/legal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://jeanne-hack-ctf.org/legal/</guid>
+      <description>&lt;p&gt;Ce site internet est édité par l&amp;rsquo;association Jeanne d&amp;rsquo;Hack CTF.&lt;/p&gt;&#xA;&lt;p&gt;Vous pouvez nous contacter sur l&amp;rsquo;adresse :&lt;/p&gt;&#xA;&lt;p&gt;contact [ at ] jeanne-hack-ctf [ dot ] org.&lt;/p&gt;&#xA;&lt;h2 id=&#34;protection-des-données-personnelles&#34;&gt;Protection des données personnelles&lt;/h2&gt;&#xA;&lt;p&gt;Ce site internet ne collecte aucune donnée personnelle.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
