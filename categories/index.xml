@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on </title>
-    <link>http://jeanne-hack-ctf.org/categories/</link>
+    <link>https://jeanned-hack-ctf.github.io/categories/</link>
     <description>Recent content in Categories on </description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <copyright>2024 Jeanne d&#39;Hack CTF. Tous droits réservés.</copyright>
-    <atom:link href="http://jeanne-hack-ctf.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jeanned-hack-ctf.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

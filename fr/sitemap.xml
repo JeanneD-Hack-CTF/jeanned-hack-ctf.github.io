@@ -2,76 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://jeanne-hack-ctf.org/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://jeanne-hack-ctf.org/en/"
+                href="https://jeanned-hack-ctf.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://jeanne-hack-ctf.org/"
+                href="https://jeanned-hack-ctf.github.io/"
                 />
   </url><url>
-    <loc>http://jeanne-hack-ctf.org/categories/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://jeanne-hack-ctf.org/en/categories/"
+                href="https://jeanned-hack-ctf.github.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://jeanne-hack-ctf.org/categories/"
+                href="https://jeanned-hack-ctf.github.io/categories/"
                 />
   </url><url>
-    <loc>http://jeanne-hack-ctf.org/post/2024/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/post/2024/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://jeanne-hack-ctf.org/en/post/2024/"
+                href="https://jeanned-hack-ctf.github.io/en/post/2024/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://jeanne-hack-ctf.org/post/2024/"
+                href="https://jeanned-hack-ctf.github.io/post/2024/"
                 />
   </url><url>
-    <loc>http://jeanne-hack-ctf.org/post/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/post/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://jeanne-hack-ctf.org/en/post/"
+                href="https://jeanned-hack-ctf.github.io/en/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://jeanne-hack-ctf.org/post/"
+                href="https://jeanned-hack-ctf.github.io/post/"
                 />
   </url><url>
-    <loc>http://jeanne-hack-ctf.org/legal/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/legal/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://jeanne-hack-ctf.org/en/legal/"
+                href="https://jeanned-hack-ctf.github.io/en/legal/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://jeanne-hack-ctf.org/legal/"
+                href="https://jeanned-hack-ctf.github.io/legal/"
                 />
   </url><url>
-    <loc>http://jeanne-hack-ctf.org/tags/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://jeanne-hack-ctf.org/en/tags/"
+                href="https://jeanned-hack-ctf.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://jeanne-hack-ctf.org/tags/"
+                href="https://jeanned-hack-ctf.github.io/tags/"
                 />
   </url>
 </urlset>
