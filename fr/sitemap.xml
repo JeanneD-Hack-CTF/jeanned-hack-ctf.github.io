@@ -50,6 +50,18 @@
                 href="https://jeanned-hack-ctf.github.io/post/"
                 />
   </url><url>
+    <loc>https://jeanned-hack-ctf.github.io/inscriptions/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://jeanned-hack-ctf.github.io/en/inscriptions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://jeanned-hack-ctf.github.io/inscriptions/"
+                />
+  </url><url>
     <loc>https://jeanned-hack-ctf.github.io/legal/</loc>
     <xhtml:link
                 rel="alternate"
