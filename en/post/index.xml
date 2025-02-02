@@ -7,13 +7,21 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Jeanne d&#39;Hack CTF. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 31 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jeanned-hack-ctf.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2025 edition</title>
+      <link>https://jeanned-hack-ctf.github.io/en/post/2025/</link>
+      <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://jeanned-hack-ctf.github.io/en/post/2025/</guid>
+      <description>&lt;div style=&#34;text-align: center;&#34;&gt;&#xA;    &lt;img src=&#34;https://jeanned-hack-ctf.github.io/images/2025/logo-2025.svg&#34; style=&#34;width: auto; height: 400px;&#34;/&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;On January 31, 2025, the second edition of the &lt;strong&gt;Jeanne d’Hack CTF&lt;/strong&gt; took place at the University of Rouen. This competition&#xA;tested the skills of students through a series of varied challenges. Participants had the opportunity to tackle challenges&#xA;in Cryptography, OSINT, Pwn, Reverse Engineering, Web, and Windows!&lt;/p&gt;&#xA;&lt;p&gt;This edition brought together 150 participants divided into 55 teams, all coming to test their skills on 45 challenges.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>2024 edition</title>
       <link>https://jeanned-hack-ctf.github.io/en/post/2024/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://jeanned-hack-ctf.github.io/en/post/2024/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://jeanned-hack-ctf.github.io/images/jdhack-logo-2024.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;On January 31, 2024, the first edition of the Jeanne d&amp;rsquo;HACK CTF took place at the University of Rouen.&#xA;This competition tested the skills of students through a series of varied challenges. Participants had the&#xA;opportunity to compete in challenges related to cryptography, OSINT, Pwn, reverse engineering, web, Windows, and hardware!&lt;/p&gt;&#xA;&lt;p&gt;For those who wish to explore further, the GitHub for the CTF is available at this &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2024&#34;&gt;address&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;We would like to express our sincere thanks to all the teams that participated in this event, to the teachers&#xA;who helped us organize the CTF, and to all the members of the association.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://jeanned-hack-ctf.github.io/images/2024/jdhack-logo-2024.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;On January 31, 2024, the first edition of the Jeanne d&amp;rsquo;Hack CTF took place at the University of Rouen.&#xA;This competition tested the skills of students through a series of varied challenges. Participants had the&#xA;opportunity to compete in challenges related to cryptography, OSINT, Pwn, reverse engineering, web, Windows, and hardware!&lt;/p&gt;&#xA;&lt;p&gt;For those who wish to explore further, the GitHub for the CTF is available at this &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2024&#34;&gt;address&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;We would like to express our sincere thanks to all the teams that participated in this event, to the teachers&#xA;who helped us organize the CTF, and to all the members of the association.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

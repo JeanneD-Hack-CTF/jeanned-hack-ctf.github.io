@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <script type="text/javascript">
-      if (window.location.protocol !== 'https:') {
-        window.location.href = "https://www.jeanne-hack-ctf.org/";
+      
+      if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+        window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search;
       }
     </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -53,6 +54,8 @@ But what is the Jeanne d’Hack CTF? It is a Capture The Flag competition where 
   <meta itemprop="description" content="The Jeanne d’Hack CTF is back! After the success of the first edition, we are excited to announce the second edition of the Jeanne d’Hack CTF, an unmissable event for all cybersecurity enthusiasts in Rouen!
 This new edition will take place on January 31, 2025, and is open to students from Rouen.
 But what is the Jeanne d’Hack CTF? It is a Capture The Flag competition where students must solve complex challenges in Cryptography, OSINT, Pwn, Reverse Engineering, Web Security, and Windows. It’s the perfect opportunity to push your limits, develop your skills, and meet professionals in the field!">
+  <meta itemprop="datePublished" content="2025-01-31T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-01-31T00:00:00+00:00">
   <meta itemprop="wordCount" content="177">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:description" content="The Jeanne d’Hack CTF is back! After the success of the first edition, we are excited to announce the second edition of the Jeanne d’Hack CTF, an unmissable event for all cybersecurity enthusiasts in Rouen!

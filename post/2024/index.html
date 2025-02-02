@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <script type="text/javascript">
-      if (window.location.protocol !== 'https:') {
-        window.location.href = "https://www.jeanne-hack-ctf.org/";
+      
+      if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+        window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search;
       }
     </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -12,7 +13,7 @@
     <title>Edition 2024 | </title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="
-Le 31 janvier 2024, la première édition du Jeanne d&rsquo;HACK CTF s&rsquo;est tenue au sein de l&rsquo;Université de Rouen. Cette compétition
+Le 31 janvier 2024, la première édition du Jeanne d&rsquo;Hack CTF s&rsquo;est tenue au sein de l&rsquo;Université de Rouen. Cette compétition
 a mis à l&rsquo;épreuve les compétences des étudiant(e)s à travers une série de défis variés. Les participants ont eu l&rsquo;occasion
 de se mesurer à des challenges en cryptographie, OSINT, Pwn, reverse engineering, web, Windows et hardware !
 Pour ceux qui souhaitent explorer davantage, le GitHub du CTF est disponible à cette adresse.">
@@ -44,19 +45,23 @@ Pour ceux qui souhaitent explorer davantage, le GitHub du CTF est disponible à 
 
     <meta property="og:url" content="https://jeanned-hack-ctf.github.io/post/2024/">
   <meta property="og:title" content="Edition 2024">
-  <meta property="og:description" content="Le 31 janvier 2024, la première édition du Jeanne d’HACK CTF s’est tenue au sein de l’Université de Rouen. Cette compétition a mis à l’épreuve les compétences des étudiant(e)s à travers une série de défis variés. Les participants ont eu l’occasion de se mesurer à des challenges en cryptographie, OSINT, Pwn, reverse engineering, web, Windows et hardware !
+  <meta property="og:description" content="Le 31 janvier 2024, la première édition du Jeanne d’Hack CTF s’est tenue au sein de l’Université de Rouen. Cette compétition a mis à l’épreuve les compétences des étudiant(e)s à travers une série de défis variés. Les participants ont eu l’occasion de se mesurer à des challenges en cryptographie, OSINT, Pwn, reverse engineering, web, Windows et hardware !
 Pour ceux qui souhaitent explorer davantage, le GitHub du CTF est disponible à cette adresse.">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-01-31T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-31T00:00:00+00:00">
 
   <meta itemprop="name" content="Edition 2024">
-  <meta itemprop="description" content="Le 31 janvier 2024, la première édition du Jeanne d’HACK CTF s’est tenue au sein de l’Université de Rouen. Cette compétition a mis à l’épreuve les compétences des étudiant(e)s à travers une série de défis variés. Les participants ont eu l’occasion de se mesurer à des challenges en cryptographie, OSINT, Pwn, reverse engineering, web, Windows et hardware !
+  <meta itemprop="description" content="Le 31 janvier 2024, la première édition du Jeanne d’Hack CTF s’est tenue au sein de l’Université de Rouen. Cette compétition a mis à l’épreuve les compétences des étudiant(e)s à travers une série de défis variés. Les participants ont eu l’occasion de se mesurer à des challenges en cryptographie, OSINT, Pwn, reverse engineering, web, Windows et hardware !
 Pour ceux qui souhaitent explorer davantage, le GitHub du CTF est disponible à cette adresse.">
+  <meta itemprop="datePublished" content="2024-01-31T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-01-31T00:00:00+00:00">
   <meta itemprop="wordCount" content="145">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Edition 2024">
-  <meta name="twitter:description" content="Le 31 janvier 2024, la première édition du Jeanne d’HACK CTF s’est tenue au sein de l’Université de Rouen. Cette compétition a mis à l’épreuve les compétences des étudiant(e)s à travers une série de défis variés. Les participants ont eu l’occasion de se mesurer à des challenges en cryptographie, OSINT, Pwn, reverse engineering, web, Windows et hardware !
+  <meta name="twitter:description" content="Le 31 janvier 2024, la première édition du Jeanne d’Hack CTF s’est tenue au sein de l’Université de Rouen. Cette compétition a mis à l’épreuve les compétences des étudiant(e)s à travers une série de défis variés. Les participants ont eu l’occasion de se mesurer à des challenges en cryptographie, OSINT, Pwn, reverse engineering, web, Windows et hardware !
 Pour ceux qui souhaitent explorer davantage, le GitHub du CTF est disponible à cette adresse.">
 
       
@@ -135,19 +140,21 @@ Pour ceux qui souhaitent explorer davantage, le GitHub du CTF est disponible à 
       
       
       
+      <time class="f6 mv4 dib tracked" datetime="2024-01-31T00:00:00Z">janvier 31, 2024</time>
+      
 
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l"><p><img src="/images/jdhack-logo-2024.jpg" alt=""></p>
-<p>Le 31 janvier 2024, la première édition du Jeanne d&rsquo;HACK CTF s&rsquo;est tenue au sein de l&rsquo;Université de Rouen. Cette compétition
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l"><p><img src="/images/2024/jdhack-logo-2024.jpg" alt=""></p>
+<p>Le 31 janvier 2024, la première édition du Jeanne d&rsquo;Hack CTF s&rsquo;est tenue au sein de l&rsquo;Université de Rouen. Cette compétition
 a mis à l&rsquo;épreuve les compétences des étudiant(e)s à travers une série de défis variés. Les participants ont eu l&rsquo;occasion
 de se mesurer à des challenges en cryptographie, OSINT, Pwn, reverse engineering, web, Windows et hardware !</p>
 <p>Pour ceux qui souhaitent explorer davantage, le GitHub du CTF est disponible à cette <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2024">adresse</a>.</p>
 <p>Nous tenons à exprimer nos plus sincères remerciements à toutes les équipes qui ont participé à cet événement, aux enseignants
 qui nous ont aidés à organiser le CTF, ainsi qu&rsquo;à tous les membres de l&rsquo;association.</p>
-<p>Voici le tableau des scores final :
-<img src="/images/jdhack-scoreboard-2024.jpg" alt=""></p>
+<p>Voici le tableau des scores final :</p>
+<p><img src="/images/2024/jdhack-scoreboard-2024.jpg" alt=""></p>
 <p>Cette première édition du Jeanne d&rsquo;HACK CTF a été une expérience enrichissante pour tous et nous avons hâte de voir
 ce que l&rsquo;avenir nous réserve pour les prochaines éditions !</p>
 <ul class="pa0">
