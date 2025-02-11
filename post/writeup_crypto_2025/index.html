@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      
+      if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+        window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search;
+      }
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Writeup Cryptographie - Edition 2025 | </title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&rsquo;Hack CTF 2025.
+
+Fantome de Tchernobyl
+Pot de miel
+Twister
+Ocean of values
+Cryptic archive
+Pemp my key
+
+Fantome de Tchernobyl
+Les sources du challenge sont diposnibles ici.
+Ce challenge est un challenge d&rsquo;introduction permettant aux débutants de s&rsquo;initier à la cryptographie, ou en tout cas,
+aux challenges que l&rsquo;on retrouve souvent dans cette catégorie.
+
+Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme.
+Il passerait son temps à répéter les mêmes choses : « La clé, c’est l’alphabet ! »
+Et cette suite de chiffres et de lettres qui n’a aucun sens : « 207e0810ae62fb7fd69c94e6bb6104c9d4ed35b2d8e0581d5327896414020b0e ».
+À l’aide de l’outil CyberChef, tentez de découvrir ce qui se cache derrière les paroles du fantôme.
+Lien vers l&rsquo;outil : https://gchq.github.io/CyberChef/">
+    <meta name="generator" content="Hugo 0.142.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/post/writeup_crypto_2025/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/post/writeup_crypto_2025/">
+  <meta property="og:title" content="Writeup Cryptographie - Edition 2025">
+  <meta property="og:description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025.
+Fantome de Tchernobyl Pot de miel Twister Ocean of values Cryptic archive Pemp my key Fantome de Tchernobyl Les sources du challenge sont diposnibles ici.
+Ce challenge est un challenge d’introduction permettant aux débutants de s’initier à la cryptographie, ou en tout cas, aux challenges que l’on retrouve souvent dans cette catégorie.
+Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme. Il passerait son temps à répéter les mêmes choses : « La clé, c’est l’alphabet ! » Et cette suite de chiffres et de lettres qui n’a aucun sens : « 207e0810ae62fb7fd69c94e6bb6104c9d4ed35b2d8e0581d5327896414020b0e ». À l’aide de l’outil CyberChef, tentez de découvrir ce qui se cache derrière les paroles du fantôme. Lien vers l’outil : https://gchq.github.io/CyberChef/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-02-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-01T00:00:00+00:00">
+
+  <meta itemprop="name" content="Writeup Cryptographie - Edition 2025">
+  <meta itemprop="description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025.
+Fantome de Tchernobyl Pot de miel Twister Ocean of values Cryptic archive Pemp my key Fantome de Tchernobyl Les sources du challenge sont diposnibles ici.
+Ce challenge est un challenge d’introduction permettant aux débutants de s’initier à la cryptographie, ou en tout cas, aux challenges que l’on retrouve souvent dans cette catégorie.
+Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme. Il passerait son temps à répéter les mêmes choses : « La clé, c’est l’alphabet ! » Et cette suite de chiffres et de lettres qui n’a aucun sens : « 207e0810ae62fb7fd69c94e6bb6104c9d4ed35b2d8e0581d5327896414020b0e ». À l’aide de l’outil CyberChef, tentez de découvrir ce qui se cache derrière les paroles du fantôme. Lien vers l’outil : https://gchq.github.io/CyberChef/">
+  <meta itemprop="datePublished" content="2025-02-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-02-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="4175">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Writeup Cryptographie - Edition 2025">
+  <meta name="twitter:description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025.
+Fantome de Tchernobyl Pot de miel Twister Ocean of values Cryptic archive Pemp my key Fantome de Tchernobyl Les sources du challenge sont diposnibles ici.
+Ce challenge est un challenge d’introduction permettant aux débutants de s’initier à la cryptographie, ou en tout cas, aux challenges que l’on retrouve souvent dans cette catégorie.
+Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme. Il passerait son temps à répéter les mêmes choses : « La clé, c’est l’alphabet ! » Et cette suite de chiffres et de lettres qui n’a aucun sens : « 207e0810ae62fb7fd69c94e6bb6104c9d4ed35b2d8e0581d5327896414020b0e ». À l’aide de l’outil CyberChef, tentez de découvrir ce qui se cache derrière les paroles du fantôme. Lien vers l’outil : https://gchq.github.io/CyberChef/">
+
+
+    
+
+    
+    
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    loader:{
+      load: ['ui/safe']
+    },
+  };
+</script>
+
+    
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  
+  
+  <header class="contain bg-center bg-black" style="background-image: url('http://localhost:1313/images/background.svg');">
+    
+    <div class="bg-black-10">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        <img src="/images/logo.svg" class="w100 mw5-ns" alt="" />
+      
+    </a>
+    <div id="dropdown-list" class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+            
+              <li class="list f5 f4-ns fw4 dib pr3">
+                <a class="hover-white no-underline white-90" href="/inscriptions/" title="Inscriptions page">
+                  Inscriptions
+                </a>
+              </li>
+            
+          
+            
+              <li class="list f5 f4-ns fw4 dib pr3">
+                <a class="hover-white no-underline white-90" href="/post/" title="Editions Précedentes page">
+                  Editions Précedentes
+                </a>
+              </li>
+            
+          
+            
+              <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
+                <a class="hover-white no-underline white-90" href="/writeups/" title="Write-Ups page">
+                  Write-Ups
+                </a>
+                <ul class="dropdown">
+                  
+                    <li class="f5 f4-ns fw4 dib pr3">
+                      <a class="hover-white no-underline white-90" href="/writeups/2025/" title="Write-ups 2025 page">
+                        Write-ups 2025
+                      </a>
+                    </li>
+                  
+                    <li class="f5 f4-ns fw4 dib pr3">
+                      <a class="hover-white no-underline white-90" href="/writeups/2026/" title="Write-ups 2026 page">
+                        Write-ups 2026
+                      </a>
+                    </li>
+                  
+                </ul>
+              </li>
+            
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Editions Précedentes
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Writeup Cryptographie - Edition 2025</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-02-01T00:00:00Z">février 1, 2025</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l"><p>Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&rsquo;Hack CTF 2025.</p>
+<ul>
+<li><a href="#fantome-de-tchernobyl">Fantome de Tchernobyl</a></li>
+<li><a href="#pot-de-miel">Pot de miel</a></li>
+<li><a href="#twister">Twister</a></li>
+<li><a href="#ocean-of-values">Ocean of values</a></li>
+<li><a href="#cryptic-archive">Cryptic archive</a></li>
+<li><a href="#pemp-my-key">Pemp my key</a></li>
+</ul>
+<h2 id="fantome-de-tchernobyl">Fantome de Tchernobyl</h2>
+<p>Les sources du challenge sont diposnibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/crypto/Intro-Fantome_de_Tchernobyl">ici</a>.</p>
+<p>Ce challenge est un challenge d&rsquo;introduction permettant aux débutants de s&rsquo;initier à la cryptographie, ou en tout cas,
+aux challenges que l&rsquo;on retrouve souvent dans cette catégorie.</p>
+<blockquote>
+<p>Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme.
+Il passerait son temps à répéter les mêmes choses : « La clé, c’est l’alphabet ! »
+Et cette suite de chiffres et de lettres qui n’a aucun sens : « 207e0810ae62fb7fd69c94e6bb6104c9d4ed35b2d8e0581d5327896414020b0e ».
+À l’aide de l’outil CyberChef, tentez de découvrir ce qui se cache derrière les paroles du fantôme.
+Lien vers l&rsquo;outil : <a href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a></p>
+</blockquote>
+<p>Grâce à l&rsquo;indice laissé dans la description du challenge, on comprend que la suite a été chiffrée via l&rsquo;algorithme
+GOST. Il s&rsquo;agit d&rsquo;un algorithme de chiffrement par bloc utilisé par l&rsquo;URSS et qui ressemble énormément à DES.</p>
+<p>En utilisant la clé <strong>alphabet</strong>, on est alors capable de déchiffrer le contenu du message dans CyberChef.</p>
+<p>On obtient alors la chaîne de caractères &ldquo;SkRIQUNLe2NSeVB0T19iRTlJTm4zUn0=&rdquo;. Le &ldquo;=&rdquo; final nous aide à comprendre qu&rsquo;il s&rsquo;agit
+d&rsquo;une chaîne encodée en base64. On peut la décoder avec CyberChef (ou via la commande base64), on obtient alors notre flag : <code>JDHACK{cRyPtO_bE9INn3R}</code> !</p>
+<h2 id="pot-de-miel">Pot de miel</h2>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/crypto/Pot_de_miel">ici</a>.</p>
+<blockquote>
+<p><strong>Énoncé</strong></p>
+<p>En analysant le réseau d&rsquo;une usine ennemie produisant des composants pour l&rsquo;armée, vous avez identifié un service étrange. Peut-être est-ce la porte d&rsquo;entrée pour compromettre le réseau de cette usine ? Et ainsi en prendre le contrôle pour alimenter la rébellion !</p>
+<p>Votre objectif est de récupérer le mot de passe que ce service cache.</p>
+</blockquote>
+<p><img src="/images/writeup_crypto_2025/nc.png" alt="nc"></p>
+<p>L&rsquo;objectif du challenge était de retrouver les secrets cachés par le service <strong>CyberFactory</strong>. Pour cela, le service était accessible via <code>netcat</code> et le code source de celui-ci était disponible (<code>server.py</code>).</p>
+<p>En se connectant au service, plusieurs options sont disponibles :</p>
+<ol>
+<li>Se connecter</li>
+<li>Afficher les secrets</li>
+<li>Quitter</li>
+</ol>
+<p>Si l&rsquo;on demande d&rsquo;afficher les secrets, le service nous répond que nous ne sommes pas connectés. Il va donc falloir trouver un moyen de se connecter.</p>
+<p>Heureusement pour nous, le service ne possède visiblement qu&rsquo;un seul compte et le hash du mot de passe de l&rsquo;administrateur est stocké en dur dans le code :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>hashed_admin_pass <span style="color:#f92672">=</span> <span style="color:#ae81ff">6966343192926317569595983766338492708381169847881721700879512706305212927745</span>
+</span></span></code></pre></div><p>De plus, la fonction de hachage utilisé, &ldquo;de leur conception&rdquo; comme indiqué dans la bannière, est très simple :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Quick and simple hash function found on Internet, others</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># were to hard to implement (think about you SHA256)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hash_password</span>(self, password: bytes) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Convert a password into an integer</span>
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> bytes_to_long(password)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Hash computation</span>
+</span></span><span style="display:flex;"><span>    hashed_pwd <span style="color:#f92672">=</span> (p <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>coef) <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>modulus
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> hashed_pwd
+</span></span></code></pre></div><p>Il s&rsquo;agit là uniquement d&rsquo;une multiplication modulaire avec les constantes suivantes :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>coef <span style="color:#f92672">=</span> (<span style="color:#ae81ff">13</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">13</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">37</span>     <span style="color:#75715e"># coef &gt; modulus</span>
+</span></span><span style="display:flex;"><span>modulus <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">256</span>         <span style="color:#75715e"># fits NIST recommendations  </span>
+</span></span></code></pre></div><p>Avec ces informations on a déjà tout ce qu&rsquo;il faut pour retrouver le mot de passe de l&rsquo;administrateur.</p>
+<p>On sait que : $h = p * c \mod n$, avec $c = (13 * 13)^{37}$ et $n = 2^{256}$, et l&rsquo;on souhaite retrouver $p$.</p>
+<p>Et donc :</p>
+<ul>
+<li>$ h * c^{-1} = p * c * c^{-1} \mod n $</li>
+<li>$ h * c^{-1} = p * 1 \mod n $</li>
+<li>$ h * c^{-1} = p \mod n $</li>
+</ul>
+<p>Il suffit de calculer $c^{-1}$ l&rsquo;inverse modulaire de $c$ et le multiplier par $h$ modulo $n$.</p>
+<h3 id="script-de-solve">Script de solve</h3>
+<p>Ce qui donne en Python (merci la fonction <code>pow</code> qui fait gagner du temps 😄) :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> Crypto.Util.number <span style="color:#f92672">import</span> long_to_bytes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>h <span style="color:#f92672">=</span> <span style="color:#ae81ff">6966343192926317569595983766338492708381169847881721700879512706305212927745</span>
+</span></span><span style="display:flex;"><span>modulus <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">256</span>
+</span></span><span style="display:flex;"><span>coef <span style="color:#f92672">=</span> (<span style="color:#ae81ff">13</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">13</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">37</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mod_inv_coef <span style="color:#f92672">=</span> pow(coef, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, modulus)
+</span></span><span style="display:flex;"><span>p <span style="color:#f92672">=</span> h <span style="color:#f92672">*</span> mod_inv_coef <span style="color:#f92672">%</span> modulus
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Password : </span><span style="color:#e6db74">{</span>long_to_bytes(p)<span style="color:#f92672">.</span>decode()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>On retrouve l&rsquo;entier suivant : $1972531451796693073931703101035582922503620721183858651769$, et en le convertissant en octets (merci la fonction <code>long_to_bytes</code> cette fois), on retrouve le mot de passe <code>Pr0t3ct0r_0f_th3_f4ct0ry</code>, que l&rsquo;on peut utiliser pour lire les secrets et récupérer le flag !</p>
+<p><img src="/images/writeup_crypto_2025/solve-pot-de-miel.png" alt="solve"></p>
+<p><strong>PS</strong> : À la base ce challenge devait faire partie d&rsquo;une suite de 2 ou 3 challenges autour d&rsquo;une usine, et celui correspondait à un honeypot (un faux service n&rsquo;ayant que pour but d&rsquo;attirer un attaquant), d&rsquo;où le nom et le lore autour du chall 😅</p>
+<h2 id="twister">Twister</h2>
+<p>Ce writeup à été réalisé par <code>Fr@ngip@ne</code>.</p>
+<p>Pour trouver la solution de ce challenge, examinons d&rsquo;abord le fichier fourni <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/blob/main/crypto/Twister/server.py">server.py</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> socketserver
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> hashlib <span style="color:#f92672">import</span> sha1
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ctypes <span style="color:#f92672">import</span> c_int32
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> secret <span style="color:#f92672">import</span> SEED, FLAG
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>HOST <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.0.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>PORT <span style="color:#f92672">=</span> <span style="color:#ae81ff">50003</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Random</span>(object):
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecureCache</span>(object):
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Use our random as it&#39;s more secure than the python one!</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>random <span style="color:#f92672">=</span> Random()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>rand <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand 
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>srand <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>srand
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Seed our random using the super secret seed</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>srand(SEED)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Initialize our database </span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>database <span style="color:#f92672">=</span> { self<span style="color:#f92672">.</span>generate_key(): FLAG }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_key</span>(self) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34; Generate a new secure key for the database &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Generate a new key </span>
+</span></span><span style="display:flex;"><span>        key <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>rand()
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Convert integer to string and then to bytes </span>
+</span></span><span style="display:flex;"><span>        key_bytes <span style="color:#f92672">=</span> str(key)<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#39;utf-8&#39;</span>) 
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create a SHA256 hash object </span>
+</span></span><span style="display:flex;"><span>        sha256_hash <span style="color:#f92672">=</span> sha1(key_bytes) 
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Return the hexadecimal representation of the hash </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> sha256_hash<span style="color:#f92672">.</span>hexdigest() 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">store</span>(self, value: bytes) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34; Store a new value inside the secure database &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(value, bytes) <span style="color:#f92672">or</span> len(value) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;JDHACK&#39;</span> <span style="color:#f92672">in</span> value:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">Exception</span>(<span style="color:#e6db74">&#34;Invalid value!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        key <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>generate_key()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> key <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>database:
+</span></span><span style="display:flex;"><span>            key <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>generate_key()
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>database[key] <span style="color:#f92672">=</span> value
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> key
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">load</span>(self, key: str) <span style="color:#f92672">-&gt;</span> bytes:
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34; Load a value from the secure database &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(key, str) <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> len(key) <span style="color:#f92672">==</span> <span style="color:#ae81ff">40</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">Exception</span>(<span style="color:#e6db74">&#34;Invalid key!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>database<span style="color:#f92672">.</span>get(key)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">list_values</span>(self) <span style="color:#f92672">-&gt;</span> list[bytes]:
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34; List the values present inside the secure database &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> [] 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> value <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>database<span style="color:#f92672">.</span>values():
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> len(value) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">6</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Shorten keys that are too large</span>
+</span></span><span style="display:flex;"><span>                value <span style="color:#f92672">=</span> value[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">6</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;[REDACTED]&#39;</span>
+</span></span><span style="display:flex;"><span>            result<span style="color:#f92672">.</span>append(value)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> result
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">The rest is the socket server handling
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><p>Comme expliqué dans la description, le but est de trouver la valeur de SEED, car en examinant la classe <code>SecureCache</code>, on voit que le flag est stocké
+avec pour clé la première valeur générée par notre générateur <code>Random</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecureCache</span>(object):
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Use our random as it&#39;s more secure than the python one!</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>random <span style="color:#f92672">=</span> Random()
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>rand <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>srand <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>srand
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Seed our random using the super secret seed</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>srand(SEED)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Initialize our database</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>database <span style="color:#f92672">=</span> { self<span style="color:#f92672">.</span>generate_key(): FLAG }
+</span></span></code></pre></div><p>Afin de pouvoir retrouver la SEED et en même temps la clé du FLAG, il nous faut une clé générée par ce générateur avec la même SEED.
+Pour ce faire, on se connecte en netcat et on génère une clé (qui sera donc la seconde clé générée par ce générateur avec la SEED que l&rsquo;on veut).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ nc &lt;addr&gt; <span style="color:#ae81ff">50003</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Welcome to the SecureCacheServer! Here you can save/retrieve your data.
+</span></span><span style="display:flex;"><span>WARNING: All data will be lost upon disconnection!
+</span></span><span style="display:flex;"><span>Choose an option:
+</span></span><span style="display:flex;"><span>  1. Read something using your key
+</span></span><span style="display:flex;"><span>  2. Store something
+</span></span><span style="display:flex;"><span>  3. List all the values from the store
+</span></span><span style="display:flex;"><span>  4. Quit
+</span></span><span style="display:flex;"><span>&gt; <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>Please enter the value you want to store <span style="color:#f92672">(</span>limited to <span style="color:#ae81ff">32</span> bytes <span style="color:#66d9ef">for</span> now<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; abcd
+</span></span><span style="display:flex;"><span>Here is your key: c52e74aec33d2989ecb86f2bf886524d4c74bfff
+</span></span></code></pre></div><p>Avec ceci, on comprend donc que la seconde clé générée avec la SEED que l&rsquo;on doit trouver est &ldquo;c52e74aec33d2989ecb86f2bf886524d4c74bfff&rdquo;.
+Avec cette information, on peut donc maintenant faire un script pour brute-forcer avec cet algorithme :</p>
+<ul>
+<li>On initialise un générateur Random avec une seed donnée.</li>
+<li>On génère une première clé (la clé du flag dans le cas de la bonne SEED).</li>
+<li>On génère une seconde clé et si cette clé est égale à &ldquo;c52e74aec33d2989ecb86f2bf886524d4c74bfff&rdquo;, on s&rsquo;arrête et on affiche
+la SEED ainsi que la première clé que l&rsquo;on a générée.</li>
+<li>Sinon, on recommence sur la seed suivante.</li>
+</ul>
+<p>Un algorithme tout à fait simple de bon brute-force à l&rsquo;ancienne, nonobstant néanmoins, étant donné que la SEED est un entier 32 bits,
+on a une plage de valeurs entre −2147483648 et +2147483647, soit 4294967296 (2^32). De ce fait, j&rsquo;ai choisi de l&rsquo;implémenter en C comme
+suit (avec la rage de vaincre et un peu d&rsquo;aide de ChatGPT pour aller plus vite, car pendant un CTF, le temps est précieux ;) ):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdint.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;openssl/sha.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;omp.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define MAX_SEED 0xFFFFFFFF
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int32_t</span> state[<span style="color:#ae81ff">32</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> fptr;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> rptr;
+</span></span><span style="display:flex;"><span>} Random;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int32_t</span> <span style="color:#a6e22e">int32_t_cast</span>(<span style="color:#66d9ef">int64_t</span> x) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">int32_t</span>)(x <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xFFFFFFFF</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">srand_custom</span>(Random <span style="color:#f92672">*</span>rng, <span style="color:#66d9ef">int</span> seed) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (seed <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) seed <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  rng<span style="color:#f92672">-&gt;</span>state[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">int32_t_cast</span>(seed);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int32_t</span> word <span style="color:#f92672">=</span> seed;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> dst <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> kc <span style="color:#f92672">=</span> <span style="color:#ae81ff">31</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> kc; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int32_t</span> hi <span style="color:#f92672">=</span> <span style="color:#a6e22e">int32_t_cast</span>(word <span style="color:#f92672">/</span> <span style="color:#ae81ff">127773</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int32_t</span> lo <span style="color:#f92672">=</span> <span style="color:#a6e22e">int32_t_cast</span>(word <span style="color:#f92672">%</span> <span style="color:#ae81ff">127773</span>);
+</span></span><span style="display:flex;"><span>    word <span style="color:#f92672">=</span> <span style="color:#a6e22e">int32_t_cast</span>(<span style="color:#ae81ff">16807</span> <span style="color:#f92672">*</span> lo <span style="color:#f92672">-</span> <span style="color:#ae81ff">2836</span> <span style="color:#f92672">*</span> hi);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (word <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) word <span style="color:#f92672">=</span> <span style="color:#a6e22e">int32_t_cast</span>(word <span style="color:#f92672">+</span> <span style="color:#ae81ff">2147483647</span>);
+</span></span><span style="display:flex;"><span>    dst<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    rng<span style="color:#f92672">-&gt;</span>state[dst] <span style="color:#f92672">=</span> word;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  rng<span style="color:#f92672">-&gt;</span>fptr <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>  rng<span style="color:#f92672">-&gt;</span>rptr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">310</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int32_t</span> val <span style="color:#f92672">=</span> rng<span style="color:#f92672">-&gt;</span>state[rng<span style="color:#f92672">-&gt;</span>fptr] <span style="color:#f92672">+</span> rng<span style="color:#f92672">-&gt;</span>state[rng<span style="color:#f92672">-&gt;</span>rptr];
+</span></span><span style="display:flex;"><span>    rng<span style="color:#f92672">-&gt;</span>state[rng<span style="color:#f92672">-&gt;</span>fptr] <span style="color:#f92672">=</span> <span style="color:#a6e22e">int32_t_cast</span>(val);
+</span></span><span style="display:flex;"><span>    rng<span style="color:#f92672">-&gt;</span>fptr <span style="color:#f92672">=</span> (rng<span style="color:#f92672">-&gt;</span>fptr <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">31</span>;
+</span></span><span style="display:flex;"><span>    rng<span style="color:#f92672">-&gt;</span>rptr <span style="color:#f92672">=</span> (rng<span style="color:#f92672">-&gt;</span>rptr <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">31</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int32_t</span> <span style="color:#a6e22e">rand_custom</span>(Random <span style="color:#f92672">*</span>rng) {
+</span></span><span style="display:flex;"><span>  rng<span style="color:#f92672">-&gt;</span>state[rng<span style="color:#f92672">-&gt;</span>fptr] <span style="color:#f92672">=</span> <span style="color:#a6e22e">int32_t_cast</span>(rng<span style="color:#f92672">-&gt;</span>state[rng<span style="color:#f92672">-&gt;</span>fptr] <span style="color:#f92672">+</span> rng<span style="color:#f92672">-</span>
+</span></span><span style="display:flex;"><span>                                       <span style="color:#f92672">&gt;</span>state[rng<span style="color:#f92672">-&gt;</span>rptr]);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int32_t</span> val <span style="color:#f92672">=</span> rng<span style="color:#f92672">-&gt;</span>state[rng<span style="color:#f92672">-&gt;</span>fptr];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int32_t</span> result <span style="color:#f92672">=</span> (val <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x7FFFFFFF</span>;
+</span></span><span style="display:flex;"><span>  rng<span style="color:#f92672">-&gt;</span>fptr <span style="color:#f92672">=</span> (rng<span style="color:#f92672">-&gt;</span>fptr <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">31</span>;
+</span></span><span style="display:flex;"><span>  rng<span style="color:#f92672">-&gt;</span>rptr <span style="color:#f92672">=</span> (rng<span style="color:#f92672">-&gt;</span>rptr <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">31</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> result;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sha1_hash</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>input, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>output) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> hash[SHA_DIGEST_LENGTH];
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">SHA1</span>((<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>)input, <span style="color:#a6e22e">strlen</span>(input), hash);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> SHA_DIGEST_LENGTH; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sprintf</span>(output <span style="color:#f92672">+</span> (i <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#34;%02x&#34;</span>, hash[i]);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  output[<span style="color:#ae81ff">40</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;\0&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">char</span> flag_key[<span style="color:#ae81ff">41</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;c52e74aec33d2989ecb86f2bf886524d4c74bfff&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> found <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> flag_seed <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#pragma omp parallel for
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> seed <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; seed <span style="color:#f92672">&lt;</span> MAX_SEED; seed<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (found) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>    Random rng;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">srand_custom</span>(<span style="color:#f92672">&amp;</span>rng, seed);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int32_t</span> dummy <span style="color:#f92672">=</span> <span style="color:#a6e22e">rand_custom</span>(<span style="color:#f92672">&amp;</span>rng);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int32_t</span> candidate_number <span style="color:#f92672">=</span> <span style="color:#a6e22e">rand_custom</span>(<span style="color:#f92672">&amp;</span>rng);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> candidate_hash[<span style="color:#ae81ff">41</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> num_str[<span style="color:#ae81ff">12</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sprintf</span>(num_str, <span style="color:#e6db74">&#34;%d&#34;</span>, candidate_number);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sha1_hash</span>(num_str, candidate_hash);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">strcmp</span>(candidate_hash, flag_key) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">char</span> key[<span style="color:#ae81ff">41</span>];
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">char</span> num[<span style="color:#ae81ff">12</span>];
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">sprintf</span>(num, <span style="color:#e6db74">&#34;%d&#34;</span>, dummy);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">sha1_hash</span>(num, key);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Found key: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, key);
+</span></span><span style="display:flex;"><span>      flag_seed <span style="color:#f92672">=</span> seed;
+</span></span><span style="display:flex;"><span>      found <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (flag_seed <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Found seed: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, flag_seed);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Seed not found in the given range.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>On lance le script et &hellip; il semblerait que choisir de faire ce script en C a été une bonne décision, car il prend quand
+même 2 minutes sur ma machine (même s&rsquo;il est possible qu&rsquo;avec certaines heuristiques et un script plus soigné, ce temps
+puisse être réduit de manière considérable) :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>time .<span style="color:#f92672">/</span>brute
+</span></span><span style="display:flex;"><span>Found key: <span style="color:#ae81ff">3</span>c3a8214c1a11b9dc8b62db58d382a594b2709d5
+</span></span><span style="display:flex;"><span>Found seed: <span style="color:#ae81ff">42947436</span>
+</span></span><span style="display:flex;"><span>real <span style="color:#ae81ff">2</span>m39<span style="color:#ae81ff">.853</span>s
+</span></span><span style="display:flex;"><span>user <span style="color:#ae81ff">2</span>m38<span style="color:#ae81ff">.890</span>s
+</span></span><span style="display:flex;"><span>sys <span style="color:#ae81ff">0</span>m0<span style="color:#ae81ff">.158</span>s
+</span></span></code></pre></div><p>Maintenant que la clé et la SEED sont en notre possession, il suffit de relancer netcat et de lire le flag avec la clé &ldquo;3c3a8214c1a11b9dc8b62db58d382a594b2709d5&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ nc &lt;addr&gt; <span style="color:#ae81ff">50003</span>
+</span></span><span style="display:flex;"><span>Welcome to the SecureCacheServer! Here you can save/retrieve your data.
+</span></span><span style="display:flex;"><span>WARNING: All data will be lost upon disconnection!
+</span></span><span style="display:flex;"><span>Choose an option:
+</span></span><span style="display:flex;"><span>  1. Read something using your key
+</span></span><span style="display:flex;"><span>  2. Store something
+</span></span><span style="display:flex;"><span>  3. List all the values from the store
+</span></span><span style="display:flex;"><span>  4. Quit
+</span></span><span style="display:flex;"><span>&gt; <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>Please enter the key corresponding to the value you want to read
+</span></span><span style="display:flex;"><span>&gt; 3c3a8214c1a11b9dc8b62db58d382a594b2709d5
+</span></span><span style="display:flex;"><span>Here is your data:
+</span></span><span style="display:flex;"><span>JDHACK<span style="color:#f92672">{</span>A1w4Ys_US3_crYpt0grApHiC_SaFe_rnG_KidS!<span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="solution-prévue">Solution prévue</h3>
+<p>La solution initiale prévue pour ce challenge était d&rsquo;utiliser untwister. En effet, l&rsquo;implémentation utilisée ici est en
+réalité l&rsquo;implémentation de base de la fonction <code>random</code> de la libc, qui utilise l&rsquo;algorithme de Mersenne Twister,
+d&rsquo;où le nom du challenge.</p>
+<p>On commence par récupérer plusieurs données générées en interagissant avec le serveur :</p>
+<pre tabindex="0"><code>c52e74aec33d2989ecb86f2bf886524d4c74bfff
+01e45baba87ff143e257cce40b199faca778153a
+b36837641300b933d7d19ade91ed82fa7f327515
+d0cecd408c3941b32fa9c6c5dcdb62336e5ec760
+57d33335b203919b955da409c05af05a8ea2cb9f
+fee3386018757218e412027fe526ca637fa24f14
+</code></pre><p>Ces valeurs correspondent au hash SHA1 de la valeur renvoyée par notre générateur aléatoire. On peut utiliser l&rsquo;outil John
+The Ripper afin de casser les hashes comme ceci :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Remove previous hash</span>
+</span></span><span style="display:flex;"><span>rm -rf ~/.john/john.pot
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Use two commands to crack different length as mask does not support variable length</span>
+</span></span><span style="display:flex;"><span>john --mask<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;?d?d?d?d?d?d?d?d?d?d&#39;</span> --fork<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span> --format<span style="color:#f92672">=</span>Raw-SHA1 hash.txt
+</span></span><span style="display:flex;"><span>john --mask<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;?d?d?d?d?d?d?d?d?d&#39;</span> --fork<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span> --format<span style="color:#f92672">=</span>Raw-SHA1 hash.txt
+</span></span></code></pre></div><p>Une fois les deux commandes terminées, on peut afficher les hashes qui ont été cassés :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat ~/.john/john.pot
+</span></span><span style="display:flex;"><span>$dynamic_26$c52e74aec33d2989ecb86f2bf886524d4c74bfff:1338025701
+</span></span><span style="display:flex;"><span>$dynamic_26$01e45baba87ff143e257cce40b199faca778153a:1032675192
+</span></span><span style="display:flex;"><span>$dynamic_26$b36837641300b933d7d19ade91ed82fa7f327515:705227621
+</span></span><span style="display:flex;"><span>$dynamic_26$d0cecd408c3941b32fa9c6c5dcdb62336e5ec760:956328917
+</span></span><span style="display:flex;"><span>$dynamic_26$57d33335b203919b955da409c05af05a8ea2cb9f:260918099
+</span></span><span style="display:flex;"><span>$dynamic_26$fee3386018757218e412027fe526ca637fa24f14:987603306
+</span></span></code></pre></div><p>On peut maintenant prendre la suite aléatoire générée et la mettre dans un fichier <code>twister.txt</code>:</p>
+<pre tabindex="0"><code>1338025701
+1032675192
+705227621
+956328917
+260918099
+987603306
+</code></pre><p>Nous pouvons maintenant utiliser <code>untwister</code> : qui permet de brute-forceforcer la graine du générateur de nombres aléatoires.
+Nous pouvons cloner et compiler le projet.</p>
+<p>Avertissement : J&rsquo;ai dû appliquer le patch suivant pour pouvoir compiler :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>diff --git a/prngs/PRNG.h b/prngs/PRNG.h
+</span></span><span style="display:flex;"><span>index 1697bdd..4216b48 100644
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--- a/prngs/PRNG.h
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+++ b/prngs/PRNG.h
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span><span style="color:#75715e">@@ -9,6 +9,7 @@
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> #define PRNG_H_
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> #include &lt;vector&gt;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+#include &lt;cstdint&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>
+</span></span><span style="display:flex;"><span> /*
+</span></span><span style="display:flex;"><span> Common MT data structures and constants
+</span></span></code></pre></div><p>On lance <code>untwister</code> comme ceci :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> ./untwister/untwister -i twister.txt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Attempting state inference attack
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Looking <span style="color:#66d9ef">for</span> seed using glibc-rand
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Spawning <span style="color:#ae81ff">8</span> worker thread<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> ...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Completed in <span style="color:#ae81ff">408</span> second<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>$<span style="color:#f92672">]</span> Found seed <span style="color:#ae81ff">42947436</span> with a confidence of 100.00%
+</span></span></code></pre></div><p>Après quelques minutes, nous obtenons la graine de départ : <code>42947436</code>, qui peut ensuite être utilisée pour générer la
+première clé correspondant au flag :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">from</span> hashlib <span style="color:#f92672">import</span> sha1
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">from</span> server <span style="color:#f92672">import</span> Random
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> r <span style="color:#f92672">=</span> Random()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> r<span style="color:#f92672">.</span>srand(<span style="color:#ae81ff">42947436</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> key <span style="color:#f92672">=</span> r<span style="color:#f92672">.</span>rand()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> key_bytes <span style="color:#f92672">=</span> str(key)<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> sha256_hash <span style="color:#f92672">=</span> sha1(key_bytes)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> sha256_hash<span style="color:#f92672">.</span>hexdigest()
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;3c3a8214c1a11b9dc8b62db58d382a594b2709d5&#39;</span>
+</span></span></code></pre></div><p>On se connecte ensuite au serveur pour récupérer le flag, comme expliqué précédemment.</p>
+<h2 id="ocean-of-values">Ocean of values</h2>
+<h2 id="cryptic-archive">Cryptic archive</h2>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/crypto/Cryptic_archive">ici</a>.</p>
+<blockquote>
+<p><strong>Énoncé</strong></p>
+<p>Durant leur dernière assaut numérique sur le site de propagande du gouvernement cybernétique, Jeanne d&rsquo;Hack a mis la main sur deux archives.</p>
+<p>L&rsquo;une est chiffrée et l&rsquo;autre est en clair. Elle pense que les deux sont liés et que l&rsquo;archive chiffrée contient un indice important pouvant l&rsquo;aider dans sa quête de liberté. Un extrait de l&rsquo;historique de commande d&rsquo;un utilisateur montre que les deux fichiers ont été créés à la suite :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>zip archive.zip propaganda.png
+</span></span><span style="display:flex;"><span>zip secret.zip propaganda.png secret.png
+</span></span><span style="display:flex;"><span>python3 encrypt.py secret.zip
+</span></span><span style="display:flex;"><span>rm secret.png
+</span></span></code></pre></div><p>Par chance, elle a aussi exfiltré le script permettant de chiffrer cette archive, mais la clé utilisée semble aléatoire et impossible à retrouver.</p>
+</blockquote>
+<div style="text-align: center;">
+  <img src="/images/writeup_crypto_2025/propaganda.png">
+</div>
+<p>Le but du challenge est de déchiffrer l&rsquo;archive <code>secret.zip.enc</code> qui a été chiffré à l&rsquo;aide du script <code>encrypt.py</code>. Les commandes utilisées pour chiffrer l&rsquo;archive indique que notre archive chiffrée contient 2 fichiers, un fichier <code>propaganda.png</code> et un autre <code>secret.png</code>, qui contient très probablement le flag. Une seconde archive est disponible (<code>archive.zip</code>), mais ne contient que la première image.</p>
+<h3 id="analyse-du-script">Analyse du script</h3>
+<p>Le premier élément à analyser est le script Python permettant de chiffrer l&rsquo;archive. On y trouve une classe <code>Random</code> qui implémente un générateur aléatoire, basé sur un état initiale.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Random</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># L&#39;état initial a une taille de 256 par défaut</span>
+</span></span><span style="display:flex;"><span>    STATE_ELEM_MAX <span style="color:#f92672">=</span> <span style="color:#ae81ff">256</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Initialise le générateur avec urandom</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, size: int<span style="color:#f92672">=</span><span style="color:#ae81ff">256</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>size <span style="color:#f92672">=</span> size
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>state <span style="color:#f92672">=</span> [int<span style="color:#f92672">.</span>from_bytes(os<span style="color:#f92672">.</span>urandom(<span style="color:#ae81ff">1</span>)) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(size)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Génère le prochain entier aléatoireqca</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gen_next_number</span>(self):
+</span></span><span style="display:flex;"><span>        number <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Calcul d&#39;un nouvel entier à partir de l&#39;état interne</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>size):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> i <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                number <span style="color:#f92672">+=</span> pow(self<span style="color:#f92672">.</span>state[i], i, self<span style="color:#f92672">.</span>STATE_ELEM_MAX) <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>state[i] <span style="color:#f92672">*</span> i
+</span></span><span style="display:flex;"><span>                number <span style="color:#f92672">=</span> <span style="color:#f92672">~</span>number
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                number <span style="color:#f92672">^=</span> self<span style="color:#f92672">.</span>state[i] <span style="color:#f92672">*</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        number <span style="color:#f92672">%=</span> self<span style="color:#f92672">.</span>STATE_ELEM_MAX
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Modification de l&#39;état interne</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>state <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>state[<span style="color:#ae81ff">1</span>:]
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>state<span style="color:#f92672">.</span>append(number)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> number
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Permet de générer plusieurs bytes</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gen_random_bytes</span>(self, size: int<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>):
+</span></span><span style="display:flex;"><span>        random <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(size):
+</span></span><span style="display:flex;"><span>            random <span style="color:#f92672">+=</span> self<span style="color:#f92672">.</span>gen_next_number()<span style="color:#f92672">.</span>to_bytes(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> random
+</span></span></code></pre></div><p>On peut y voir que la génération de chaque nouvel entier est basé sur l&rsquo;état interne du générateur, puis cet état est modifié à chaque nouvelle génération. On ne peut donc pas revenir en arrière à partir d&rsquo;un extrait de la sortie du générateur.</p>
+<p>Il va donc falloir retrouver l&rsquo;état initial utilisé pour chiffrer notre archive. Cependant, l&rsquo;initialisation est basée sur <code>urandom</code> qui n&rsquo;est pas prédictible, il va donc falloir trouver un autre moyen pour le retrouver.</p>
+<p>Si l&rsquo;on retrouve cet état initial, le chiffrement étant ensuite un simple XOR de la sortie du générateur avec le fichier, on pourra facilement déchiffrer notre archive.</p>
+<h3 id="analyse-des-archives">Analyse des archives</h3>
+<p>Le second point à remarquer est que lorsque l&rsquo;on compresse des fichiers avec <code>zip</code> ceux-ci sont stockés les uns à la suite des autres. La table contenant les informations et offsets des fichiers de l&rsquo;archive (appelé <em>central directory</em>) est situé <strong>à la fin</strong> du fichier ZIP, comme le montre ce schéma :</p>
+<p><img src="/images/writeup_crypto_2025/zip64_structure.png" alt="zip"></p>
+<p>De plus, si l&rsquo;on se fie aux commandes exécutées pour créer ces fichiers, les deux contiennent en tant que premier fichier, l&rsquo;image <code>propaganda.png</code>. Le format de fichier ZIP fait donc que nos deux archives (<code>archive.zip</code> et <code>secret.zip</code>) sont identiques au début, elles contiennent une version compressée de l&rsquo;image <code>propaganda.png</code>.</p>
+<p>Et donc, si les deux fichiers sont identiques au début, en effectuant un XOR entre le fichier <code>archive.zip</code> et l&rsquo;archive chiffrée on peut récupérer un partie de la suite chiffrante ! Et grâce au fonctionnement de ce générateur aléatoire, si l&rsquo;on parvient à récupérer un extrait de cette suite (e.g. 256 octets étant donné que le fichier <code>encrypt.py</code> ne défini pas de taille pour la classe <code>Random</code>), on peut ensuite générer exactement la même sortie.</p>
+<h3 id="script-de-solve-1">Script de solve</h3>
+<p>Le but du script de solve est donc dans un premier temps de lire les 256 premiers octets de l&rsquo;archive chiffrée et de celle en clair afin d&rsquo;effectuer un XOR entre les deux et retrouver le début de la suite chiffrante.</p>
+<p>Ensuite, on va pouvoir utiliser cette suite pour initialiser un nouveau générateur avec comme état initial, les 256 octets récupérés.</p>
+<p>Et enfin on va pouvoir déchiffrer l&rsquo;archive par blocs en générant la même suite chiffrante que celle utilisée pour chiffrer le fichier et en effectuant un XOR. Un détail à ne pas oublier et que l&rsquo;on n&rsquo;a pas retrouvé l&rsquo;état initial du générateur aléatoire, mais seulement les 256 premiers octets de la suite. Il faut donc utiliser directement ces octets pour déchiffrer le premier bloc avant de générer la suite.</p>
+<p>Le script au complet (le script n&rsquo;est pas opti et Python c&rsquo;est très lent, donc attention il faut quelques minutes pour déchiffrer l&rsquo;archive, d&rsquo;où l&rsquo;ajout de la progression 😉) :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> encrypt <span style="color:#f92672">import</span> Random, xor, gen_blocks
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decrypt</span>(encrypted: bytes, block_size: int, generator: Random) <span style="color:#f92672">-&gt;</span> bytes:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Check if message is padded</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span>(len(encrypted) <span style="color:#f92672">%</span> block_size <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    clear <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Initialize all blocks</span>
+</span></span><span style="display:flex;"><span>    blocks <span style="color:#f92672">=</span> gen_blocks(encrypted, block_size)
+</span></span><span style="display:flex;"><span>    total <span style="color:#f92672">=</span> len(blocks)
+</span></span><span style="display:flex;"><span>    progress <span style="color:#f92672">=</span> list(range(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">5</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Decrypt each block</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i, block <span style="color:#f92672">in</span> enumerate(blocks):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Only for progress printing</span>
+</span></span><span style="display:flex;"><span>        percent <span style="color:#f92672">=</span> round(i <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">/</span> total)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> percent <span style="color:#f92672">in</span> progress:
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">&#34;[+] </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">% block decrypted&#34;</span><span style="color:#f92672">.</span>format(percent))
+</span></span><span style="display:flex;"><span>            progress<span style="color:#f92672">.</span>remove(percent)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># The first block is decrypted using generator state because we recover</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># the first 256 bytes generated not the state directly</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>):
+</span></span><span style="display:flex;"><span>            clear <span style="color:#f92672">+=</span> xor(block, generator<span style="color:#f92672">.</span>state)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            clear <span style="color:#f92672">+=</span> xor(block, generator<span style="color:#f92672">.</span>gen_random_bytes(block_size))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> clear
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    archive <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;archive.zip&#34;</span>
+</span></span><span style="display:flex;"><span>    secret <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;secret.zip.enc&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Read first 256 bytes</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> open(archive, <span style="color:#e6db74">&#39;rb&#39;</span>) <span style="color:#66d9ef">as</span> a, open(secret, <span style="color:#e6db74">&#39;rb&#39;</span>) <span style="color:#66d9ef">as</span> s:
+</span></span><span style="display:flex;"><span>        arch_clear <span style="color:#f92672">=</span> a<span style="color:#f92672">.</span>read(<span style="color:#ae81ff">256</span>)
+</span></span><span style="display:flex;"><span>        encrypted <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>read()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Compute initial state (not really but it&#39;s ok)</span>
+</span></span><span style="display:flex;"><span>    state <span style="color:#f92672">=</span> xor(arch_clear, encrypted[:<span style="color:#ae81ff">256</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Init a new random generator and set state</span>
+</span></span><span style="display:flex;"><span>    generator <span style="color:#f92672">=</span> Random()
+</span></span><span style="display:flex;"><span>    generator<span style="color:#f92672">.</span>state <span style="color:#f92672">=</span> [i <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> state]
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Computed state:&#34;</span>, generator<span style="color:#f92672">.</span>state)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Decrypt the file</span>
+</span></span><span style="display:flex;"><span>    clear <span style="color:#f92672">=</span> decrypt(encrypted, <span style="color:#ae81ff">256</span>, generator)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Write to file system</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;out.zip&#34;</span>, <span style="color:#e6db74">&#39;wb&#39;</span>) <span style="color:#66d9ef">as</span> out:
+</span></span><span style="display:flex;"><span>        out<span style="color:#f92672">.</span>write(clear)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Done !&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div><p>On peut finalement décompresser l&rsquo;archive et ouvrir le fichier <code>secret.png</code> qui contient le flag :</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_crypto_2025/secret.png">
+</div>
+<h2 id="pemp-my-key">Pemp my key</h2>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/crypto/Pemp_my_key">ici</a>.</p>
+<blockquote>
+<p><strong>Énoncé</strong></p>
+<p>Créer un clé privée RSA valide au format PEM contenant le motif suivant : <code>/jeannedhackctf/</code>.</p>
+<h3 id="détails">Détails</h3>
+<p>Le fichier <code>check.sh</code> fourni permet de vérifier que votre clé privée est valide avant de la soumettre au serveur.</p>
+<p>Une clé valide doit retourner la sortie suivante :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./check.sh key.pem
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Key contains pattern
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> RSA key ok
+</span></span></code></pre></div><p>Une fois la clé privée validée de votre côté, connectez-vous au serveur et soumettez votre clé pour récupérer le flag.</p>
+<pre tabindex="0"><code>nc chall.jeanne-hack-ctf.org 50002
+</code></pre><p><strong>Attention</strong> : cela ne sert à rien de tester toutes vos clés avec le serveur, il lancera exactement le même script de vérification que celui fourni !
+Et donc pour limiter le nombre de requêtes, vérifier d&rsquo;abord en local !</p>
+</blockquote>
+<p>L&rsquo;objectif du challenge est donc de trouver un moyen de générer une clé privée RSA valide comportant le motif : <code>/jeannedhackctf/</code> au format PEM.</p>
+<p>Premièrement, une clé valide peut être générée en suivant les étapes suivantes (<a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29#Key_generation">lien</a>) :</p>
+<ul>
+<li>Choisir 2 grands entiers premiers $p$ et $q$,</li>
+<li>Calculer le modulo $N = p * q$,</li>
+<li>Calculer $φ(n) = (p -1)*(q -1)$,</li>
+<li>Choisir $e$, un entier entre $1$ et $φ(n)$, tel que $e$ et $φ(n)$ soit premiers entre eux (en général $65537$),</li>
+<li>Calculer $d = e^{-1} \mod φ(n)$.</li>
+</ul>
+<p>Ensuite, une clé privée RSA est composé de tous ces paramètres :</p>
+<ul>
+<li>Le modulo ($N$),</li>
+<li>L&rsquo;exposant publique ($e$),</li>
+<li>L&rsquo;exposant privé ($d$),</li>
+<li>Les deux entiers premiers ($p$ et $q$),</li>
+<li>Et d&rsquo;autres éléments permettant de faciliter les calculs en utilisant le <a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29#Using_the_Chinese_remainder_algorithm">théorème des restes chinois</a> :
+<ul>
+<li>$d_P = d \mod p - 1$</li>
+<li>$d_Q = d \mod q - 1$</li>
+<li>$q_{inv} = q^{-1} \mod p$</li>
+</ul>
+</li>
+</ul>
+<p>La clé à construire doit être valide et donc il faut la générer en suivant les étapes ci-dessus. Pour pouvoir intégrer le motif <code>/jeannedhackctf/</code>, il va donc falloir qu&rsquo;un des paramètres de la clé soit égale à celui-ci. Le plus simple et qui engendre le moins de contraintes et de placer ce motif en tant qu&rsquo;exposant publique ($e$) de notre clé.</p>
+<p>Au format PEM, la clé est stockée en base64, donc pour obtenir la valeur de notre exposant publique, il faut décoder le motif en base64 et le convertir en entier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> base64
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> target <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/jeannedhackctf/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> e <span style="color:#f92672">=</span> int<span style="color:#f92672">.</span>from_bytes(base64<span style="color:#f92672">.</span>b64decode(target))
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> print(e)
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">78676413582343569846949828607</span>
+</span></span></code></pre></div><p>Il va donc falloir trouver un moyen de générer une clé valide avec $e = 78676413582343569846949828607$. La seule contrainte sera donc que $e$ soit premier avec $φ(n)$.</p>
+<p>La méthode la plus simple est de générer des entiers premiers $p$ et $q$, jusqu&rsquo;à ce que cette condition soit vérifiée. Par exemple, en Python :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> Crypto.Util <span style="color:#f92672">import</span> number
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># On génére des entiers premiers</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_PQ</span>():
+</span></span><span style="display:flex;"><span>    p, q <span style="color:#f92672">=</span> number<span style="color:#f92672">.</span>getPrime(<span style="color:#ae81ff">512</span>), number<span style="color:#f92672">.</span>getPrime(<span style="color:#ae81ff">512</span>)
+</span></span><span style="display:flex;"><span>    phi <span style="color:#f92672">=</span> (p <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> (q <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p, q, phi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>e <span style="color:#f92672">=</span> int<span style="color:#f92672">.</span>from_bytes(base64<span style="color:#f92672">.</span>b64decode(target))
+</span></span><span style="display:flex;"><span>p, q, phi <span style="color:#f92672">=</span> compute_PQ()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Tant que la condition n&#39;est pas vérifiée, on continue de généré des couples (p,q)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> math<span style="color:#f92672">.</span>gcd(e, phi) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>    p, q, phi <span style="color:#f92672">=</span> compute_PQ()
+</span></span></code></pre></div><p>Une fois $p$ et $q$ trouvés, on peut calculer les autres paramètres (à partir de Python 3.8 on peut facilement calculer l&rsquo;inverse modulaire avec la fonction <code>pow</code>) :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>N <span style="color:#f92672">=</span> p <span style="color:#f92672">*</span> q
+</span></span><span style="display:flex;"><span>d <span style="color:#f92672">=</span> pow(e, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, phi)
+</span></span><span style="display:flex;"><span>dP <span style="color:#f92672">=</span> d <span style="color:#f92672">%</span> (p <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>dQ <span style="color:#f92672">=</span> d <span style="color:#f92672">%</span> (q <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qInv <span style="color:#f92672">=</span> pow(q, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, p)
+</span></span></code></pre></div><p>Maintenant que les paramètres sont corrects, il va falloir générer la clé. Pour cela on peut utiliser la bibliothèque <code>pyasn1</code> qui permet de créer une clé facilement.</p>
+<p>La fonction suivante permet de créer la clé au format DER en utilisant la fonction <code>pyasn1.codec.der.encoder.encode</code>, à partir des paramètres $N$, $e$, $d$, $p$, $q$, $d_P$, $d_Q$ et $q_{inv}$. Le format PEM correspond ensuite au format DER encodé en base64 :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pyasn1.codec.der.encoder
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pyasn1.type.univ
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pempriv</span>(n, e, d, p, q, dP, dQ, qInv):
+</span></span><span style="display:flex;"><span>    template <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;-----BEGIN RSA PRIVATE KEY-----
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#e6db74">{}</span><span style="color:#e6db74">-----END RSA PRIVATE KEY-----
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    seq <span style="color:#f92672">=</span> pyasn1<span style="color:#f92672">.</span>type<span style="color:#f92672">.</span>univ<span style="color:#f92672">.</span>Sequence()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i,x <span style="color:#f92672">in</span> enumerate((<span style="color:#ae81ff">0</span>, n, e, d, p, q, dP, dQ, qInv)):
+</span></span><span style="display:flex;"><span>        seq<span style="color:#f92672">.</span>setComponentByPosition(i, pyasn1<span style="color:#f92672">.</span>type<span style="color:#f92672">.</span>univ<span style="color:#f92672">.</span>Integer(x))
+</span></span><span style="display:flex;"><span>    der <span style="color:#f92672">=</span> pyasn1<span style="color:#f92672">.</span>codec<span style="color:#f92672">.</span>der<span style="color:#f92672">.</span>encoder<span style="color:#f92672">.</span>encode(seq)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> template<span style="color:#f92672">.</span>format(base64<span style="color:#f92672">.</span>encodebytes(der)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>))
+</span></span></code></pre></div><p>Et voilà ! Maintenant nous avons tous les éléments pour résoudre le challenge. Il manque juste une dernière étape et de générer des clés au format PEM en boucle jusqu&rsquo;à ce que le motif apparaisse correctement dans la clé.</p>
+<p>En effet, en fonction de la taille des paramètres, une fois encodé le motif peut ne pas apparaître si les octets ne sont pas correctement alignés, car en base64 on encode 3 octets avec 4 caractères :</p>
+<div style="text-align: center;">
+    <img src="/images/writeup_crypto_2025/base64.png">
+</div>
+<p>Il faut donc que les octets représentant l&rsquo;entier $e$ soient alignés avec le début d&rsquo;un cycle de 3 octets / 4 caractères, pour qu&rsquo;il soit correctement affiché.</p>
+<h3 id="script-de-solve-2">Script de solve</h3>
+<p>En fusionnant toutes les parties, le script suivant permet de générer une clé valide pour résoudre le challenge :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> base64
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pyasn1.codec.der.encoder
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pyasn1.type.univ
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> Crypto.Util <span style="color:#f92672">import</span> number
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>target <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/jeannedhackctf/&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_PQ</span>():
+</span></span><span style="display:flex;"><span>    p, q <span style="color:#f92672">=</span> number<span style="color:#f92672">.</span>getPrime(<span style="color:#ae81ff">512</span>), number<span style="color:#f92672">.</span>getPrime(<span style="color:#ae81ff">512</span>)
+</span></span><span style="display:flex;"><span>    phi <span style="color:#f92672">=</span> (p <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> (q <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p, q, phi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pempriv</span>(n, e, d, p, q, dP, dQ, qInv):
+</span></span><span style="display:flex;"><span>        template <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;-----BEGIN RSA PRIVATE KEY-----
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#e6db74">{}</span><span style="color:#e6db74">-----END RSA PRIVATE KEY-----
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    seq <span style="color:#f92672">=</span> pyasn1<span style="color:#f92672">.</span>type<span style="color:#f92672">.</span>univ<span style="color:#f92672">.</span>Sequence()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i,x <span style="color:#f92672">in</span> enumerate((<span style="color:#ae81ff">0</span>, n, e, d, p, q, dP, dQ, qInv)):
+</span></span><span style="display:flex;"><span>        seq<span style="color:#f92672">.</span>setComponentByPosition(i, pyasn1<span style="color:#f92672">.</span>type<span style="color:#f92672">.</span>univ<span style="color:#f92672">.</span>Integer(x))
+</span></span><span style="display:flex;"><span>    der <span style="color:#f92672">=</span> pyasn1<span style="color:#f92672">.</span>codec<span style="color:#f92672">.</span>der<span style="color:#f92672">.</span>encoder<span style="color:#f92672">.</span>encode(seq)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> template<span style="color:#f92672">.</span>format(base64<span style="color:#f92672">.</span>encodebytes(der)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
+</span></span><span style="display:flex;"><span>    e <span style="color:#f92672">=</span> int<span style="color:#f92672">.</span>from_bytes(base64<span style="color:#f92672">.</span>b64decode(target))
+</span></span><span style="display:flex;"><span>    p, q, phi <span style="color:#f92672">=</span> compute_PQ()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> math<span style="color:#f92672">.</span>gcd(e, phi) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>        p, q, phi <span style="color:#f92672">=</span> compute_PQ()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    N <span style="color:#f92672">=</span> p <span style="color:#f92672">*</span> q
+</span></span><span style="display:flex;"><span>    d <span style="color:#f92672">=</span> pow(e, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, phi)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    dP <span style="color:#f92672">=</span> d <span style="color:#f92672">%</span> (p <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    dQ <span style="color:#f92672">=</span> d <span style="color:#f92672">%</span> (q <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    qInv <span style="color:#f92672">=</span> pow(q, p <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>, p)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Public exponent e:&#34;</span>, e)
+</span></span><span style="display:flex;"><span>    key <span style="color:#f92672">=</span> pempriv(N, e, d, p, q, dP, dQ, qInv)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> key
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    key <span style="color:#f92672">=</span> solve()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> target <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> key:
+</span></span><span style="display:flex;"><span>        key <span style="color:#f92672">=</span> solve()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;key.pem&#34;</span>, <span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">as</span> keyfile:
+</span></span><span style="display:flex;"><span>        keyfile<span style="color:#f92672">.</span>write(key)
+</span></span></code></pre></div><p>En soumettant une clé générée sur le service, on récupère enfin le flag :</p>
+<p><img src="/images/writeup_crypto_2025/solve-pemp-my-key.png" alt="solve"></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 no-underline white-70 dn dib-ns pv2 ph3" >
+    &copy;  2025  Jeanne d'Hack CTF. Tous droits réservés. 
+  </a>
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/legal/" >
+      Mentions légales
+  </a>
+  </div>
+</footer>
+
+  </body>
+</html>

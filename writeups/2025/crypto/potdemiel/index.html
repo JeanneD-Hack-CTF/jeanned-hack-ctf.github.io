@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      
+      if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+        window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search;
+      }
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Pot de miel | </title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Un writeup détaillé pour le défi de cryptographie en 2025.">
+    <meta name="generator" content="Hugo 0.142.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/writeups/2025/crypto/potdemiel/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/writeups/2025/crypto/potdemiel/">
+  <meta property="og:title" content="Pot de miel">
+  <meta property="og:description" content="Un writeup détaillé pour le défi de cryptographie en 2025.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+
+  <meta itemprop="name" content="Pot de miel">
+  <meta itemprop="description" content="Un writeup détaillé pour le défi de cryptographie en 2025.">
+  <meta itemprop="wordCount" content="516">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pot de miel">
+  <meta name="twitter:description" content="Un writeup détaillé pour le défi de cryptographie en 2025.">
+
+
+    
+
+    
+    
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    loader:{
+      load: ['ui/safe']
+    },
+  };
+</script>
+
+    
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  
+  
+  <header class="contain bg-center bg-black" style="background-image: url('http://localhost:1313/images/background.svg');">
+    
+    <div class="bg-black-10">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        <img src="/images/logo.svg" class="w100 mw5-ns" alt="" />
+      
+    </a>
+    <div id="dropdown-list" class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+            
+              <li class="list f5 f4-ns fw4 dib pr3">
+                <a class="hover-white no-underline white-90" href="/inscriptions/" title="Inscriptions page">
+                  Inscriptions
+                </a>
+              </li>
+            
+          
+            
+              <li class="list f5 f4-ns fw4 dib pr3">
+                <a class="hover-white no-underline white-90" href="/post/" title="Editions Précedentes page">
+                  Editions Précedentes
+                </a>
+              </li>
+            
+          
+            
+              <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
+                <a class="hover-white no-underline white-90" href="/writeups/" title="Write-Ups page">
+                  Write-Ups
+                </a>
+                <ul class="dropdown">
+                  
+                    <li class="f5 f4-ns fw4 dib pr3">
+                      <a class="hover-white no-underline white-90" href="/writeups/2026/" title="Write-ups 2026 page">
+                        Write-ups 2026
+                      </a>
+                    </li>
+                  
+                </ul>
+              </li>
+            
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Write-ups 2025
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Pot de miel</h1>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l"><h3 id="index-des-challenges">Index des challenges</h3>
+<ul>
+<li><a href="/writeups/2025/crypto/tchernobyl/">Fantome de Tchernobyl</a></li>
+<li><a href="/writeups/2025/crypto/potdemiel/">Pot de miel</a></li>
+<li><a href="/writeups/2025/crypto/twister/">Twister</a></li>
+<li><a href="/writeups/2025/crypto/oceanofvalues/">Ocean of values</a></li>
+<li><a href="/writeups/2025/crypto/cryptic-archive/">Cryptic archive</a></li>
+<li><a href="/writeups/2025/crypto/pemp-my-key/">Pemp my key</a></li>
+</ul>
+<hr>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/crypto/Pot_de_miel">ici</a>.</p>
+<blockquote>
+<p><strong>Énoncé</strong></p>
+<p>En analysant le réseau d&rsquo;une usine ennemie produisant des composants pour l&rsquo;armée, vous avez identifié un service étrange. Peut-être est-ce la porte d&rsquo;entrée pour compromettre le réseau de cette usine ? Et ainsi en prendre le contrôle pour alimenter la rébellion !</p>
+<p>Votre objectif est de récupérer le mot de passe que ce service cache.</p>
+</blockquote>
+<p><img src="/images/writeup_crypto_2025/nc.png" alt="nc"></p>
+<p>L&rsquo;objectif du challenge était de retrouver les secrets cachés par le service <strong>CyberFactory</strong>. Pour cela, le service était accessible via <code>netcat</code> et le code source de celui-ci était disponible (<code>server.py</code>).</p>
+<p>En se connectant au service, plusieurs options sont disponibles :</p>
+<ol>
+<li>Se connecter</li>
+<li>Afficher les secrets</li>
+<li>Quitter</li>
+</ol>
+<p>Si l&rsquo;on demande d&rsquo;afficher les secrets, le service nous répond que nous ne sommes pas connectés. Il va donc falloir trouver un moyen de se connecter.</p>
+<p>Heureusement pour nous, le service ne possède visiblement qu&rsquo;un seul compte et le hash du mot de passe de l&rsquo;administrateur est stocké en dur dans le code :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>hashed_admin_pass <span style="color:#f92672">=</span> <span style="color:#ae81ff">6966343192926317569595983766338492708381169847881721700879512706305212927745</span>
+</span></span></code></pre></div><p>De plus, la fonction de hachage utilisé, &ldquo;de leur conception&rdquo; comme indiqué dans la bannière, est très simple :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Quick and simple hash function found on Internet, others</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># were to hard to implement (think about you SHA256)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hash_password</span>(self, password: bytes) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Convert a password into an integer</span>
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> bytes_to_long(password)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Hash computation</span>
+</span></span><span style="display:flex;"><span>    hashed_pwd <span style="color:#f92672">=</span> (p <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>coef) <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>modulus
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> hashed_pwd
+</span></span></code></pre></div><p>Il s&rsquo;agit là uniquement d&rsquo;une multiplication modulaire avec les constantes suivantes :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>coef <span style="color:#f92672">=</span> (<span style="color:#ae81ff">13</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">13</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">37</span>     <span style="color:#75715e"># coef &gt; modulus</span>
+</span></span><span style="display:flex;"><span>modulus <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">256</span>         <span style="color:#75715e"># fits NIST recommendations  </span>
+</span></span></code></pre></div><p>Avec ces informations on a déjà tout ce qu&rsquo;il faut pour retrouver le mot de passe de l&rsquo;administrateur.</p>
+<p>On sait que : $h = p * c \mod n$, avec $c = (13 * 13)^{37}$ et $n = 2^{256}$, et l&rsquo;on souhaite retrouver $p$.</p>
+<p>Et donc :</p>
+<ul>
+<li>$ h * c^{-1} = p * c * c^{-1} \mod n $</li>
+<li>$ h * c^{-1} = p * 1 \mod n $</li>
+<li>$ h * c^{-1} = p \mod n $</li>
+</ul>
+<p>Il suffit de calculer $c^{-1}$ l&rsquo;inverse modulaire de $c$ et le multiplier par $h$ modulo $n$.</p>
+<h3 id="script-de-solve">Script de solve</h3>
+<p>Ce qui donne en Python (merci la fonction <code>pow</code> qui fait gagner du temps 😄) :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> Crypto.Util.number <span style="color:#f92672">import</span> long_to_bytes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>h <span style="color:#f92672">=</span> <span style="color:#ae81ff">6966343192926317569595983766338492708381169847881721700879512706305212927745</span>
+</span></span><span style="display:flex;"><span>modulus <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">256</span>
+</span></span><span style="display:flex;"><span>coef <span style="color:#f92672">=</span> (<span style="color:#ae81ff">13</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">13</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">37</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mod_inv_coef <span style="color:#f92672">=</span> pow(coef, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, modulus)
+</span></span><span style="display:flex;"><span>p <span style="color:#f92672">=</span> h <span style="color:#f92672">*</span> mod_inv_coef <span style="color:#f92672">%</span> modulus
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Password : </span><span style="color:#e6db74">{</span>long_to_bytes(p)<span style="color:#f92672">.</span>decode()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>On retrouve l&rsquo;entier suivant : $1972531451796693073931703101035582922503620721183858651769$, et en le convertissant en octets (merci la fonction <code>long_to_bytes</code> cette fois), on retrouve le mot de passe <code>Pr0t3ct0r_0f_th3_f4ct0ry</code>, que l&rsquo;on peut utiliser pour lire les secrets et récupérer le flag !</p>
+<p><img src="/images/writeup_crypto_2025/solve-pot-de-miel.png" alt="solve"></p>
+<p><strong>PS</strong> : À la base ce challenge devait faire partie d&rsquo;une suite de 2 ou 3 challenges autour d&rsquo;une usine, et celui correspondait à un honeypot (un faux service n&rsquo;ayant que pour but d&rsquo;attirer un attaquant), d&rsquo;où le nom et le lore autour du chall 😅</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 no-underline white-70 dn dib-ns pv2 ph3" >
+    &copy;  2025  Jeanne d'Hack CTF. Tous droits réservés. 
+  </a>
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/legal/" >
+      Mentions légales
+  </a>
+  </div>
+</footer>
+
+  </body>
+</html>

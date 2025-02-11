@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      
+      if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+        window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search;
+      }
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Pemp my key | </title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Un writeup détaillé pour le défi de cryptographie en 2025.">
+    <meta name="generator" content="Hugo 0.142.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/writeups/2025/crypto/pemp-my-key/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/writeups/2025/crypto/pemp-my-key/">
+  <meta property="og:title" content="Pemp my key">
+  <meta property="og:description" content="Un writeup détaillé pour le défi de cryptographie en 2025.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+
+  <meta itemprop="name" content="Pemp my key">
+  <meta itemprop="description" content="Un writeup détaillé pour le défi de cryptographie en 2025.">
+  <meta itemprop="wordCount" content="991">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pemp my key">
+  <meta name="twitter:description" content="Un writeup détaillé pour le défi de cryptographie en 2025.">
+
+
+    
+
+    
+    
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    loader:{
+      load: ['ui/safe']
+    },
+  };
+</script>
+
+    
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  
+  
+  <header class="contain bg-center bg-black" style="background-image: url('http://localhost:1313/images/background.svg');">
+    
+    <div class="bg-black-10">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        <img src="/images/logo.svg" class="w100 mw5-ns" alt="" />
+      
+    </a>
+    <div id="dropdown-list" class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+            
+              <li class="list f5 f4-ns fw4 dib pr3">
+                <a class="hover-white no-underline white-90" href="/inscriptions/" title="Inscriptions page">
+                  Inscriptions
+                </a>
+              </li>
+            
+          
+            
+              <li class="list f5 f4-ns fw4 dib pr3">
+                <a class="hover-white no-underline white-90" href="/post/" title="Editions Précedentes page">
+                  Editions Précedentes
+                </a>
+              </li>
+            
+          
+            
+              <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
+                <a class="hover-white no-underline white-90" href="/writeups/" title="Write-Ups page">
+                  Write-Ups
+                </a>
+                <ul class="dropdown">
+                  
+                    <li class="f5 f4-ns fw4 dib pr3">
+                      <a class="hover-white no-underline white-90" href="/writeups/2026/" title="Write-ups 2026 page">
+                        Write-ups 2026
+                      </a>
+                    </li>
+                  
+                </ul>
+              </li>
+            
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Write-ups 2025
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Pemp my key</h1>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l"><h3 id="index-des-challenges">Index des challenges</h3>
+<ul>
+<li><a href="/writeups/2025/crypto/tchernobyl/">Fantome de Tchernobyl</a></li>
+<li><a href="/writeups/2025/crypto/potdemiel/">Pot de miel</a></li>
+<li><a href="/writeups/2025/crypto/twister/">Twister</a></li>
+<li><a href="/writeups/2025/crypto/oceanofvalues/">Ocean of values</a></li>
+<li><a href="/writeups/2025/crypto/cryptic-archive/">Cryptic archive</a></li>
+<li><a href="/writeups/2025/crypto/pemp-my-key/">Pemp my key</a></li>
+</ul>
+<hr>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/crypto/Pemp_my_key">ici</a>.</p>
+<blockquote>
+<p><strong>Énoncé</strong></p>
+<p>Créer un clé privée RSA valide au format PEM contenant le motif suivant : <code>/jeannedhackctf/</code>.</p>
+<h3 id="détails">Détails</h3>
+<p>Le fichier <code>check.sh</code> fourni permet de vérifier que votre clé privée est valide avant de la soumettre au serveur.</p>
+<p>Une clé valide doit retourner la sortie suivante :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./check.sh key.pem
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Key contains pattern
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> RSA key ok
+</span></span></code></pre></div><p>Une fois la clé privée validée de votre côté, connectez-vous au serveur et soumettez votre clé pour récupérer le flag.</p>
+<pre tabindex="0"><code>nc chall.jeanne-hack-ctf.org 50002
+</code></pre><p><strong>Attention</strong> : cela ne sert à rien de tester toutes vos clés avec le serveur, il lancera exactement le même script de vérification que celui fourni !
+Et donc pour limiter le nombre de requêtes, vérifier d&rsquo;abord en local !</p>
+</blockquote>
+<p>L&rsquo;objectif du challenge est donc de trouver un moyen de générer une clé privée RSA valide comportant le motif : <code>/jeannedhackctf/</code> au format PEM.</p>
+<p>Premièrement, une clé valide peut être générée en suivant les étapes suivantes (<a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29#Key_generation">lien</a>) :</p>
+<ul>
+<li>Choisir 2 grands entiers premiers $p$ et $q$,</li>
+<li>Calculer le modulo $N = p * q$,</li>
+<li>Calculer $φ(n) = (p -1)*(q -1)$,</li>
+<li>Choisir $e$, un entier entre $1$ et $φ(n)$, tel que $e$ et $φ(n)$ soit premiers entre eux (en général $65537$),</li>
+<li>Calculer $d = e^{-1} \mod φ(n)$.</li>
+</ul>
+<p>Ensuite, une clé privée RSA est composé de tous ces paramètres :</p>
+<ul>
+<li>Le modulo ($N$),</li>
+<li>L&rsquo;exposant publique ($e$),</li>
+<li>L&rsquo;exposant privé ($d$),</li>
+<li>Les deux entiers premiers ($p$ et $q$),</li>
+<li>Et d&rsquo;autres éléments permettant de faciliter les calculs en utilisant le <a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29#Using_the_Chinese_remainder_algorithm">théorème des restes chinois</a> :
+<ul>
+<li>$d_P = d \mod p - 1$</li>
+<li>$d_Q = d \mod q - 1$</li>
+<li>$q_{inv} = q^{-1} \mod p$</li>
+</ul>
+</li>
+</ul>
+<p>La clé à construire doit être valide et donc il faut la générer en suivant les étapes ci-dessus. Pour pouvoir intégrer le motif <code>/jeannedhackctf/</code>, il va donc falloir qu&rsquo;un des paramètres de la clé soit égale à celui-ci. Le plus simple et qui engendre le moins de contraintes et de placer ce motif en tant qu&rsquo;exposant publique ($e$) de notre clé.</p>
+<p>Au format PEM, la clé est stockée en base64, donc pour obtenir la valeur de notre exposant publique, il faut décoder le motif en base64 et le convertir en entier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> base64
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> target <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/jeannedhackctf/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> e <span style="color:#f92672">=</span> int<span style="color:#f92672">.</span>from_bytes(base64<span style="color:#f92672">.</span>b64decode(target))
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> print(e)
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">78676413582343569846949828607</span>
+</span></span></code></pre></div><p>Il va donc falloir trouver un moyen de générer une clé valide avec $e = 78676413582343569846949828607$. La seule contrainte sera donc que $e$ soit premier avec $φ(n)$.</p>
+<p>La méthode la plus simple est de générer des entiers premiers $p$ et $q$, jusqu&rsquo;à ce que cette condition soit vérifiée. Par exemple, en Python :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> Crypto.Util <span style="color:#f92672">import</span> number
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># On génére des entiers premiers</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_PQ</span>():
+</span></span><span style="display:flex;"><span>    p, q <span style="color:#f92672">=</span> number<span style="color:#f92672">.</span>getPrime(<span style="color:#ae81ff">512</span>), number<span style="color:#f92672">.</span>getPrime(<span style="color:#ae81ff">512</span>)
+</span></span><span style="display:flex;"><span>    phi <span style="color:#f92672">=</span> (p <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> (q <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p, q, phi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>e <span style="color:#f92672">=</span> int<span style="color:#f92672">.</span>from_bytes(base64<span style="color:#f92672">.</span>b64decode(target))
+</span></span><span style="display:flex;"><span>p, q, phi <span style="color:#f92672">=</span> compute_PQ()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Tant que la condition n&#39;est pas vérifiée, on continue de généré des couples (p,q)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> math<span style="color:#f92672">.</span>gcd(e, phi) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>    p, q, phi <span style="color:#f92672">=</span> compute_PQ()
+</span></span></code></pre></div><p>Une fois $p$ et $q$ trouvés, on peut calculer les autres paramètres (à partir de Python 3.8 on peut facilement calculer l&rsquo;inverse modulaire avec la fonction <code>pow</code>) :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>N <span style="color:#f92672">=</span> p <span style="color:#f92672">*</span> q
+</span></span><span style="display:flex;"><span>d <span style="color:#f92672">=</span> pow(e, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, phi)
+</span></span><span style="display:flex;"><span>dP <span style="color:#f92672">=</span> d <span style="color:#f92672">%</span> (p <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>dQ <span style="color:#f92672">=</span> d <span style="color:#f92672">%</span> (q <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qInv <span style="color:#f92672">=</span> pow(q, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, p)
+</span></span></code></pre></div><p>Maintenant que les paramètres sont corrects, il va falloir générer la clé. Pour cela on peut utiliser la bibliothèque <code>pyasn1</code> qui permet de créer une clé facilement.</p>
+<p>La fonction suivante permet de créer la clé au format DER en utilisant la fonction <code>pyasn1.codec.der.encoder.encode</code>, à partir des paramètres $N$, $e$, $d$, $p$, $q$, $d_P$, $d_Q$ et $q_{inv}$. Le format PEM correspond ensuite au format DER encodé en base64 :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pyasn1.codec.der.encoder
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pyasn1.type.univ
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pempriv</span>(n, e, d, p, q, dP, dQ, qInv):
+</span></span><span style="display:flex;"><span>    template <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;-----BEGIN RSA PRIVATE KEY-----
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#e6db74">{}</span><span style="color:#e6db74">-----END RSA PRIVATE KEY-----
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    seq <span style="color:#f92672">=</span> pyasn1<span style="color:#f92672">.</span>type<span style="color:#f92672">.</span>univ<span style="color:#f92672">.</span>Sequence()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i,x <span style="color:#f92672">in</span> enumerate((<span style="color:#ae81ff">0</span>, n, e, d, p, q, dP, dQ, qInv)):
+</span></span><span style="display:flex;"><span>        seq<span style="color:#f92672">.</span>setComponentByPosition(i, pyasn1<span style="color:#f92672">.</span>type<span style="color:#f92672">.</span>univ<span style="color:#f92672">.</span>Integer(x))
+</span></span><span style="display:flex;"><span>    der <span style="color:#f92672">=</span> pyasn1<span style="color:#f92672">.</span>codec<span style="color:#f92672">.</span>der<span style="color:#f92672">.</span>encoder<span style="color:#f92672">.</span>encode(seq)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> template<span style="color:#f92672">.</span>format(base64<span style="color:#f92672">.</span>encodebytes(der)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>))
+</span></span></code></pre></div><p>Et voilà ! Maintenant nous avons tous les éléments pour résoudre le challenge. Il manque juste une dernière étape et de générer des clés au format PEM en boucle jusqu&rsquo;à ce que le motif apparaisse correctement dans la clé.</p>
+<p>En effet, en fonction de la taille des paramètres, une fois encodé le motif peut ne pas apparaître si les octets ne sont pas correctement alignés, car en base64 on encode 3 octets avec 4 caractères :</p>
+<div style="text-align: center;">
+    <img src="/images/writeup_crypto_2025/base64.png">
+</div>
+<p>Il faut donc que les octets représentant l&rsquo;entier $e$ soient alignés avec le début d&rsquo;un cycle de 3 octets / 4 caractères, pour qu&rsquo;il soit correctement affiché.</p>
+<h3 id="script-de-solve">Script de solve</h3>
+<p>En fusionnant toutes les parties, le script suivant permet de générer une clé valide pour résoudre le challenge :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> base64
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pyasn1.codec.der.encoder
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pyasn1.type.univ
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> Crypto.Util <span style="color:#f92672">import</span> number
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>target <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/jeannedhackctf/&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_PQ</span>():
+</span></span><span style="display:flex;"><span>    p, q <span style="color:#f92672">=</span> number<span style="color:#f92672">.</span>getPrime(<span style="color:#ae81ff">512</span>), number<span style="color:#f92672">.</span>getPrime(<span style="color:#ae81ff">512</span>)
+</span></span><span style="display:flex;"><span>    phi <span style="color:#f92672">=</span> (p <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> (q <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p, q, phi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pempriv</span>(n, e, d, p, q, dP, dQ, qInv):
+</span></span><span style="display:flex;"><span>        template <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;-----BEGIN RSA PRIVATE KEY-----
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#e6db74">{}</span><span style="color:#e6db74">-----END RSA PRIVATE KEY-----
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    seq <span style="color:#f92672">=</span> pyasn1<span style="color:#f92672">.</span>type<span style="color:#f92672">.</span>univ<span style="color:#f92672">.</span>Sequence()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i,x <span style="color:#f92672">in</span> enumerate((<span style="color:#ae81ff">0</span>, n, e, d, p, q, dP, dQ, qInv)):
+</span></span><span style="display:flex;"><span>        seq<span style="color:#f92672">.</span>setComponentByPosition(i, pyasn1<span style="color:#f92672">.</span>type<span style="color:#f92672">.</span>univ<span style="color:#f92672">.</span>Integer(x))
+</span></span><span style="display:flex;"><span>    der <span style="color:#f92672">=</span> pyasn1<span style="color:#f92672">.</span>codec<span style="color:#f92672">.</span>der<span style="color:#f92672">.</span>encoder<span style="color:#f92672">.</span>encode(seq)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> template<span style="color:#f92672">.</span>format(base64<span style="color:#f92672">.</span>encodebytes(der)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
+</span></span><span style="display:flex;"><span>    e <span style="color:#f92672">=</span> int<span style="color:#f92672">.</span>from_bytes(base64<span style="color:#f92672">.</span>b64decode(target))
+</span></span><span style="display:flex;"><span>    p, q, phi <span style="color:#f92672">=</span> compute_PQ()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> math<span style="color:#f92672">.</span>gcd(e, phi) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>        p, q, phi <span style="color:#f92672">=</span> compute_PQ()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    N <span style="color:#f92672">=</span> p <span style="color:#f92672">*</span> q
+</span></span><span style="display:flex;"><span>    d <span style="color:#f92672">=</span> pow(e, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, phi)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    dP <span style="color:#f92672">=</span> d <span style="color:#f92672">%</span> (p <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    dQ <span style="color:#f92672">=</span> d <span style="color:#f92672">%</span> (q <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    qInv <span style="color:#f92672">=</span> pow(q, p <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>, p)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Public exponent e:&#34;</span>, e)
+</span></span><span style="display:flex;"><span>    key <span style="color:#f92672">=</span> pempriv(N, e, d, p, q, dP, dQ, qInv)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> key
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    key <span style="color:#f92672">=</span> solve()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> target <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> key:
+</span></span><span style="display:flex;"><span>        key <span style="color:#f92672">=</span> solve()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;key.pem&#34;</span>, <span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">as</span> keyfile:
+</span></span><span style="display:flex;"><span>        keyfile<span style="color:#f92672">.</span>write(key)
+</span></span></code></pre></div><p>En soumettant une clé générée sur le service, on récupère enfin le flag :</p>
+<p><img src="/images/writeup_crypto_2025/solve-pemp-my-key.png" alt="solve"></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 no-underline white-70 dn dib-ns pv2 ph3" >
+    &copy;  2025  Jeanne d'Hack CTF. Tous droits réservés. 
+  </a>
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/legal/" >
+      Mentions légales
+  </a>
+  </div>
+</footer>
+
+  </body>
+</html>

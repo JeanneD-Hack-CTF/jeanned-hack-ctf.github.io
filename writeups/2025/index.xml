@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Write-ups 2025 on </title>
+    <link>https://jeanned-hack-ctf.github.io/writeups/2025/</link>
+    <description>Recent content in Write-ups 2025 on </description>
+    <generator>Hugo</generator>
+    <language>fr-FR</language>
+    <copyright>Jeanne d&#39;Hack CTF. Tous droits réservés.</copyright>
+    <lastBuildDate>Sat, 01 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeanned-hack-ctf.github.io/writeups/2025/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Writeup Cryptographie - Edition 2025</title>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2025/crypto/</link>
+      <pubDate>Sat, 01 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2025/crypto/</guid>
+      <description>&lt;p&gt;Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&amp;rsquo;Hack CTF 2025.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#fantome-de-tchernobyl&#34;&gt;Fantome de Tchernobyl&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#pot-de-miel&#34;&gt;Pot de miel&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#twister&#34;&gt;Twister&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#ocean-of-values&#34;&gt;Ocean of values&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#cryptic-archive&#34;&gt;Cryptic archive&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#pemp-my-key&#34;&gt;Pemp my key&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;fantome-de-tchernobyl&#34;&gt;Fantome de Tchernobyl&lt;/h2&gt;&#xA;&lt;p&gt;Les sources du challenge sont diposnibles &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/crypto/Intro-Fantome_de_Tchernobyl&#34;&gt;ici&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Ce challenge est un challenge d&amp;rsquo;introduction permettant aux débutants de s&amp;rsquo;initier à la cryptographie, ou en tout cas,&#xA;aux challenges que l&amp;rsquo;on retrouve souvent dans cette catégorie.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme.&#xA;Il passerait son temps à répéter les mêmes choses : « La clé, c’est l’alphabet ! »&#xA;Et cette suite de chiffres et de lettres qui n’a aucun sens : « 207e0810ae62fb7fd69c94e6bb6104c9d4ed35b2d8e0581d5327896414020b0e ».&#xA;À l’aide de l’outil CyberChef, tentez de découvrir ce qui se cache derrière les paroles du fantôme.&#xA;Lien vers l&amp;rsquo;outil : &lt;a href=&#34;https://gchq.github.io/CyberChef/&#34;&gt;https://gchq.github.io/CyberChef/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
