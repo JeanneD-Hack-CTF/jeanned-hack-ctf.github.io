@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <copyright>Jeanne d&#39;Hack CTF. Tous droits réservés.</copyright>
-    <lastBuildDate>Sat, 01 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jeanned-hack-ctf.github.io/writeups/2025/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Writeup OSINT - Edition 2025</title>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2025/osint/</link>
+      <pubDate>Tue, 18 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2025/osint/</guid>
+      <description>&lt;p&gt;Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&amp;rsquo;Hack CTF 2025 pour la catégorie &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/osint&#34;&gt;OSINT&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#rue-oubliee&#34;&gt;Rue oubliée&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#pionniers&#34;&gt;Pionniers&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#manoir&#34;&gt;Manoir&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#ciné-mystère&#34;&gt;Ciné mystère&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#symboles-perdus&#34;&gt;Symboles perdus&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#dragons-et-robots&#34;&gt;Dragons et Robots&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#trafic-végétal&#34;&gt;Trafic végétal&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;rue-oubliée&#34;&gt;Rue oubliée&lt;/h2&gt;&#xA;&lt;p&gt;Les sources du challenge sont disponibles &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/osint/Intro&#34;&gt;ici&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Ce challenge est un challenge d&amp;rsquo;introduction permettant aux débutants de s&amp;rsquo;initier à l&amp;rsquo;OSINT.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Énoncé&lt;/strong&gt;&#xA;Dans un monde où se mêlent chevaliers et machines, une image mystérieuse a refait surface.&#xA;Elle contient un indice crucial : le nom d&amp;rsquo;une rue oubliée.&#xA;En vous appuyant sur vos compétences d&amp;rsquo;enquêteur cyber-médiéval, analysez l&amp;rsquo;image pour retrouver ce lieu.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Writeup Cryptographie - Edition 2025</title>
       <link>https://jeanned-hack-ctf.github.io/writeups/2025/crypto/</link>

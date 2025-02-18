@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jeanned-hack-ctf.github.io/</loc>
-    <lastmod>2025-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -16,10 +16,13 @@
                 />
   </url><url>
     <loc>https://jeanned-hack-ctf.github.io/writeups/</loc>
-    <lastmod>2025-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeanned-hack-ctf.github.io/writeups/2025/</loc>
-    <lastmod>2025-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeanned-hack-ctf.github.io/writeups/2025/osint/</loc>
+    <lastmod>2025-02-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeanned-hack-ctf.github.io/writeups/2025/crypto/</loc>
     <lastmod>2025-02-01T00:00:00+00:00</lastmod>

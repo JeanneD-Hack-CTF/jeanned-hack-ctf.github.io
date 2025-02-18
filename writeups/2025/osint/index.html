@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      
+      if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+        window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search;
+      }
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Writeup OSINT - Edition 2025 | </title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&rsquo;Hack CTF 2025 pour la catégorie OSINT.
+
+Rue oubliée
+Pionniers
+Manoir
+Ciné mystère
+Symboles perdus
+Dragons et Robots
+Trafic végétal
+
+Rue oubliée
+Les sources du challenge sont disponibles ici.
+Ce challenge est un challenge d&rsquo;introduction permettant aux débutants de s&rsquo;initier à l&rsquo;OSINT.
+
+Énoncé
+Dans un monde où se mêlent chevaliers et machines, une image mystérieuse a refait surface.
+Elle contient un indice crucial : le nom d&rsquo;une rue oubliée.
+En vous appuyant sur vos compétences d&rsquo;enquêteur cyber-médiéval, analysez l&rsquo;image pour retrouver ce lieu.">
+    <meta name="generator" content="Hugo 0.143.1">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.3e64b5fe0806acc8a106888e68e4562403f8aba33aa63068ec00d183c9d49e20.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://jeanned-hack-ctf.github.io/writeups/2025/osint/">
+    
+
+    <meta property="og:url" content="https://jeanned-hack-ctf.github.io/writeups/2025/osint/">
+  <meta property="og:title" content="Writeup OSINT - Edition 2025">
+  <meta property="og:description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025 pour la catégorie OSINT.
+Rue oubliée Pionniers Manoir Ciné mystère Symboles perdus Dragons et Robots Trafic végétal Rue oubliée Les sources du challenge sont disponibles ici.
+Ce challenge est un challenge d’introduction permettant aux débutants de s’initier à l’OSINT.
+Énoncé Dans un monde où se mêlent chevaliers et machines, une image mystérieuse a refait surface. Elle contient un indice crucial : le nom d’une rue oubliée. En vous appuyant sur vos compétences d’enquêteur cyber-médiéval, analysez l’image pour retrouver ce lieu.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2025-02-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-18T00:00:00+00:00">
+
+  <meta itemprop="name" content="Writeup OSINT - Edition 2025">
+  <meta itemprop="description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025 pour la catégorie OSINT.
+Rue oubliée Pionniers Manoir Ciné mystère Symboles perdus Dragons et Robots Trafic végétal Rue oubliée Les sources du challenge sont disponibles ici.
+Ce challenge est un challenge d’introduction permettant aux débutants de s’initier à l’OSINT.
+Énoncé Dans un monde où se mêlent chevaliers et machines, une image mystérieuse a refait surface. Elle contient un indice crucial : le nom d’une rue oubliée. En vous appuyant sur vos compétences d’enquêteur cyber-médiéval, analysez l’image pour retrouver ce lieu.">
+  <meta itemprop="datePublished" content="2025-02-18T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-02-18T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2984">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Writeup OSINT - Edition 2025">
+  <meta name="twitter:description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025 pour la catégorie OSINT.
+Rue oubliée Pionniers Manoir Ciné mystère Symboles perdus Dragons et Robots Trafic végétal Rue oubliée Les sources du challenge sont disponibles ici.
+Ce challenge est un challenge d’introduction permettant aux débutants de s’initier à l’OSINT.
+Énoncé Dans un monde où se mêlent chevaliers et machines, une image mystérieuse a refait surface. Elle contient un indice crucial : le nom d’une rue oubliée. En vous appuyant sur vos compétences d’enquêteur cyber-médiéval, analysez l’image pour retrouver ce lieu.">
+
+      
+    
+
+    
+
+    
+    
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    loader:{
+      load: ['ui/safe']
+    },
+  };
+</script>
+
+    
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+   
+  
+
+  
+  
+  <header class="contain bg-center bg-black" style="background-image: url('https://jeanned-hack-ctf.github.io/images/background.svg');">
+    
+    <div class="bg-black-10">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        <img src="/images/logo.svg" class="w100 mw5-ns" alt="" />
+      
+    </a>
+    <div id="dropdown-list" class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+            
+              <li class="list f5 f4-ns fw4 dib pr3">
+                <a class="hover-white no-underline white-90" href="/inscriptions/" title="Inscriptions page">
+                  Inscriptions
+                </a>
+              </li>
+            
+          
+            
+              <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
+                <a class="hover-white no-underline white-90" href="/post/" title="Editions Précedentes page">
+                  Editions Précedentes
+                </a>
+                <ul class="dropdown">
+                  
+                    <li class="f5 f4-ns fw4 dib pr3">
+                      <a class="hover-white no-underline white-90" href="/post/2024/" title="Edition 2024 page">
+                        Edition 2024
+                      </a>
+                    </li>
+                  
+                    <li class="f5 f4-ns fw4 dib pr3">
+                      <a class="hover-white no-underline white-90" href="/post/2025/" title="Edition 2025 page">
+                        Edition 2025
+                      </a>
+                    </li>
+                  
+                </ul>
+              </li>
+            
+          
+            
+              <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
+                <a class="hover-white no-underline white-90" href="/writeups/" title="Write-Ups page">
+                  Write-Ups
+                </a>
+                <ul class="dropdown">
+                  
+                    <li class="f5 f4-ns fw4 dib pr3">
+                      <a class="hover-white no-underline white-90" href="/writeups/2025/" title="Write-ups 2025 page">
+                        Write-ups 2025
+                      </a>
+                    </li>
+                  
+                    <li class="f5 f4-ns fw4 dib pr3">
+                      <a class="hover-white no-underline white-90" href="/writeups/2026/" title="Write-ups 2026 page">
+                        Write-ups 2026
+                      </a>
+                    </li>
+                  
+                </ul>
+              </li>
+            
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Write-ups 2025
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Writeup OSINT - Edition 2025</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-02-18T00:00:00Z">février 18, 2025</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l"><p>Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&rsquo;Hack CTF 2025 pour la catégorie <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/osint">OSINT</a>.</p>
+<ul>
+<li><a href="#rue-oubliee">Rue oubliée</a></li>
+<li><a href="#pionniers">Pionniers</a></li>
+<li><a href="#manoir">Manoir</a></li>
+<li><a href="#ciné-mystère">Ciné mystère</a></li>
+<li><a href="#symboles-perdus">Symboles perdus</a></li>
+<li><a href="#dragons-et-robots">Dragons et Robots</a></li>
+<li><a href="#trafic-végétal">Trafic végétal</a></li>
+</ul>
+<h2 id="rue-oubliée">Rue oubliée</h2>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/osint/Intro">ici</a>.</p>
+<p>Ce challenge est un challenge d&rsquo;introduction permettant aux débutants de s&rsquo;initier à l&rsquo;OSINT.</p>
+<blockquote>
+<p><strong>Énoncé</strong>
+Dans un monde où se mêlent chevaliers et machines, une image mystérieuse a refait surface.
+Elle contient un indice crucial : le nom d&rsquo;une rue oubliée.
+En vous appuyant sur vos compétences d&rsquo;enquêteur cyber-médiéval, analysez l&rsquo;image pour retrouver ce lieu.</p>
+<p>Format de flag :
+JDHACK{rue_du_osint_intro}
+(tout en minuscule, en remplaçant les espaces par _ )</p></blockquote>
+<p>L&rsquo;idée du challenge était de proposer une introduction à l&rsquo;OSINT pour les débutants. Le but du challenge est de trouver la rue correspondant à cette image :</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/rue.jpg">
+</div>
+<p>Grâce à une recherche par image inversée sur Google, on tombe rapidement sur la rue en question et le flag : JDHACK{route_du_pin_sec}.</p>
+<h2 id="pionniers">Pionniers</h2>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/osint/Intro">ici</a>.</p>
+<blockquote>
+<p><strong>Énoncé</strong>
+Vous avez une requête de votre Roi en tant qu&rsquo;écuyer de l&rsquo;information et de l&rsquo;histoire : Faire un
+documentaire sur les débuts d&rsquo;Internet. Votre IA personnelle d&rsquo;écuyer ne fonctionnant plus, vous devez
+faire le travail&hellip; Voici plusieurs questions pour bien vous aiguiller dans votre dur labeur :</p>
+<ol>
+<li>Qui a écrit la RFC 1 et quelle est l&rsquo;année de publication ?</li>
+<li>L&rsquo;auteur fait partie d&rsquo;un temple d&rsquo;Internet, il fait partie de la catégorie pionners, combien y a t&rsquo;il de personne dans la catégorie pionniers en 2012 ?</li>
+<li>Un francais faisant partie de ces pionners en 2012 travaille depuis 2012 sur un nouvel internet, quel est le sigle de ce <code>&quot;nouvel internet&quot;</code> ?</li>
+<li>Une alternative à l&rsquo;ICANN a aussi été créé par cet homme, comment s&rsquo;appele t&rsquo;elle ?</li>
+</ol>
+<p>Format de flag :
+<code>JDHACK{victor_hugo_2021_42_anssi_icann_v2}</code>
+(Tout en minuscules, espaces et tirets remplacés par <code>_</code> )</p></blockquote>
+<p>Pour résoudre ce challenge, voici les réponses aux questions posées :</p>
+<ul>
+<li>
+<p>Qui a écrit la RFC 1 et quelle est l’année de publication ?
+La RFC 1 a été écrite par Steve Crocker et a été publiée le 7 avril 1969.</p>
+</li>
+<li>
+<p>L’auteur fait partie d’un temple d’Internet, il fait partie de la catégorie pionniers, combien y a-t-il de
+personnes dans la catégorie pionniers en 2012 ?
+En 2012, il y avait 14 personnes dans la catégorie des pionniers de l&rsquo;Internet.</p>
+</li>
+<li>
+<p>Un Français faisant partie de ces pionniers en 2012 travaille depuis 2012 sur un nouvel internet, quel est le
+sigle de ce &ldquo;nouvel internet&rdquo; ?
+Le sigle de ce &ldquo;nouvel internet&rdquo; est <a href="https://en.wikipedia.org/wiki/Recursive_Internetwork_Architecture">RINA</a> (Recursive InterNetwork Architecture).</p>
+</li>
+<li>
+<p>Une alternative à l’ICANN a aussi été créée par cet homme, comment s’appelle-t-elle ?
+L&rsquo;alternative à l&rsquo;ICANN créée par cet homme s&rsquo;appelle Open Root.</p>
+</li>
+</ul>
+<p>En concaténant l&rsquo;ensemble de ces informations, on obtient le flag : <code>JDHACK{steve_croker_1969_14_rina_open_root}</code>.</p>
+<h2 id="manoir">Manoir</h2>
+<p>Ce writeup à été réalisé par <code>TheMarshOtter</code>.</p>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/osint/Manoir">ici</a>.</p>
+<blockquote>
+<p><strong>Enoncé</strong>
+Un ami adore les histoires d&rsquo;horreurs, il parcoure les vastes valons et vallees d&rsquo;Internet pour trouver
+des histoires de manoirs hantés. Il a trouvé un manoir qui l&rsquo;a intrigué, il a besoin de votre aide pour
+trouver des informations sur ce manoir. Aidez le s&rsquo;il vous plait, personnellement je n&rsquo;aime pas les
+histoires d&rsquo;horreurs&hellip; Son nom est 618033ta , je n&rsquo;ai pas plus d&rsquo;informations sur lui.</p>
+<p>Où se trouve le manoir, les coordonnées GPS ?</p></blockquote>
+<p>Un challenge très facile et très rapide à terminer si on ne se fait pas avoir. Pour commencer, on a simplement un pseudo &ldquo;618033ta&rdquo; et
+le fait que l’on cherche les coordonnées d’un manoir. On commence par chercher le pseudo 618033ta sur Internet et on tombe en premier
+lieu sur ce site, donc on regarde :</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/manoir-1.png">
+</div>
+<p>Dès l&rsquo;introduction, on remarque qu&rsquo;il s&rsquo;agit d&rsquo;un site d&rsquo;urbex. On commence donc à rechercher des manoirs tout en continuant à chercher
+des informations sur le pseudo. En utilisant des logiciels comme Sherlock, on trouve tout cela :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker run -it --rm sherlock/sherlock 618033ta
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Checking username 618033ta on:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Asciinema: https://asciinema.org/~618033ta
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> BiggerPockets: https://www.biggerpockets.com/users/618033ta
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Mydramalist: https://www.mydramalist.com/profile/618033ta
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> NationStates Nation: https://nationstates.net/nation<span style="color:#f92672">=</span>618033ta
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> NationStates Region: https://nationstates.net/region<span style="color:#f92672">=</span>618033ta
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> NitroType: https://www.nitrotype.com/racer/618033ta
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> YouTube: https://www.youtube.com/@618033ta
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> v0.dev: https://v0.dev/618033ta
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Search completed with <span style="color:#ae81ff">8</span> results
+</span></span></code></pre></div><p>En regardant un par un chaque lien, on tombe sur Asciinema (SPOILER : on peut le trouver en mettant le pseudo, mais on n’a pas eu cette chance).
+On tombe ainsi sur ce profil avec une vidéo qui parle de manoirs :</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/manoir-2.png">
+</div>
+<p>On y trouve une URL qui est familiaire: <code>http://www.618033.fr/colimacon</code>. Et en allant sur ce site
+on trouve le manoir que l’on recherche.</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/manoir-3.png">
+</div>
+<p>On note alors le manoir Colimaçon sur google et au premier lien
+<a href="https://www.geo.fr/voyage/l-histoire-du-manoir-colimacon-un-">https://www.geo.fr/voyage/l-histoire-du-manoir-colimacon-un-</a>
+celebre-lieu-d-urbex-221287</p>
+<p>On le retrouve directement, on apprends sur ce site ces infos.</p>
+<blockquote>
+<p>Manoir Colimaçon, Manoir Joachim Kroll, Château des
+Écrennes… Tous ces noms désignent un même lieu : le Château
+de la Loge des Prés. Située en Seine-et-Marne, cette propriété
+abandonnée est devenue un haut lieu de l’urbex (exploration
+urbaine).</p></blockquote>
+<p>Direction Google Map en Seine-et-Marne dans les Ecrennes cela
+va être rapide notre zone de recherche, c’est ça</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/manoir-4.png">
+</div>
+<p>Sur les photos, on voit qu’il y a des arbres, donc on supprime toute la partie à gauche et on se concentre
+sur les arbres. On relit rapidement le site geo.fr, et il est indiqué que la maison se trouve dans les bois,
+à proximité d’une ferme, donc à ce niveau, c’est réglé. Et le voilà à côté d’une ferme:</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/manoir-5.png">
+</div>
+<p>Les coordonnées sont 48.489912773963624, 2.8620964487287894.</p>
+<p>On adapte au format : JDHACK{48.489_2.862}
+Félicitation, On a terminé le Challenge du Manoir !!!!!</p>
+<h2 id="ciné-mystère">Ciné mystère</h2>
+<p>Ce writeup à été réalisé par <a href="https://github.com/cyberkimchi">Babykimchi</a>.</p>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/osint/Cin%C3%A9_myst%C3%A8re">ici</a>.</p>
+<blockquote>
+<p><strong>Enoncé</strong>
+Vous avez été contacté par un mystérieux individu qui vous a envoyé une photo d&rsquo;une
+scène de film. Il vous demande de trouver de nombreuses informations, et de retourner
+dans le passé pour trouver des réponses à ses questions.</p>
+<ol>
+<li>De quel film provient cette image ?</li>
+<li>Comment s&rsquo;appele l&rsquo;ancien phare en ruines à côté de l&rsquo;endroit où a été prise cette
+scène-photo ?</li>
+<li>Quel est la traduction en provencal de la première partie du nom du phare ?
+(Traduction commencant par un P)</li>
+</ol></blockquote>
+<p>Pour commencer ce challenge, il faut tout d’abord télécharger l’image <code>cine_mystere.png</code> :</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/cine-1.png">
+</div>
+<p>La première étape est de savoir de quel film provient l’image. Pour ceux qui ont vu ce chef-d’œuvre, pas besoin de faire
+une recherche par image, c’est bien le Comte de Monte Cristo 2024 (si on ne l’a pas encore vu, FONCEZ).</p>
+<p>Le flag commence donc par <strong>JDHACK{le_comte_de_monte_cristo</strong>&hellip;</p>
+<p>La seconde étape consiste à trouver le nom du phare proche de l’endroit de la photo. Cette fois, une petite recherche internet
+est nécessaire afin de localiser le lieu où a été tourné le film :</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/cine-2.png">
+</div>
+<p>Le lieu en question s’appelle &ldquo;la presqu’île de Giens&rdquo;, hop on cherche donc
+maintenant &ldquo;phare presqu’île de Giens&rdquo; et on trouve dans la section image :</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/cine-3.png">
+</div>
+<p>Et voilà ! Nous avons le nom du phare et donc la 2ème partie de notre flag :
+<strong>JDHACK{le_comte_de_monte_cristo_escampo_bariou&hellip;</strong></p>
+<p>La troisième et dernière partie de ce flag consiste à traduire à partir du provençal le
+premier mot du nom du phare, soit ici &ldquo;ESCAMPO&rdquo;.
+Malheureusement, Google Traduction ne reconnaît pas le provençal. Pas grave !</p>
+<p>Cherchons un dictionnaire provençal-français en ligne !</p>
+<p>On peut utiliser ce site : <a href="https://lengo.hb-prov.fr/">https://lengo.hb-prov.fr/</a> qui propose un dictionnaire complet en
+format PDF ! Un CTRL+F sur le site pour trouver le mot ESCAMPO :</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/cine-4.png">
+</div>
+<p>On sait que le mot doit commencer par la lettre p, on a donc le mot &ldquo;prétexte&rdquo; !
+Comme le veut le format du flag, pas d’accent :</p>
+<p><strong>JDHACK{le_comte_de_monte_cristo_escampo_bariou_pretexte}</strong></p>
+<h2 id="symboles-perdus">Symboles perdus</h2>
+<p>Ce writeup à été réalisé par <a href="https://github.com/cyberkimchi">Babykimchi</a>.</p>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/osint/Symboles_Perdus">ici</a>.</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/symboles-1.png">
+</div>
+<blockquote>
+<p><strong>Enoncé</strong>:
+Une image captivante révèle des symboles artistiques anciens mélangés à des éléments
+modernes. Ces motifs, empreints d’une époque révolue, sont dissimulés au milieu de
+détails technologiques contemporains. Votre mission est de décoder ces signes
+mystérieux en utilisant des outils technologiques actuels.
+Trouvez l&rsquo;adresse de l&rsquo;endroit où a été prise cette photo. Ensuite regardez bien le magasin
+à l&rsquo;adresse et suivez le lapin blanc qui aime bien les carottes, et vous trouverez le flag.</p></blockquote>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/symboles-2.png">
+</div>
+<p>Li4gLi0uLiAvIC4gLi4uIC0gLyAtLi0uIC0tLSAtLS0gLi0uLiAvIC0uLS4gLiAvIC0uLS4gLSAuLi0uIC8gLS4gLS0tIC0uIC8gLi4tLS4u.png</p>
+<p>(je vous jure que j’ai écarquillé les yeux en voyant ça)</p>
+<p>On sait jamais, dans un challenge d’OSINT, tous les détails sont bons à analyser, peut
+être est-ce un indice ?</p>
+<p>D’après un hash identifier, c’est de la base64, et après traduction, je tombe sur une
+chaîne en morse :</p>
+<pre tabindex="0"><code>.. .-.. / . ... - / -.-. --- --- .-.. / -.-. . / -.-. - ..-. / -. --- -. / ..--..
+</code></pre><p>Une fois décodé, on obtient &ldquo;IL EST COOL CE CTF NON ?&rdquo;. Bon&hellip; on ne se décourage pas, ce n’est que le début.</p>
+<p>Avant de creuser plus sur ce sujet, on est intrigué par l’image en lien avec l’énoncé du CTF. On y voit des symboles
+bretons, le lapin blanc d’Alice, mais surtout, on reconnaît du braille !</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/symboles-3.png">
+</div>
+<p>C’est parti pour une traduction en braille : &ldquo;SYMBOLES_PERDUS&rdquo;</p>
+<p>SU-PER ! Le titre du chall&hellip;</p>
+<p>Assez perdu de temps, on s’attaque au vrai problème : l’image du mur !</p>
+<p>On l’inspecte à l’œil nu pour commencer, et on aperçoit très vite ce sticker en haut :</p>
+<p>&ldquo;Touboulik&rdquo; écrit dans la bouche de ce charmant petit bonhomme sticker ! On recherche donc &ldquo;Touboulik street art&rdquo; sur
+Google, et on tombe sur un profil sur le site <a href="https://www.street-artword.com">www.street-artword.com</a> du nom de Touboulik, et effectivement,
+ça a tout l’air d’être le même artiste.</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/symboles-4.png">
+</div>
+<p>En ce baladant sur le profil et en cliquant sur la 3ème photo (celle avec le panneau
+de la rue du Port au Vin), je trouve ça :</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/symboles-5.png">
+</div>
+<p><strong>BINGO</strong> ! On a retrouvé l’image source du challenge !</p>
+<p>En cliquant sur l’image, on obtient l’adresse exacte : 20 Rue de la Fosse, Pass. Pommeraye, 44000 Nantes, France.</p>
+<p>Maintenant, un petit tour sur notre ami Maps pour en découvrir plus sur l’adresse !</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/symboles-6.png">
+</div>
+<p>Trop chouette, c’est exactement là ! Je me souviens de l’énoncé du chall « Ensuite
+regardez bien le magasin à l&rsquo;adresse et suivez le lapin blanc qui aime bien les carottes »
+Très bien, allons nous intéresser sur le magasin Cotélac, hmmm peut être dans les
+avis Google ?</p>
+<p>Trop chouette, c’est exactement là ! On se souvient de l’énoncé du challenge : &ldquo;Ensuite, regardez bien le magasin à
+l&rsquo;adresse et suivez le lapin blanc qui aime bien les carottes&rdquo;. Très bien, intéressons-nous au magasin Cotélac,
+hmmm peut-être dans les avis Google ?</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/symboles-7.png">
+</div>
+<p>Ohlalala, mais c’est parfait ça !! Le lapin et ses carottes sont bel et bien dans les avis du magasin ! Néanmoins,
+rien sur son profil Google, on va se focaliser sur son pseudo &ldquo;OréHunter Lapin Blanc&rdquo;.</p>
+<p>Une simple recherche Google et on tombe nez à nez avec un nouveau profil sur Street Artwork, le site de tout à l’heure :
+<a href="https://www.street-artwork.com/en/public-profile/809">https://www.street-artwork.com/en/public-profile/809</a></p>
+<p>Voilà le profil d’OréHunter :</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/symboles-8.png">
+</div>
+<p><em>Spoiler : le QR code est un RickRoll, je me suis fait avoir ._.</em></p>
+<p>Encore un petit prank dans la description de l’utilisateur, c’est vraiment pas sympa !</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/symboles-9.png">
+</div>
+<p>Mais attendez… le temps le temps tic tac tic tac… En tant qu’Osinteur professionnel, vous
+avez peut être vous aussi la même idée que moi ?
+Hop, le lien de la page dans la WaybackMachine, un snapshot le 22 août 2024 à 12h05 :</p>
+<div style="text-align: center;">
+  <img src="/images/writeup_osint_2025/symboles-10.png">
+</div>
+<p>On obtient alors le flag: <code>JDHACK{7hIs_!$_the_VrAI_Fla9_L@p1N_8LAnC}</code></p>
+<h2 id="dragons-et-robots">Dragons et Robots</h2>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/osint/Dragons_et_Robots">ici</a>.</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/dragons_et_robots_SeB89.gif" alt="perso">
+</p>
+<blockquote>
+<p><strong>Enoncé</strong>:
+Les dragons ancestraux sont en guerre contre des robots futuristes. J&rsquo;ai appris qu&rsquo;un des derniers dragons
+se cache dans un lieu secret. Il se pourrait que ce dragon ait volé le drapeau de mon petit royaume.
+Je n&rsquo;ai réussi à obtenir qu&rsquo;un seul indice : une image représentant également un dragon. Je pense que cette image
+détient des informations qui pourrait vous guider vers l&rsquo;endroit où se cache le dragon.
+Trouvez le dragon caché, et vous retrouverez le drapeau perdu de mon royaume.</p></blockquote>
+<h3 id="1-analyse-de-limage">1. Analyse de l&rsquo;image</h3>
+<p>Nous avons l&rsquo;image suivante :</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/dragons_et_robots_output.png" alt="perso" style="max-width: 250px; height: auto;">
+</p>
+<p>Une recherche sur Internet ne donne pas grand chose et nous n&rsquo;arrivons pas à retrouver l&rsquo;image exacte (à part des dragons forcément..). </br>
+Nous allons donc examiner les informations de l&rsquo;image. Nous avons l&rsquo;outil <a href="https://exiftool.org/">exiftool</a> comme ceci : (Nous avons aussi beaucoup d&rsquo;outils en ligne permettant de faire l&rsquo;analyse)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>exiftool output.png
+</span></span></code></pre></div><p>Nous avons pas mal d&rsquo;informations sur l&rsquo;image mais nous pouvons voir qu&rsquo;il y a quelque chose d&rsquo;étrange, avec un warning :</p>
+<pre tabindex="0"><code>Warning : [minor] Trailer data after PNG IEND chunk
+</code></pre><p>Hmm intéressant, cela voudrait dire qu&rsquo;il y a des informations en plus après les informations de l&rsquo;image (chunk PNG IEND).</p>
+<p>Nous testons la commande <code>strings</code> sur l&rsquo;image :</p>
+<pre tabindex="0"><code>strings output.png
+...
+IEND
+COMPTE-GMAIL:f6258c5e06b5d6227b1d8bed00901c57
+COMPTE-GMAIL:f6258c5e06b5d6227b1d8bed00901c57
+</code></pre><p>Bingo, nous avons une information, compte gmail avec ce qui semble être un hash.</p>
+<h3 id="2-recherches-par-email">2. Recherches par email</h3>
+<p>Avec l&rsquo;information trouvée nous pouvons utiliser des outils de recherches par email. Nous avons les outils de OSINT-FR (<a href="https://osintfr.com/fr/outils/">https://osintfr.com/fr/outils/</a>), nous allons donc utiliser l&rsquo;outil <a href="https://github.com/megadose/holehe">Holehe</a>.</p>
+<p>Nous avons donc le compte gmail, donc soit <code>f6258c5e06b5d6227b1d8bed00901c57@gmail.com</code> , soit <code>030428942ying@gmail.com</code> en cassant le hash avec <a href="https://crackstation.net/">Crackstation</a>.</p>
+<p>Nous avons donc la commande suivante :</p>
+<pre tabindex="0"><code>holehe f6258c5e06b5d6227b1d8bed00901c57@gmail.com --only-used
+holehe 030428942ying@gmail.com --only-used
+</code></pre><p>La premiere commande ne renvoit aucun site. La deuxième cependant renvoit bien un résultat :</p>
+<pre tabindex="0"><code>*****************************
+   030428942ying@gmail.com
+*****************************
+[+] any.do
+[+] en.gravatar.com / FullName yingyang42 / https://gravatar.com/angelcolorfule00ae625f7
+[+] wordpress.com
+</code></pre><p>Nous avons directement un lien et beaucoup d&rsquo;informations sur gravatar, nous allons donc regarder ce site :</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/dragons_et_robots_gravatar.png" alt="perso" style="max-width: 450px; height: auto;">
+</p>
+<h3 id="3-analyse-des-sites">3. Analyse des sites</h3>
+<p>Nous pouvons voir que nous avons beaucoup de liens différents mais qui pointent à chaque fois vers le site mais sans le profil.</p>
+<p>Nous pouvons donc prendre les sites et ajouter/modifier le pseudo obtenu <code>yingyang42</code> pour obtenir le profil du dragon. (Nous pouvons aussi utiliser <a href="https://github.com/sherlock-project/sherlock">Sherlock</a>) </br>
+Nous pouvons voir que nous obtenons sur le site <a href="https://buymeacoffee.com/">buymeacoffee</a> le profil comme ceci : (<a href="https://buymeacoffee.com/yingyang42">https://buymeacoffee.com/yingyang42</a>)</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/dragons_et_robots_buymeacoffee.png" alt="perso" style="max-width: 450px; height: auto;">
+</p>
+<p>Nous avons le <a href="https://www.youtube.com/watch?v=GtL1huin9EE">RickRoll récent de 2022</a>, attention de ne pas se faire avoir..</p>
+<p>Mais nous avons surtout les informations suivantes :</p>
+<pre tabindex="0"><code>help_me_friends_dragons !! robots_are_coming 
+(My dragon friend is hidden not far away, in the city, in a hangar)
+</code></pre><p>Et un lien sur le mot robots : <a href="https://pixabay.com/fr/photos/robots-rouill%C3%A9s-osnago-italie-1505297/">https://pixabay.com/fr/photos/robots-rouill%C3%A9s-osnago-italie-1505297/</a>.</p>
+<h3 id="4-robots-en-italie-et-hangar-burger">4. Robots en Italie et Hangar Burger</h3>
+<p>Nous avons donc les robots suivants :</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/dragons_et_robots_sculpture-1505297_960_720.jpg" alt="perso" style="max-width: 350px; height: auto;">
+</p>
+<p>En faisant des recherches (ou juste dans le titre du lien) nous avons la localisation : <strong>Osnago en Italie</strong>.</p>
+<p>Nous allons donc chercher un hangar car l&rsquo;autre dragon est apparemment caché dans un hangar.
+Nous allons chercher sur Internet <strong>&ldquo;hangar osnago&rdquo;</strong> et nous tombons directement sur un restaurant comme ceci :</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/dragons_et_robots_hangar.png" alt="perso" style="max-width: 650px; height: auto;">
+</p>
+<p>Le dragon est apparemment caché dans le hangar, en effet en regardant les avis sur Google du restaurant le premier avis est un dragon qui se cache, hmm étrange&hellip; :</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/dragons_et_robots_fafafa.png" alt="perso" style="max-width: 650px; height: auto;">
+</p>
+<p>Nous avons le nom du dragon : <strong>Dragon123 Trégor</strong>.
+</br></p>
+<h3 id="5-dragon123-trégor">5. Dragon123 Trégor</h3>
+<p>Nous pouvons chercher l&rsquo;information <strong>Dragon123 Trégor</strong> sur Google et nous obtenons le résultat suivant :</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/dragons_et_robots_dork.png" alt="perso" style="max-width: 500px; height: auto;">
+</p>
+<p>Nous obtenons un post sur Reddit avec les informations suivantes :</p>
+<pre tabindex="0"><code>Voici le flag dans une certaine base... :
+JJCEQQKDJN5UI4RUM4YG4427KIYGEMDUONPTGVDFOJXGC3C7K42HEXZRONPUGMDNGFXGO7I=
+Dragon123 Trégor 
+</code></pre><p>On utilise la magie de <a href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a> et hop on obtient le flag.</br>
+<strong>Flag</strong> : <code>JDHACK{Dr4g0ns_R0b0ts_3Ternal_W4r_1s_C0m1ng}</code></p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/dragons_et_robots_DragonsEtRobots.png" alt="perso">
+</p>
+<h1 id="trafic-végétal">Trafic végétal</h1>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/osint/Trafic_v%C3%A9g%C3%A9tal">ici</a>.</p>
+<blockquote>
+<p><strong>Enoncé</strong>:
+Dans les ruelles sombres où néons et vestiges médiévaux se côtoient, un trafiquant de plantes rares à la tête de plante est
+recherché pour ses herbes interdites aux propriétés mystérieuses. Une seule image floue de lui a été dénichée dans les archives d’un ancien réseau.</p>
+<p>Votre mission : découvrez le nom complet de ce personnage pour le traquer.</p>
+<p>Indice : Le personnage a été apercu pendant les JEP&hellip;
+<u>Format de flag :</u><br/>
+<code>JDHACK{NOM_DE_L'INDIVIDU}</code> <br/>
+(en majuscules, avec des <code>'</code> dans le flag, espaces et tirets remplacés par <code>_</code>)</p></blockquote>
+<h3 id="1-analyse-de-limage-1">1. Analyse de l&rsquo;image</h3>
+<p>Nous avons l&rsquo;image suivante :</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/trafic_vegetal_personnage.png" alt="perso" style="max-width: 350px; height: auto;">
+</p>
+<p>Une recherche sur Internet ne donne pas grand chose (à part des plantes Aloe Vera). </br>
+Nous allons donc examiner les informations de l&rsquo;image. Nous avons l&rsquo;outil <a href="https://exiftool.org/">exiftool</a> comme ceci : (Nous avons aussi beaucoup d&rsquo;outils en ligne permettant de faire l&rsquo;analyse)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>exiftool personnage.png
+</span></span></code></pre></div><p>Nous avons pas mal d&rsquo;informations sur l&rsquo;image mais nous pouvons voir les informations intéressantes suivantes :</p>
+<pre tabindex="0"><code>Image Description : Paris , photo du trafiquant qui est recherche
+User Comment      : Paris
+</code></pre><p>Nous avons donc l&rsquo;information supplémentaire de la ville de Paris. Nous avancons un peu.</p>
+<h3 id="2-recherches-sur-internet">2. Recherches sur Internet</h3>
+<p>Avec l&rsquo;information supplémentaire nous allons potentiellement pouvoir changer les résultats de recherche et trouver ce qui nous intéresse.
+Nous tentons une recherche avec l&rsquo;image et le texte <strong>paris personnage</strong>. (<code>paris plante</code> avec l&rsquo;image fonctionne aussi très bien)
+Nous obtenons quelque chose qui a l&rsquo;air très intéressant :</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/trafic_vegetal_with-image.png" alt="perso">
+</p>
+<p>Une autre possibilité était de tenter une recherche Google sans l&rsquo;image mais avec les informations que l&rsquo;on recherche : <strong>paris personnage tete de plante</strong>.</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/trafic_vegetal_withoutimage.png" alt="perso">
+</p>
+<h3 id="3-analyse-des-sites-et-prises-dinformations">3. Analyse des sites et prises d&rsquo;informations</h3>
+<p>Encore du Monte Cristo ? Mais là c&rsquo;est l&rsquo;espace Monte Cristo. </br>
+Nous regardons donc les informations par rapport à l&rsquo;exposition des personnages avec des têtes de plantes. Nous analysons les informations que nous avons trouvés sur les sites en lien avec l&rsquo;exposition (<a href="https://fondationvilladatris.fr/espace-monte-cristo/carte-blanche/">https://fondationvilladatris.fr/espace-monte-cristo/carte-blanche/</a>, instagram de l&rsquo;artiste, etc.).</br></p>
+<p>Nous regroupons les différentes informations :</p>
+<ul>
+<li>Artiste : Jean-François Fourtou</li>
+<li>Exposition : Les mondes imaginaires</li>
+<li>Nom de famille des personnages : La Famille des Hybridus</li>
+<li>Date : 13/04/2024 - 15/12/2024
+&hellip;</li>
+</ul>
+<p>Cependant pas de nom du personnage que nous cherchons&hellip; </br></p>
+<h3 id="4-recherches-par-rapport-aux-jep">4. Recherches par rapport aux JEP</h3>
+<p>Nous avons un indice en plus : <strong>Le personnage a été apercu pendant les JEP&hellip;</strong></p>
+<p>Nous allons donc essayer de voir ce qui se trouve sur Internet par rapport aux JEP (Journées européennes du patrimoine).
+Nous faisons une recherche <strong>&ldquo;les mondes imaginaires JEP&rdquo;</strong>, <strong>&ldquo;Jean-François Fourtou JEP&rdquo;</strong> et analysons les résultats.</p>
+<p>Nous pouvoir voir que nous avons plusieurs fois un post sur X qui est trouvé :</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/trafic_vegetal_2025-02-08_16-14.png" alt="perso" style="max-width: 450px; height: auto;">
+</p>
+<hr>
+<p align="center">
+  <img src="/images/writeup_osint_2025/trafic_vegetal_2025-02-08_16-15.png" alt="perso" style="max-width: 450px; height: auto;">
+</p>
+</br>
+<h3 id="5-nom-du-personnage-et-flag">5. Nom du personnage et flag</h3>
+<p>Sur le post nous pouvons voir qu&rsquo;il y a les noms des personnages, bingo !</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/trafic_vegetal_bingo.png" alt="perso" style="max-width: 450px; height: auto;">
+</p>
+<p align="center">
+  <img src="/images/writeup_osint_2025/trafic_vegetal_bingo.jpeg" alt="perso" style="max-width: 300px; height: auto;">
+</p>
+<p>Nous avons donc le nom du personnage, avec un peu de recherche en fonction de l&rsquo;emplacement, ou alors avec le fait que la plante est un Aloe Vera nous obtenons le nom du personnage recherché : </br></p>
+<p><code>AL_O'VERY_L'ALOE_VERA</code> </br></p>
+<p><strong>Flag</strong> : <code>JDHACK{AL_O'VERY_L'ALOE_VERA}</code></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 no-underline white-70 dn dib-ns pv2 ph3" >
+    &copy;  2025  Jeanne d'Hack CTF. Tous droits réservés. 
+  </a>
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/legal/" >
+      Mentions légales
+  </a>
+  </div>
+</footer>
+
+  </body>
+</html>
