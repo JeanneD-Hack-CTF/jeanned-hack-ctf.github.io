@@ -31,7 +31,7 @@ Il passerait son temps à répéter les mêmes choses : « La clé, c’est l’
 Et cette suite de chiffres et de lettres qui n’a aucun sens : « 207e0810ae62fb7fd69c94e6bb6104c9d4ed35b2d8e0581d5327896414020b0e ».
 À l’aide de l’outil CyberChef, tentez de découvrir ce qui se cache derrière les paroles du fantôme.
 Lien vers l&rsquo;outil : https://gchq.github.io/CyberChef/">
-    <meta name="generator" content="Hugo 0.143.1">
+    <meta name="generator" content="Hugo 0.147.5">
     
     
     
@@ -40,7 +40,7 @@ Lien vers l&rsquo;outil : https://gchq.github.io/CyberChef/">
     
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.d0769c6e76ec01cc50a9b248214d5ae29247d2966cf3fe5c6a470ed0e8edd3a3.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.cf933cff0e9158f6136ab1bcb6e3f5188d6fda29510b1588fa868a2ae2fb0933.css" >
 
 
 
@@ -313,7 +313,7 @@ d&rsquo;une chaîne encodée en base64. On peut la décoder avec CyberChef (ou v
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecureCache</span>(object):
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Use our random as it&#39;s more secure than the python one!</span>
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>random <span style="color:#f92672">=</span> Random()
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>rand <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand 
@@ -371,7 +371,7 @@ d&rsquo;une chaîne encodée en base64. On peut la décoder avec CyberChef (ou v
 </span></span></code></pre></div><p>Comme expliqué dans la description, le but est de trouver la valeur de SEED, car en examinant la classe <code>SecureCache</code>, on voit que le flag est stocké
 avec pour clé la première valeur générée par notre générateur <code>Random</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecureCache</span>(object):
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Use our random as it&#39;s more secure than the python one!</span>
 </span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>random <span style="color:#f92672">=</span> Random()
 </span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>rand <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand
@@ -724,7 +724,7 @@ correspond au nombre de secondes du fichier audio créé, multiplié par 6. Il f
 </span></span><span style="display:flex;"><span>    STATE_ELEM_MAX <span style="color:#f92672">=</span> <span style="color:#ae81ff">256</span>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Initialise le générateur avec urandom</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, size: int<span style="color:#f92672">=</span><span style="color:#ae81ff">256</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, size: int<span style="color:#f92672">=</span><span style="color:#ae81ff">256</span>):
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>size <span style="color:#f92672">=</span> size
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>state <span style="color:#f92672">=</span> [int<span style="color:#f92672">.</span>from_bytes(os<span style="color:#f92672">.</span>urandom(<span style="color:#ae81ff">1</span>)) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(size)]
 </span></span><span style="display:flex;"><span>
