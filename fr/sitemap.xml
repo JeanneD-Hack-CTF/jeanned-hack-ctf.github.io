@@ -84,6 +84,8 @@
                 href="https://jeanned-hack-ctf.github.io/categories/"
                 />
   </url><url>
+    <loc>https://jeanned-hack-ctf.github.io/writeups/2024/crypto/colline_et_matrices/</loc>
+  </url><url>
     <loc>https://jeanned-hack-ctf.github.io/inscriptions/</loc>
     <xhtml:link
                 rel="alternate"
@@ -108,6 +110,12 @@
                 href="https://jeanned-hack-ctf.github.io/legal/"
                 />
   </url><url>
+    <loc>https://jeanned-hack-ctf.github.io/writeups/2024/osint/writeups/</loc>
+  </url><url>
+    <loc>https://jeanned-hack-ctf.github.io/writeups/2024/reverse/keygen/</loc>
+  </url><url>
+    <loc>https://jeanned-hack-ctf.github.io/writeups/2024/reverse/intro/</loc>
+  </url><url>
     <loc>https://jeanned-hack-ctf.github.io/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -119,6 +127,16 @@
                 hreflang="fr-FR"
                 href="https://jeanned-hack-ctf.github.io/tags/"
                 />
+  </url><url>
+    <loc>https://jeanned-hack-ctf.github.io/writeups/2024/web/social_network_1/</loc>
+  </url><url>
+    <loc>https://jeanned-hack-ctf.github.io/writeups/2024/web/social_network_2/</loc>
+  </url><url>
+    <loc>https://jeanned-hack-ctf.github.io/writeups/2024/web/social_network_3/</loc>
+  </url><url>
+    <loc>https://jeanned-hack-ctf.github.io/writeups/2024/windows/seigneursmanoirsbatailles/</loc>
+  </url><url>
+    <loc>https://jeanned-hack-ctf.github.io/writeups/2024/</loc>
   </url><url>
     <loc>https://jeanned-hack-ctf.github.io/writeups/2026/</loc>
   </url>

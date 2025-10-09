@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Crypto - Collines et matrices | Jeanne d&#39;Hack CTF</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Catégorie : Crypto Difficulté : Moyen Points : 95 Description Jeanne d&rsquo;Arc traverse les collines escarpées de la France médiévale, découvrant des runes gravées dans la pierre renfermant des secrets anciens.
+Découverte du challenge Le challenge consistait en un serveur distant qui permettait à n&rsquo;importe qui s&rsquo;y connectant de chiffrer des messages. Il s&rsquo;agit donc d&rsquo;un oracle de chiffrement. Lorsqu&rsquo;on s&rsquo;y connecte le serveur affiche le message suivant, puis nous propose de chiffrer un message :">
+    <meta name="generator" content="Hugo 0.131.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/shrink.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/dropdown.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/carousel.css">
+  
+
+
+    
+<script src="/js/shrink.js"></script>
+<script src="/js/slideshow.js"></script>
+<script src="/js/toggleMap.js"></script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://jeanned-hack-ctf.github.io/writeups/2024/crypto/colline_et_matrices/">
+    
+
+    <meta property="og:url" content="https://jeanned-hack-ctf.github.io/writeups/2024/crypto/colline_et_matrices/">
+  <meta property="og:site_name" content="Jeanne d&#39;Hack CTF">
+  <meta property="og:title" content="Crypto - Collines et matrices">
+  <meta property="og:description" content="Catégorie : Crypto Difficulté : Moyen Points : 95 Description Jeanne d’Arc traverse les collines escarpées de la France médiévale, découvrant des runes gravées dans la pierre renfermant des secrets anciens.
+Découverte du challenge Le challenge consistait en un serveur distant qui permettait à n’importe qui s’y connectant de chiffrer des messages. Il s’agit donc d’un oracle de chiffrement. Lorsqu’on s’y connecte le serveur affiche le message suivant, puis nous propose de chiffrer un message :">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+
+  <meta itemprop="name" content="Crypto - Collines et matrices">
+  <meta itemprop="description" content="Catégorie : Crypto Difficulté : Moyen Points : 95 Description Jeanne d’Arc traverse les collines escarpées de la France médiévale, découvrant des runes gravées dans la pierre renfermant des secrets anciens.
+Découverte du challenge Le challenge consistait en un serveur distant qui permettait à n’importe qui s’y connectant de chiffrer des messages. Il s’agit donc d’un oracle de chiffrement. Lorsqu’on s’y connecte le serveur affiche le message suivant, puis nous propose de chiffrer un message :">
+  <meta itemprop="wordCount" content="746">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Crypto - Collines et matrices">
+  <meta name="twitter:description" content="Catégorie : Crypto Difficulté : Moyen Points : 95 Description Jeanne d’Arc traverse les collines escarpées de la France médiévale, découvrant des runes gravées dans la pierre renfermant des secrets anciens.
+Découverte du challenge Le challenge consistait en un serveur distant qui permettait à n’importe qui s’y connectant de chiffrer des messages. Il s’agit donc d’un oracle de chiffrement. Lorsqu’on s’y connecte le serveur affiche le message suivant, puis nous propose de chiffrer un message :">
+
+      
+  
+
+
+    
+	<script type="text/javascript">
+    
+    if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+        window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search;
+    }
+</script>
+
+
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    loader:{
+      load: ['ui/safe']
+    },
+  };
+</script>
+
+
+  </head><body class="ma0 avenir bg-near-white tj production">
+
+    
+   
+  
+
+  
+  
+  
+  <header class="contain bg-center bg-black-90" style="background-image: url('https://jeanned-hack-ctf.github.io/images/2026/PERSO-ENTIER2026-NOIR-BLANC.png');">
+    <div class="bg-black-00">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        <img src="/images/2026/LOGO-BLANC.png" class="w100 mw5-ns" alt="Jeanne d&#39;Hack CTF" />
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+            <li class="list f5 f4-ns fw4 dib  pr3">
+              <a class="hover-white white-90 no-underline" href="/inscriptions/" title="Inscriptions page">
+                Inscriptions
+              </a>
+              
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
+              <a class="hover-white white-90 no-underline" href="/writeups/" title="Write-Ups page">
+                Write-Ups
+              </a>
+              
+                <ul class="dropdown">
+                  
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/writeups/2024/">
+                        Write-ups 2024
+                      </a>
+                    </li>
+                  
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/writeups/2025/">
+                        Write-ups 2025
+                      </a>
+                    </li>
+                  
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/writeups/2026/">
+                        Write-ups 2026
+                      </a>
+                    </li>
+                  
+                </ul>
+              
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
+              <a class="hover-white white-90 no-underline" href="/post/" title="Éditions précedentes page">
+                Éditions précedentes
+              </a>
+              
+                <ul class="dropdown">
+                  
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/post/2024/">
+                        Edition 2024
+                      </a>
+                    </li>
+                  
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/post/2025/">
+                        Edition 2025
+                      </a>
+                    </li>
+                  
+                </ul>
+              
+            </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"><a href="https://www.instagram.com/jeannedhackctf/" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition instagram link dib z-999 pt3 pt0-l mr1"
+        title="follow on Instagram - Opens in a new window"
+        aria-label="follow on Instagram - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            
+          </span></a><a href="http://linkedin.com/company/jeanne-d-hack-ctf" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition linkedin link dib z-999 pt3 pt0-l mr1"
+        title="follow on LinkedIn - Opens in a new window"
+        aria-label="follow on LinkedIn - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+            
+          </span></a><a href="https://github.com/JeanneD-Hack-CTF/" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1"
+        title="follow on GitHub - Opens in a new window"
+        aria-label="follow on GitHub - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+            
+          </span></a></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  
+  <article class="flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Write-ups 2024
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 avenir mt3 mb1">Crypto - Collines et matrices</h1>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy avenir bg-near-white tj w-100 f4 nested-links mid-gray pr4-l"><div class="bg-light-gray pa3 nested-copy-line-height nested-links">
+          <p class="f5 b mt0">Table des matières</p>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#description">Description</a></li>
+    <li><a href="#découverte-du-challenge">Découverte du challenge</a></li>
+    <li><a href="#cryptanalyse-du-chiffre-de-hill">Cryptanalyse du chiffre de Hill</a></li>
+    <li><a href="#script-de-résolution">Script de résolution</a></li>
+  </ul>
+</nav>
+        </div><ul>
+<li><strong>Catégorie</strong> : Crypto</li>
+<li><strong>Difficulté</strong> : Moyen</li>
+<li><strong>Points</strong> : 95</li>
+</ul>
+<h2 id="description">Description</h2>
+<p>Jeanne d&rsquo;Arc traverse les collines escarpées de la France médiévale, découvrant des runes gravées dans la pierre renfermant des secrets anciens.</p>
+<h2 id="découverte-du-challenge">Découverte du challenge</h2>
+<p>Le challenge consistait en un serveur distant qui permettait à n&rsquo;importe qui s&rsquo;y connectant de chiffrer des messages.
+Il s&rsquo;agit donc d&rsquo;un oracle de chiffrement.
+Lorsqu&rsquo;on s&rsquo;y connecte le serveur affiche le message suivant, puis nous propose de chiffrer un message :</p>
+<p><img alt="connection" src="/images/2024/writeups/crypto/connection.png"></p>
+<p>Le but du challenge va donc être de comprendre la méthode de chiffrement utilisé, pour ensuite trouver un moyen de déchiffrer le message : <code>ocrewdgvglwpwudvrcnptwlyogcubberaia</code>.</p>
+<p>On peut commencer par quelques tests :</p>
+<p><img alt="tests" src="/images/2024/writeups/crypto/tests.png"></p>
+<p>Avec ces tests on peut comprendre déjà plusieurs choses :</p>
+<ul>
+<li>Le message chiffré est toujours d&rsquo;une longueur multiple de 5. Le chiffrement est donc probablement un chiffrement par bloc de taille 5. Il peut y avoir du padding.</li>
+<li>L&rsquo;alphabet est constitué des lettres <code>a</code> à <code>y</code>, donc de taille 25. Seules les lettres minuscules sont acceptés et la lettre <code>z</code> est refusée.</li>
+<li>Un mot composé uniquement de <code>a</code> ne renverra que des <code>a</code> également.</li>
+</ul>
+<p>Encore d&rsquo;autre tests :</p>
+<p><img alt="tests2" src="/images/2024/writeups/crypto/tests2.png"></p>
+<p>Ces tests apportent d&rsquo;autres éléments :</p>
+<ul>
+<li>Le <code>a</code> joue le rôle d&rsquo;élément neutre dans le chiffrement. En ajoutant des <code>a</code> à la fin d&rsquo;un mot on ne modifiera pas le chiffré.</li>
+<li>La position du caractère est importante. Même en complétant avec des <code>a</code> (neutre), le chiffré de <code>yaaaa</code> et différent du chiffré de <code>ayaaa</code> ou <code>aayaa</code> par exemple.</li>
+</ul>
+<p>On peut encore faire beaucoup de tests pour essayer de comprendre quelle est la nature du chiffrement, mais on va passer directement au coeur du sujet.</p>
+<p>À l&rsquo;aide des éléments que l&rsquo;on a jusque là, ainsi que les indices dans le nom du challenge, &ldquo;collines&rdquo; (<strong>hill</strong> en anglais), et &ldquo;matrices&rdquo;, on peut en déduire qu&rsquo;il s&rsquo;agit du <a href="https://fr.wikipedia.org/wiki/Chiffre_de_Hill">chiffre de Hill</a> (<strong>Hill cipher</strong>).</p>
+<p>Bien sûr, la déduction n&rsquo;est pas évidente, il faut faire beaucoup de tests et bien mettre à plat les indices trouvés.</p>
+<h2 id="cryptanalyse-du-chiffre-de-hill">Cryptanalyse du chiffre de Hill</h2>
+<p>En fait, une fois que l&rsquo;on a compris de quelle chiffrement il s&rsquo;agit le plus dur est fait.</p>
+<p>En effet, le chiffre de Hill est un chiffrement très basique. Chaque lettre de l&rsquo;alphabet est transposé en chiffre (a=1, b=2, &hellip;, y=25). La clé secrète est une matrice carré de taille <em>N</em> (ici 5), est le chiffrement consiste à découper le message en bloc de <em>N</em> caractères puis d&rsquo;appliquer un produit matrice vecteur (modulo la taille de l&rsquo;alphabet) entre la clé et chaque bloc.</p>
+<p>Pour déchiffrer, il faut appliquer un produit matrice vecteur entre chaque bloc chiffré et l&rsquo;inverse de la clé (encore une fois modulo la taille de l&rsquo;alphabet).</p>
+<p>Ici, le fait de posséder un oracle de chiffrement permet de retrouver la matrice de chiffrement, et à partir de celle-ci calculer son inverse et pouvoir déchiffrer le message. L&rsquo;astuce est d&rsquo;utiliser les lettres <code>a</code> (0) et <code>b</code> (1) pour retrouver les colonnes de la matrice.</p>
+<p>En envoyant le message <code>baaaa</code> on effectue le produit matrice vecteur suivant :</p>
+<p><img alt="matrix" src="/images/2024/writeups/crypto/matrix.png"></p>
+<p>Le message chiffré correspond alors à la première colonne de la matrice de chiffrement. On fait la même chose pour les autres colonnes en envoyant les messages <code>abaaa</code>, <code>aabaa</code>&hellip; et on récupére de cette manière toute la clé.</p>
+<p><img alt="columns" src="/images/2024/writeups/crypto/column.png"></p>
+<p>Une fois décodée :</p>
+<p><img alt="key matrix" src="/images/2024/writeups/crypto/key.png"></p>
+<p>Il ne reste plus maintenant qu&rsquo;à calculer son inverse et déchiffrer le message, et on retrouve le flag : <code>verybeautifulcipherbutsoeasytobreak</code>.</p>
+<h2 id="script-de-résolution">Script de résolution</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> socket
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> string
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> time <span style="color:#f92672">import</span> sleep
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pprint <span style="color:#f92672">import</span> pprint
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sympy <span style="color:#f92672">import</span> Matrix
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>HOST <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span>PORT <span style="color:#f92672">=</span> <span style="color:#ae81ff">50001</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET, socket<span style="color:#f92672">.</span>SOCK_STREAM)
+</span></span><span style="display:flex;"><span>    s<span style="color:#f92672">.</span>connect((HOST, PORT))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    welcome <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">1024</span>)<span style="color:#f92672">.</span>decode()
+</span></span><span style="display:flex;"><span>    ciphertext <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>search(<span style="color:#e6db74">&#34;le message à déchiffrer : ([a-y]+)&#34;</span>, welcome)<span style="color:#f92672">.</span>group(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;[+] Ciphertext to decrypt: &#34;</span>, ciphertext)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ciphertexts <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;[+] Retrieve ciphertexts messages&#34;</span>)
+</span></span><span style="display:flex;"><span>    sleep(<span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> msg <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#34;baaaa&#34;</span>, <span style="color:#e6db74">&#34;abaaa&#34;</span>, <span style="color:#e6db74">&#34;aabaa&#34;</span>, <span style="color:#e6db74">&#34;aaaba&#34;</span>, <span style="color:#e6db74">&#34;aaaab&#34;</span>]:
+</span></span><span style="display:flex;"><span>        s<span style="color:#f92672">.</span>sendall(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>msg<span style="color:#e6db74">}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>encode())
+</span></span><span style="display:flex;"><span>        sleep(<span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>        resp <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">1024</span>)<span style="color:#f92672">.</span>decode()
+</span></span><span style="display:flex;"><span>        r <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>search(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;Message chiffré : ([a-y]</span><span style="color:#e6db74">{5}</span><span style="color:#e6db74">)&#34;</span>, resp)
+</span></span><span style="display:flex;"><span>        ciphertexts<span style="color:#f92672">.</span>append(r<span style="color:#f92672">.</span>group(<span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>        sleep(<span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;[+] Build Hill cipher matrix&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    alph <span style="color:#f92672">=</span> string<span style="color:#f92672">.</span>ascii_lowercase[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    size <span style="color:#f92672">=</span> len(alph)
+</span></span><span style="display:flex;"><span>    matrix <span style="color:#f92672">=</span> [[], [], [], [], []]
+</span></span><span style="display:flex;"><span>    line <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> column <span style="color:#f92672">in</span> ciphertexts:
+</span></span><span style="display:flex;"><span>        vect <span style="color:#f92672">=</span> [alph<span style="color:#f92672">.</span>index(c) <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> column]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">5</span>):
+</span></span><span style="display:flex;"><span>            matrix[i]<span style="color:#f92672">.</span>append(vect[i])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    M <span style="color:#f92672">=</span> Matrix(matrix)    
+</span></span><span style="display:flex;"><span>    pprint(M)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;[+] Compute the inverse of the matrix&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    invM <span style="color:#f92672">=</span> M<span style="color:#f92672">.</span>inv_mod(size)
+</span></span><span style="display:flex;"><span>    pprint(invM)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;[+] Decrypt ciphertext&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    flag <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> chunk <span style="color:#f92672">in</span> [ciphertext[i:i<span style="color:#f92672">+</span><span style="color:#ae81ff">5</span>] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, len(ciphertext), <span style="color:#ae81ff">5</span>)]:
+</span></span><span style="display:flex;"><span>        vect <span style="color:#f92672">=</span> Matrix([alph<span style="color:#f92672">.</span>index(c) <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> chunk])
+</span></span><span style="display:flex;"><span>        plain <span style="color:#f92672">=</span> invM <span style="color:#f92672">*</span> vect
+</span></span><span style="display:flex;"><span>        flag <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(alph[i <span style="color:#f92672">%</span> size] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> plain)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Flag:&#34;</span>, flag)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    s<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    solve()
+</span></span></code></pre></div><p>Résultat en image :</p>
+<p><img alt="solve" src="/images/2024/writeups/crypto/solve.png"></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div><aside class="w-30-l mt6-l">
+
+
+
+
+
+
+
+
+</aside></article>
+
+    </main>
+    <footer class="bg-black-90 bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+    <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://jeanned-hack-ctf.github.io/" >
+      &copy;  Jeanne d'Hack CTF. Tous droits réservés. 2025 
+    </a>
+    <div class="flex">
+      <div class="f4 fw4 white-70 dn dib-ns pv2 ph3">
+        
+          <a class="hover-white white-70 no-underline" href="/legal/">Mentions légales</a>
+          &nbsp;&nbsp;&centerdot;
+        
+      </div>
+      <div>
+        <div class="ananke-socials"><a href="https://www.instagram.com/jeannedhackctf/" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition instagram link dib z-999 pt3 pt0-l mr1"
+        title="follow on Instagram - Opens in a new window"
+        aria-label="follow on Instagram - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            
+          </span></a><a href="http://linkedin.com/company/jeanne-d-hack-ctf" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition linkedin link dib z-999 pt3 pt0-l mr1"
+        title="follow on LinkedIn - Opens in a new window"
+        aria-label="follow on LinkedIn - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+            
+          </span></a><a href="https://github.com/JeanneD-Hack-CTF/" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1"
+        title="follow on GitHub - Opens in a new window"
+        aria-label="follow on GitHub - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+            
+          </span></a></div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

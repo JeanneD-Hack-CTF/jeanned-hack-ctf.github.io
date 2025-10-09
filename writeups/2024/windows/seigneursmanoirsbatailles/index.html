@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Windows - Seigneurs, Manoirs et Batailles | Jeanne d&#39;Hack CTF</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Catégorie : Windows Difficulté : Moyen Points : 989 Description Vous avez intercepté des communications des pigeons voyageurs ennemis. Essayez de déchiffrer cette série de communications et d&rsquo;y retrouver le mot de passe de l&rsquo;utilisateur sur cette machine Windows.
+Fichier attaché : capture.pcap
+Writeup Le fichier fourni est une capture réseau PCAP. On peut l&rsquo;ouvrir avec un logiciel comme Wireshark pour l&rsquo;analyser. Le but est de retrouver le mot de passe d&rsquo;un utilisateur Windows à partir de ce fichier.">
+    <meta name="generator" content="Hugo 0.131.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/shrink.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/dropdown.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/carousel.css">
+  
+
+
+    
+<script src="/js/shrink.js"></script>
+<script src="/js/slideshow.js"></script>
+<script src="/js/toggleMap.js"></script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://jeanned-hack-ctf.github.io/writeups/2024/windows/seigneursmanoirsbatailles/">
+    
+
+    <meta property="og:url" content="https://jeanned-hack-ctf.github.io/writeups/2024/windows/seigneursmanoirsbatailles/">
+  <meta property="og:site_name" content="Jeanne d&#39;Hack CTF">
+  <meta property="og:title" content="Windows - Seigneurs, Manoirs et Batailles">
+  <meta property="og:description" content="Catégorie : Windows Difficulté : Moyen Points : 989 Description Vous avez intercepté des communications des pigeons voyageurs ennemis. Essayez de déchiffrer cette série de communications et d’y retrouver le mot de passe de l’utilisateur sur cette machine Windows.
+Fichier attaché : capture.pcap
+Writeup Le fichier fourni est une capture réseau PCAP. On peut l’ouvrir avec un logiciel comme Wireshark pour l’analyser. Le but est de retrouver le mot de passe d’un utilisateur Windows à partir de ce fichier.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+
+  <meta itemprop="name" content="Windows - Seigneurs, Manoirs et Batailles">
+  <meta itemprop="description" content="Catégorie : Windows Difficulté : Moyen Points : 989 Description Vous avez intercepté des communications des pigeons voyageurs ennemis. Essayez de déchiffrer cette série de communications et d’y retrouver le mot de passe de l’utilisateur sur cette machine Windows.
+Fichier attaché : capture.pcap
+Writeup Le fichier fourni est une capture réseau PCAP. On peut l’ouvrir avec un logiciel comme Wireshark pour l’analyser. Le but est de retrouver le mot de passe d’un utilisateur Windows à partir de ce fichier.">
+  <meta itemprop="wordCount" content="327">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Windows - Seigneurs, Manoirs et Batailles">
+  <meta name="twitter:description" content="Catégorie : Windows Difficulté : Moyen Points : 989 Description Vous avez intercepté des communications des pigeons voyageurs ennemis. Essayez de déchiffrer cette série de communications et d’y retrouver le mot de passe de l’utilisateur sur cette machine Windows.
+Fichier attaché : capture.pcap
+Writeup Le fichier fourni est une capture réseau PCAP. On peut l’ouvrir avec un logiciel comme Wireshark pour l’analyser. Le but est de retrouver le mot de passe d’un utilisateur Windows à partir de ce fichier.">
+
+      
+  
+
+
+    
+	<script type="text/javascript">
+    
+    if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+        window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search;
+    }
+</script>
+
+
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    loader:{
+      load: ['ui/safe']
+    },
+  };
+</script>
+
+
+  </head><body class="ma0 avenir bg-near-white tj production">
+
+    
+   
+  
+
+  
+  
+  
+  <header class="contain bg-center bg-black-90" style="background-image: url('https://jeanned-hack-ctf.github.io/images/2026/PERSO-ENTIER2026-NOIR-BLANC.png');">
+    <div class="bg-black-00">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        <img src="/images/2026/LOGO-BLANC.png" class="w100 mw5-ns" alt="Jeanne d&#39;Hack CTF" />
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+            <li class="list f5 f4-ns fw4 dib  pr3">
+              <a class="hover-white white-90 no-underline" href="/inscriptions/" title="Inscriptions page">
+                Inscriptions
+              </a>
+              
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
+              <a class="hover-white white-90 no-underline" href="/writeups/" title="Write-Ups page">
+                Write-Ups
+              </a>
+              
+                <ul class="dropdown">
+                  
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/writeups/2024/">
+                        Write-ups 2024
+                      </a>
+                    </li>
+                  
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/writeups/2025/">
+                        Write-ups 2025
+                      </a>
+                    </li>
+                  
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/writeups/2026/">
+                        Write-ups 2026
+                      </a>
+                    </li>
+                  
+                </ul>
+              
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
+              <a class="hover-white white-90 no-underline" href="/post/" title="Éditions précedentes page">
+                Éditions précedentes
+              </a>
+              
+                <ul class="dropdown">
+                  
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/post/2024/">
+                        Edition 2024
+                      </a>
+                    </li>
+                  
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/post/2025/">
+                        Edition 2025
+                      </a>
+                    </li>
+                  
+                </ul>
+              
+            </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"><a href="https://www.instagram.com/jeannedhackctf/" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition instagram link dib z-999 pt3 pt0-l mr1"
+        title="follow on Instagram - Opens in a new window"
+        aria-label="follow on Instagram - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            
+          </span></a><a href="http://linkedin.com/company/jeanne-d-hack-ctf" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition linkedin link dib z-999 pt3 pt0-l mr1"
+        title="follow on LinkedIn - Opens in a new window"
+        aria-label="follow on LinkedIn - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+            
+          </span></a><a href="https://github.com/JeanneD-Hack-CTF/" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1"
+        title="follow on GitHub - Opens in a new window"
+        aria-label="follow on GitHub - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+            
+          </span></a></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  
+  <article class="flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Write-ups 2024
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 avenir mt3 mb1">Windows - Seigneurs, Manoirs et Batailles</h1>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy avenir bg-near-white tj w-100 f4 nested-links mid-gray pr4-l"><div class="bg-light-gray pa3 nested-copy-line-height nested-links">
+          <p class="f5 b mt0">Table des matières</p>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#description">Description</a></li>
+    <li><a href="#writeup">Writeup</a></li>
+    <li><a href="#liens-utiles">Liens utiles</a></li>
+  </ul>
+</nav>
+        </div><ul>
+<li><strong>Catégorie</strong> : Windows</li>
+<li><strong>Difficulté</strong> : Moyen</li>
+<li><strong>Points</strong> : 989</li>
+</ul>
+<h2 id="description">Description</h2>
+<p>Vous avez intercepté des communications des pigeons voyageurs ennemis. Essayez de déchiffrer cette série de communications et d&rsquo;y retrouver le mot de passe de l&rsquo;utilisateur sur cette machine Windows.</p>
+<p>Fichier attaché : <code>capture.pcap</code></p>
+<h2 id="writeup">Writeup</h2>
+<p>Le fichier fourni est une capture réseau PCAP. On peut l&rsquo;ouvrir avec un logiciel comme <strong>Wireshark</strong> pour l&rsquo;analyser. Le but est de retrouver le mot de passe d&rsquo;un utilisateur Windows à partir de ce fichier.</p>
+<p>Pour commencer, il y a beaucoup de bruits et de fausses pistes dans ce fichier (spoiler: c&rsquo;est fait exprès). En fouillant le fichier on peut identifier des échanges utilisant le protocole <strong>SMB</strong>. C&rsquo;est le seul protocole de cette capture qui est plus souvent utilisé par des machines Windows, c&rsquo;est donc la piste la plus probable (ça et le nom du challenge).</p>
+<p><img alt="identification" src="/images/2024/writeups/windows/identification.png"></p>
+<p>L&rsquo;authentification auprès du serveur SMB repose ici sur le protocole <strong>NTLM</strong>, utilisée sur Windows. Il est décrit rapidement dans le schéma ci-dessous :</p>
+<p><img alt="NTLM" src="/images/2024/writeups/windows/ntlm.png"></p>
+<p>On peut extraire uniquement les paquets en lien avec l&rsquo;authentification en appliquant le filtre <code>ntlmssp</code> (NTLM Secure Service Provider) sur Wireshark. L&rsquo;utilisateur tentant de se connecter s&rsquo;appelle <code>jdhack</code> :</p>
+<p><img alt="ntlmssp" src="/images/2024/writeups/windows/ntlmssp.png"></p>
+<p>Maintenant, il faut retrouver dans ces paquets les informations suivantes pour reconstruire de quoi casser le mot de passe de l&rsquo;utilisateur :</p>
+<ul>
+<li>Le nom d&rsquo;utilisateur,</li>
+<li>Le challenge du serveur,</li>
+<li>La réponse de l&rsquo;utilisateur au challenge, c&rsquo;est-à-dire le HMAC-MD5 du challenge en utilisant le hash LM de son mot de passe comme secret,</li>
+<li>Et la réponse NTLMv2 complète.</li>
+</ul>
+<p>Ici on peut retrouver le challenge du serveur :</p>
+<p><img alt="server chall" src="/images/2024/writeups/windows/server-challenge.png"></p>
+<p>Et ici le HMAC-MD5 (<code>NTProofStr</code>) et la réponse NTLM (<code>NTLMv2 Response</code>) :</p>
+<p><img alt="ntlmv2 response" src="/images/2024/writeups/windows/ntlmv2-response.png"></p>
+<p>On peut ensuite construire le hash de la manière suivante :</p>
+<pre tabindex="0"><code>User:::Server-Challenge:HMAC-MD5:NTLMv2Response
+</code></pre><p>Ce qui donne :</p>
+<pre tabindex="0"><code>jdhack:::aaaaaaaaaaaaaaaa:00c233abdbea555fc3618f329d8ff777:01010000000000000028ce49646bda016345497734776f7400000000010010005500720078004400540045004c004200030010005500720078004400540045004c004200020010004d0071006d00580042006e004c006c00040010004d0071006d00580042006e004c006c00070008000028ce49646bda0109001a0063006900660073002f005500720078004400540045004c0042000000000000000000
+</code></pre><p>Enfin on peut stocker ce hash dans un fichier et tenter de le cracker avec <code>john</code> ou <code>hashcat</code> et notre meilleur wordlist (<code>rockyou.txt</code>) et récupérer le mot de passe :</p>
+<p><img alt="flag" src="/images/2024/writeups/windows/flag.png"></p>
+<p>Et c&rsquo;est gagné : <code>FLAG{Windowshater}</code>.</p>
+<h2 id="liens-utiles">Liens utiles</h2>
+<p>Vidéo explicative <a href="https://www.youtube.com/watch?v=lhhlgoMjM7o">ici</a>.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div><aside class="w-30-l mt6-l">
+
+
+
+
+
+
+
+
+</aside></article>
+
+    </main>
+    <footer class="bg-black-90 bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+    <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://jeanned-hack-ctf.github.io/" >
+      &copy;  Jeanne d'Hack CTF. Tous droits réservés. 2025 
+    </a>
+    <div class="flex">
+      <div class="f4 fw4 white-70 dn dib-ns pv2 ph3">
+        
+          <a class="hover-white white-70 no-underline" href="/legal/">Mentions légales</a>
+          &nbsp;&nbsp;&centerdot;
+        
+      </div>
+      <div>
+        <div class="ananke-socials"><a href="https://www.instagram.com/jeannedhackctf/" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition instagram link dib z-999 pt3 pt0-l mr1"
+        title="follow on Instagram - Opens in a new window"
+        aria-label="follow on Instagram - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            
+          </span></a><a href="http://linkedin.com/company/jeanne-d-hack-ctf" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition linkedin link dib z-999 pt3 pt0-l mr1"
+        title="follow on LinkedIn - Opens in a new window"
+        aria-label="follow on LinkedIn - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+            
+          </span></a><a href="https://github.com/JeanneD-Hack-CTF/" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1"
+        title="follow on GitHub - Opens in a new window"
+        aria-label="follow on GitHub - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+            
+          </span></a></div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

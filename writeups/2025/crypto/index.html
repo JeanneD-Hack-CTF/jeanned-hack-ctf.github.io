@@ -2,36 +2,15 @@
 <html lang="fr-FR">
   <head>
     <meta charset="utf-8">
-    <script type="text/javascript">
-      
-      if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
-        window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search;
-      }
-    </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Writeup Cryptographie - Edition 2025 | </title>
+    <title>Writeup Cryptographie - Edition 2025 | Jeanne d&#39;Hack CTF</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&rsquo;Hack CTF 2025.
-
-Fantome de Tchernobyl
-Pot de miel
-Twister
-Ocean of values
-Cryptic archive
-Pemp my key
-
-Fantome de Tchernobyl
-Les sources du challenge sont disponibles ici.
-Ce challenge est un challenge d&rsquo;introduction permettant aux débutants de s&rsquo;initier à la cryptographie, ou en tout cas,
-aux challenges que l&rsquo;on retrouve souvent dans cette catégorie.
-
-Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme.
-Il passerait son temps à répéter les mêmes choses : « La clé, c’est l’alphabet ! »
-Et cette suite de chiffres et de lettres qui n’a aucun sens : « 207e0810ae62fb7fd69c94e6bb6104c9d4ed35b2d8e0581d5327896414020b0e ».
-À l’aide de l’outil CyberChef, tentez de découvrir ce qui se cache derrière les paroles du fantôme.
-Lien vers l&rsquo;outil : https://gchq.github.io/CyberChef/">
-    <meta name="generator" content="Hugo 0.147.9">
+    <meta name="description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&rsquo;Hack CTF 2025 pour la catégorie Cryptographie.
+Fantome de Tchernobyl Les sources du challenge sont disponibles ici.
+Ce challenge est un challenge d&rsquo;introduction permettant aux débutants de s&rsquo;initier à la cryptographie, ou en tout cas, aux challenges que l&rsquo;on retrouve souvent dans cette catégorie.
+Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme.">
+    <meta name="generator" content="Hugo 0.131.0">
     
     
     
@@ -40,11 +19,27 @@ Lien vers l&rsquo;outil : https://gchq.github.io/CyberChef/">
     
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.cf933cff0e9158f6136ab1bcb6e3f5188d6fda29510b1588fa868a2ae2fb0933.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
 
+
+
+  
+    <link rel="stylesheet" href="/css/shrink.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/dropdown.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/carousel.css">
+  
 
 
     
+<script src="/js/shrink.js"></script>
+<script src="/js/slideshow.js"></script>
+<script src="/js/toggleMap.js"></script>
 
     
       
@@ -58,11 +53,12 @@ Lien vers l&rsquo;outil : https://gchq.github.io/CyberChef/">
     
 
     <meta property="og:url" content="https://jeanned-hack-ctf.github.io/writeups/2025/crypto/">
+  <meta property="og:site_name" content="Jeanne d&#39;Hack CTF">
   <meta property="og:title" content="Writeup Cryptographie - Edition 2025">
-  <meta property="og:description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025.
-Fantome de Tchernobyl Pot de miel Twister Ocean of values Cryptic archive Pemp my key Fantome de Tchernobyl Les sources du challenge sont disponibles ici.
+  <meta property="og:description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025 pour la catégorie Cryptographie.
+Fantome de Tchernobyl Les sources du challenge sont disponibles ici.
 Ce challenge est un challenge d’introduction permettant aux débutants de s’initier à la cryptographie, ou en tout cas, aux challenges que l’on retrouve souvent dans cette catégorie.
-Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme. Il passerait son temps à répéter les mêmes choses : « La clé, c’est l’alphabet ! » Et cette suite de chiffres et de lettres qui n’a aucun sens : « 207e0810ae62fb7fd69c94e6bb6104c9d4ed35b2d8e0581d5327896414020b0e ». À l’aide de l’outil CyberChef, tentez de découvrir ce qui se cache derrière les paroles du fantôme. Lien vers l’outil : https://gchq.github.io/CyberChef/">
+Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme.">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
@@ -70,28 +66,35 @@ Il existe une vieille légende selon laquelle les sous-sols de la capitale serai
     <meta property="article:modified_time" content="2025-02-01T00:00:00+00:00">
 
   <meta itemprop="name" content="Writeup Cryptographie - Edition 2025">
-  <meta itemprop="description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025.
-Fantome de Tchernobyl Pot de miel Twister Ocean of values Cryptic archive Pemp my key Fantome de Tchernobyl Les sources du challenge sont disponibles ici.
+  <meta itemprop="description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025 pour la catégorie Cryptographie.
+Fantome de Tchernobyl Les sources du challenge sont disponibles ici.
 Ce challenge est un challenge d’introduction permettant aux débutants de s’initier à la cryptographie, ou en tout cas, aux challenges que l’on retrouve souvent dans cette catégorie.
-Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme. Il passerait son temps à répéter les mêmes choses : « La clé, c’est l’alphabet ! » Et cette suite de chiffres et de lettres qui n’a aucun sens : « 207e0810ae62fb7fd69c94e6bb6104c9d4ed35b2d8e0581d5327896414020b0e ». À l’aide de l’outil CyberChef, tentez de découvrir ce qui se cache derrière les paroles du fantôme. Lien vers l’outil : https://gchq.github.io/CyberChef/">
+Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme.">
   <meta itemprop="datePublished" content="2025-02-01T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-02-01T00:00:00+00:00">
-  <meta itemprop="wordCount" content="4831">
+  <meta itemprop="wordCount" content="4825">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Writeup Cryptographie - Edition 2025">
-  <meta name="twitter:description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025.
-Fantome de Tchernobyl Pot de miel Twister Ocean of values Cryptic archive Pemp my key Fantome de Tchernobyl Les sources du challenge sont disponibles ici.
+  <meta name="twitter:description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d’Hack CTF 2025 pour la catégorie Cryptographie.
+Fantome de Tchernobyl Les sources du challenge sont disponibles ici.
 Ce challenge est un challenge d’introduction permettant aux débutants de s’initier à la cryptographie, ou en tout cas, aux challenges que l’on retrouve souvent dans cette catégorie.
-Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme. Il passerait son temps à répéter les mêmes choses : « La clé, c’est l’alphabet ! » Et cette suite de chiffres et de lettres qui n’a aucun sens : « 207e0810ae62fb7fd69c94e6bb6104c9d4ed35b2d8e0581d5327896414020b0e ». À l’aide de l’outil CyberChef, tentez de découvrir ce qui se cache derrière les paroles du fantôme. Lien vers l’outil : https://gchq.github.io/CyberChef/">
+Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme.">
 
       
-    
+  
+
 
     
+	<script type="text/javascript">
+    
+    if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+        window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search;
+    }
+</script>
 
-    
-    
-      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <script>
   MathJax = {
     tex: {
@@ -104,8 +107,8 @@ Il existe une vieille légende selon laquelle les sous-sols de la capitale serai
   };
 </script>
 
-    
-  </head><body class="ma0 avenir bg-near-white production">
+
+  </head><body class="ma0 avenir bg-near-white tj production">
 
     
    
@@ -113,86 +116,110 @@ Il existe une vieille légende selon laquelle les sous-sols de la capitale serai
 
   
   
-  <header class="contain bg-center bg-black" style="background-image: url('https://jeanned-hack-ctf.github.io/images/background.svg');">
-    
-    <div class="bg-black-10">
+  
+  <header class="contain bg-center bg-black-90" style="background-image: url('https://jeanned-hack-ctf.github.io/images/2026/PERSO-ENTIER2026-NOIR-BLANC.png');">
+    <div class="bg-black-00">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
       
-        <img src="/images/logo.svg" class="w100 mw5-ns" alt="" />
+        <img src="/images/2026/LOGO-BLANC.png" class="w100 mw5-ns" alt="Jeanne d&#39;Hack CTF" />
       
     </a>
-    <div id="dropdown-list" class="flex-l items-center">
+    <div class="flex-l items-center">
       
 
       
         <ul class="pl0 mr3">
           
-            
-              <li class="list f5 f4-ns fw4 dib pr3">
-                <a class="hover-white no-underline white-90" href="/inscriptions/" title="Inscriptions page">
-                  Inscriptions
-                </a>
-              </li>
-            
+            <li class="list f5 f4-ns fw4 dib  pr3">
+              <a class="hover-white white-90 no-underline" href="/inscriptions/" title="Inscriptions page">
+                Inscriptions
+              </a>
+              
+            </li>
           
-            
-              <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
-                <a class="hover-white no-underline white-90" href="/post/" title="Editions Précedentes page">
-                  Editions Précedentes
-                </a>
+            <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
+              <a class="hover-white white-90 no-underline" href="/writeups/" title="Write-Ups page">
+                Write-Ups
+              </a>
+              
                 <ul class="dropdown">
                   
-                    <li class="f5 f4-ns fw4 dib pr3">
-                      <a class="hover-white no-underline white-90" href="/post/2024/" title="Edition 2024 page">
-                        Edition 2024
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/writeups/2024/">
+                        Write-ups 2024
                       </a>
                     </li>
                   
-                    <li class="f5 f4-ns fw4 dib pr3">
-                      <a class="hover-white no-underline white-90" href="/post/2025/" title="Edition 2025 page">
-                        Edition 2025
-                      </a>
-                    </li>
-                  
-                </ul>
-              </li>
-            
-          
-            
-              <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
-                <a class="hover-white no-underline white-90" href="/writeups/" title="Write-Ups page">
-                  Write-Ups
-                </a>
-                <ul class="dropdown">
-                  
-                    <li class="f5 f4-ns fw4 dib pr3">
-                      <a class="hover-white no-underline white-90" href="/writeups/2025/" title="Write-ups 2025 page">
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/writeups/2025/">
                         Write-ups 2025
                       </a>
                     </li>
                   
-                    <li class="f5 f4-ns fw4 dib pr3">
-                      <a class="hover-white no-underline white-90" href="/writeups/2026/" title="Write-ups 2026 page">
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/writeups/2026/">
                         Write-ups 2026
                       </a>
                     </li>
                   
                 </ul>
-              </li>
-            
+              
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib has-dropdown pr3">
+              <a class="hover-white white-90 no-underline" href="/post/" title="Éditions précedentes page">
+                Éditions précedentes
+              </a>
+              
+                <ul class="dropdown">
+                  
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/post/2024/">
+                        Edition 2024
+                      </a>
+                    </li>
+                  
+                    <li>
+                      <a class="hover-white white-90 no-underline" href="/post/2025/">
+                        Edition 2025
+                      </a>
+                    </li>
+                  
+                </ul>
+              
+            </li>
           
         </ul>
       
-      <div class="ananke-socials"></div>
+      <div class="ananke-socials"><a href="https://www.instagram.com/jeannedhackctf/" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition instagram link dib z-999 pt3 pt0-l mr1"
+        title="follow on Instagram - Opens in a new window"
+        aria-label="follow on Instagram - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            
+          </span></a><a href="http://linkedin.com/company/jeanne-d-hack-ctf" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition linkedin link dib z-999 pt3 pt0-l mr1"
+        title="follow on LinkedIn - Opens in a new window"
+        aria-label="follow on LinkedIn - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+            
+          </span></a><a href="https://github.com/JeanneD-Hack-CTF/" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1"
+        title="follow on GitHub - Opens in a new window"
+        aria-label="follow on GitHub - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+            
+          </span></a></div>
 
     </div>
   </div>
 </nav>
 
-      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
-      </div>
     </div>
   </header>
 
@@ -201,13 +228,14 @@ Il existe une vieille légende selon laquelle les sous-sols de la capitale serai
     <main class="pb7" role="main">
       
   
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+  
+  <article class="flex-l mw8 center ph3 flex-wrap justify-between">
     <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked ttu">
           
         Write-ups 2025
       </aside><div id="sharing" class="mt3 ananke-socials"></div>
-<h1 class="f1 athelas mt3 mb1">Writeup Cryptographie - Edition 2025</h1>
+<h1 class="f1 avenir mt3 mb1">Writeup Cryptographie - Edition 2025</h1>
       
       
       
@@ -217,15 +245,40 @@ Il existe une vieille légende selon laquelle les sous-sols de la capitale serai
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l"><p>Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&rsquo;Hack CTF 2025.</p>
-<ul>
-<li><a href="#fantome-de-tchernobyl">Fantome de Tchernobyl</a></li>
-<li><a href="#pot-de-miel">Pot de miel</a></li>
-<li><a href="#twister">Twister</a></li>
-<li><a href="#ocean-of-values">Ocean of values</a></li>
-<li><a href="#cryptic-archive">Cryptic archive</a></li>
-<li><a href="#pemp-my-key">Pemp my key</a></li>
-</ul>
+    <div class="nested-copy-line-height lh-copy avenir bg-near-white tj w-100 f4 nested-links mid-gray pr4-l"><div class="bg-light-gray pa3 nested-copy-line-height nested-links">
+          <p class="f5 b mt0">Table des matières</p>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#fantome-de-tchernobyl">Fantome de Tchernobyl</a></li>
+    <li><a href="#pot-de-miel">Pot de miel</a>
+      <ul>
+        <li><a href="#script-de-solve">Script de solve</a></li>
+      </ul>
+    </li>
+    <li><a href="#twister">Twister</a>
+      <ul>
+        <li><a href="#solution-par-brute-force">Solution par brute-force</a></li>
+        <li><a href="#solution-prévue">Solution prévue</a></li>
+      </ul>
+    </li>
+    <li><a href="#ocean-of-values">Ocean of values</a></li>
+    <li><a href="#cryptic-archive">Cryptic archive</a>
+      <ul>
+        <li><a href="#analyse-du-script">Analyse du script</a></li>
+        <li><a href="#analyse-des-archives">Analyse des archives</a></li>
+        <li><a href="#script-de-solve-1">Script de solve</a></li>
+      </ul>
+    </li>
+    <li><a href="#pemp-my-key">Pemp my key</a>
+      <ul>
+        <li><a href="#théorie">Théorie</a></li>
+        <li><a href="#implémentation">Implémentation</a></li>
+        <li><a href="#script-de-solve-2">Script de solve</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div><p>Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&rsquo;Hack CTF 2025 pour la catégorie <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/crypto">Cryptographie</a>.</p>
 <h2 id="fantome-de-tchernobyl">Fantome de Tchernobyl</h2>
 <p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/crypto/Intro-Fantome_de_Tchernobyl">ici</a>.</p>
 <p>Ce challenge est un challenge d&rsquo;introduction permettant aux débutants de s&rsquo;initier à la cryptographie, ou en tout cas,
@@ -235,7 +288,8 @@ aux challenges que l&rsquo;on retrouve souvent dans cette catégorie.</p>
 Il passerait son temps à répéter les mêmes choses : « La clé, c’est l’alphabet ! »
 Et cette suite de chiffres et de lettres qui n’a aucun sens : « 207e0810ae62fb7fd69c94e6bb6104c9d4ed35b2d8e0581d5327896414020b0e ».
 À l’aide de l’outil CyberChef, tentez de découvrir ce qui se cache derrière les paroles du fantôme.
-Lien vers l&rsquo;outil : <a href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a></p></blockquote>
+Lien vers l&rsquo;outil : <a href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a></p>
+</blockquote>
 <p>Grâce à l&rsquo;indice laissé dans la description du challenge, on comprend que la suite a été chiffrée via l&rsquo;algorithme
 GOST. Il s&rsquo;agit d&rsquo;un algorithme de chiffrement par bloc utilisé par l&rsquo;URSS et qui ressemble énormément à DES.</p>
 <p>En utilisant la clé <strong>alphabet</strong>, on est alors capable de déchiffrer le contenu du message dans CyberChef.</p>
@@ -246,8 +300,9 @@ d&rsquo;une chaîne encodée en base64. On peut la décoder avec CyberChef (ou v
 <blockquote>
 <p><strong>Énoncé</strong></p>
 <p>En analysant le réseau d&rsquo;une usine ennemie produisant des composants pour l&rsquo;armée, vous avez identifié un service étrange. Peut-être est-ce la porte d&rsquo;entrée pour compromettre le réseau de cette usine ? Et ainsi en prendre le contrôle pour alimenter la rébellion !</p>
-<p>Votre objectif est de récupérer le mot de passe que ce service cache.</p></blockquote>
-<p><img src="/images/writeup_crypto_2025/nc.png" alt="nc"></p>
+<p>Votre objectif est de récupérer le mot de passe que ce service cache.</p>
+</blockquote>
+<p><img alt="nc" src="/images/2025/writeups/crypto/nc.png"></p>
 <p>L&rsquo;objectif du challenge était de retrouver les secrets cachés par le service <strong>CyberFactory</strong>. Pour cela, le service était accessible via <code>netcat</code> et le code source de celui-ci était disponible (<code>server.py</code>).</p>
 <p>En se connectant au service, plusieurs options sont disponibles :</p>
 <ol>
@@ -292,9 +347,10 @@ d&rsquo;une chaîne encodée en base64. On peut la décoder avec CyberChef (ou v
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Password : </span><span style="color:#e6db74">{</span>long_to_bytes(p)<span style="color:#f92672">.</span>decode()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
 </span></span></code></pre></div><p>On retrouve l&rsquo;entier suivant : $1972531451796693073931703101035582922503620721183858651769$, et en le convertissant en octets (merci la fonction <code>long_to_bytes</code> cette fois), on retrouve le mot de passe <code>Pr0t3ct0r_0f_th3_f4ct0ry</code>, que l&rsquo;on peut utiliser pour lire les secrets et récupérer le flag !</p>
-<p><img src="/images/writeup_crypto_2025/solve-pot-de-miel.png" alt="solve"></p>
+<p><img alt="solve" src="/images/2025/writeups/crypto/solve-pot-de-miel.png"></p>
 <p><strong>PS</strong> : À la base ce challenge devait faire partie d&rsquo;une suite de 2 ou 3 challenges autour d&rsquo;une usine, et celui correspondait à un honeypot (un faux service n&rsquo;ayant que pour but d&rsquo;attirer un attaquant), d&rsquo;où le nom et le lore autour du chall 😅</p>
 <h2 id="twister">Twister</h2>
+<h3 id="solution-par-brute-force">Solution par brute-force</h3>
 <p>Ce writeup à été réalisé par <code>Fr@ngip@ne</code>.</p>
 <p>Pour trouver la solution de ce challenge, examinons d&rsquo;abord le fichier fourni <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/blob/main/crypto/Twister/server.py">server.py</a>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
@@ -313,7 +369,7 @@ d&rsquo;une chaîne encodée en base64. On peut la décoder avec CyberChef (ou v
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecureCache</span>(object):
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Use our random as it&#39;s more secure than the python one!</span>
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>random <span style="color:#f92672">=</span> Random()
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>rand <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand 
@@ -371,7 +427,7 @@ d&rsquo;une chaîne encodée en base64. On peut la décoder avec CyberChef (ou v
 </span></span></code></pre></div><p>Comme expliqué dans la description, le but est de trouver la valeur de SEED, car en examinant la classe <code>SecureCache</code>, on voit que le flag est stocké
 avec pour clé la première valeur générée par notre générateur <code>Random</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecureCache</span>(object):
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> __init__(self):
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Use our random as it&#39;s more secure than the python one!</span>
 </span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>random <span style="color:#f92672">=</span> Random()
 </span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>rand <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand
@@ -593,7 +649,8 @@ première clé correspondant au flag :</p>
 <p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/crypto/Ocean_of_values">ici</a>.</p>
 <blockquote>
 <p>Votre conscience a été transférée dans un ordinateur. Malheureusement, le transfert s&rsquo;est mal passé et vous êtes maintenant perdu au milieu
-d&rsquo;un océan de données. Vous ne pouvez compter que sur vous-même pour retrouver votre chemin&hellip;</p></blockquote>
+d&rsquo;un océan de données. Vous ne pouvez compter que sur vous-même pour retrouver votre chemin&hellip;</p>
+</blockquote>
 <p>Pour ce challenge, plusieurs archives au format zip ainsi que le fichier utilisé pour les générer est fournit. Le script contient une série de
 boucle <code>for</code> imbriqué ainsi que le code suivant:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> timeout <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> i <span style="color:#f92672">&lt;</span> len(FLAG):
@@ -711,9 +768,10 @@ correspond au nombre de secondes du fichier audio créé, multiplié par 6. Il f
 </span></span><span style="display:flex;"><span>zip secret.zip propaganda.png secret.png
 </span></span><span style="display:flex;"><span>python3 encrypt.py secret.zip
 </span></span><span style="display:flex;"><span>rm secret.png
-</span></span></code></pre></div><p>Par chance, elle a aussi exfiltré le script permettant de chiffrer cette archive, mais la clé utilisée semble aléatoire et impossible à retrouver.</p></blockquote>
+</span></span></code></pre></div><p>Par chance, elle a aussi exfiltré le script permettant de chiffrer cette archive, mais la clé utilisée semble aléatoire et impossible à retrouver.</p>
+</blockquote>
 <div style="text-align: center;">
-  <img src="/images/writeup_crypto_2025/propaganda.png">
+  <img src="/images/2025/writeups/crypto/propaganda.png">
 </div>
 <p>Le but du challenge est de déchiffrer l&rsquo;archive <code>secret.zip.enc</code> qui a été chiffré à l&rsquo;aide du script <code>encrypt.py</code>. Les commandes utilisées pour chiffrer l&rsquo;archive indique que notre archive chiffrée contient 2 fichiers, un fichier <code>propaganda.png</code> et un autre <code>secret.png</code>, qui contient très probablement le flag. Une seconde archive est disponible (<code>archive.zip</code>), mais ne contient que la première image.</p>
 <h3 id="analyse-du-script">Analyse du script</h3>
@@ -724,7 +782,7 @@ correspond au nombre de secondes du fichier audio créé, multiplié par 6. Il f
 </span></span><span style="display:flex;"><span>    STATE_ELEM_MAX <span style="color:#f92672">=</span> <span style="color:#ae81ff">256</span>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Initialise le générateur avec urandom</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, size: int<span style="color:#f92672">=</span><span style="color:#ae81ff">256</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, size: int<span style="color:#f92672">=</span><span style="color:#ae81ff">256</span>):
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>size <span style="color:#f92672">=</span> size
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>state <span style="color:#f92672">=</span> [int<span style="color:#f92672">.</span>from_bytes(os<span style="color:#f92672">.</span>urandom(<span style="color:#ae81ff">1</span>)) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(size)]
 </span></span><span style="display:flex;"><span>
@@ -761,7 +819,7 @@ correspond au nombre de secondes du fichier audio créé, multiplié par 6. Il f
 <p>Si l&rsquo;on retrouve cet état initial, le chiffrement étant ensuite un simple XOR de la sortie du générateur avec le fichier, on pourra facilement déchiffrer notre archive.</p>
 <h3 id="analyse-des-archives">Analyse des archives</h3>
 <p>Le second point à remarquer est que lorsque l&rsquo;on compresse des fichiers avec <code>zip</code> ceux-ci sont stockés les uns à la suite des autres. La table contenant les informations et offsets des fichiers de l&rsquo;archive (appelé <em>central directory</em>) est situé <strong>à la fin</strong> du fichier ZIP, comme le montre ce schéma :</p>
-<p><img src="/images/writeup_crypto_2025/zip64_structure.png" alt="zip"></p>
+<p><img alt="zip" src="/images/2025/writeups/crypto/zip64_structure.png"></p>
 <p>De plus, si l&rsquo;on se fie aux commandes exécutées pour créer ces fichiers, les deux contiennent en tant que premier fichier, l&rsquo;image <code>propaganda.png</code>. Le format de fichier ZIP fait donc que nos deux archives (<code>archive.zip</code> et <code>secret.zip</code>) sont identiques au début, elles contiennent une version compressée de l&rsquo;image <code>propaganda.png</code>.</p>
 <p>Et donc, si les deux fichiers sont identiques au début, en effectuant un XOR entre le fichier <code>archive.zip</code> et l&rsquo;archive chiffrée on peut récupérer un partie de la suite chiffrante ! Et grâce au fonctionnement de ce générateur aléatoire, si l&rsquo;on parvient à récupérer un extrait de cette suite (e.g. 256 octets étant donné que le fichier <code>encrypt.py</code> ne défini pas de taille pour la classe <code>Random</code>), on peut ensuite générer exactement la même sortie.</p>
 <h3 id="script-de-solve-1">Script de solve</h3>
@@ -829,14 +887,14 @@ correspond au nombre de secondes du fichier audio créé, multiplié par 6. Il f
 </span></span><span style="display:flex;"><span>    main()
 </span></span></code></pre></div><p>On peut finalement décompresser l&rsquo;archive et ouvrir le fichier <code>secret.png</code> qui contient le flag :</p>
 <div style="text-align: center;">
-  <img src="/images/writeup_crypto_2025/secret.png">
+  <img src="/images/2025/writeups/crypto/secret.png">
 </div>
 <h2 id="pemp-my-key">Pemp my key</h2>
 <p>Les sources du challenge sont disponibles <a href="https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/crypto/Pemp_my_key">ici</a>.</p>
 <blockquote>
 <p><strong>Énoncé</strong></p>
 <p>Créer un clé privée RSA valide au format PEM contenant le motif suivant : <code>/jeannedhackctf/</code>.</p>
-<h3 id="détails">Détails</h3>
+<p><strong>Détails</strong></p>
 <p>Le fichier <code>check.sh</code> fourni permet de vérifier que votre clé privée est valide avant de la soumettre au serveur.</p>
 <p>Une clé valide doit retourner la sortie suivante :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./check.sh key.pem
@@ -845,9 +903,11 @@ correspond au nombre de secondes du fichier audio créé, multiplié par 6. Il f
 </span></span></code></pre></div><p>Une fois la clé privée validée de votre côté, connectez-vous au serveur et soumettez votre clé pour récupérer le flag.</p>
 <pre tabindex="0"><code>nc chall.jeanne-hack-ctf.org 50002
 </code></pre><p><strong>Attention</strong> : cela ne sert à rien de tester toutes vos clés avec le serveur, il lancera exactement le même script de vérification que celui fourni !
-Et donc pour limiter le nombre de requêtes, vérifier d&rsquo;abord en local !</p></blockquote>
+Et donc pour limiter le nombre de requêtes, vérifier d&rsquo;abord en local !</p>
+</blockquote>
+<h3 id="théorie">Théorie</h3>
 <p>L&rsquo;objectif du challenge est donc de trouver un moyen de générer une clé privée RSA valide comportant le motif : <code>/jeannedhackctf/</code> au format PEM.</p>
-<p>Premièrement, une clé valide peut être générée en suivant les étapes suivantes (<a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29#Key_generation">lien</a>) :</p>
+<p>Premièrement, une clé valide peut être générée en suivant les étapes suivantes (<a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)#Key_generation">lien</a>) :</p>
 <ul>
 <li>Choisir 2 grands entiers premiers $p$ et $q$,</li>
 <li>Calculer le modulo $N = p * q$,</li>
@@ -861,7 +921,7 @@ Et donc pour limiter le nombre de requêtes, vérifier d&rsquo;abord en local !<
 <li>L&rsquo;exposant publique ($e$),</li>
 <li>L&rsquo;exposant privé ($d$),</li>
 <li>Les deux entiers premiers ($p$ et $q$),</li>
-<li>Et d&rsquo;autres éléments permettant de faciliter les calculs en utilisant le <a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29#Using_the_Chinese_remainder_algorithm">théorème des restes chinois</a> :
+<li>Et d&rsquo;autres éléments permettant de faciliter les calculs en utilisant le <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)#Using_the_Chinese_remainder_algorithm">théorème des restes chinois</a> :
 <ul>
 <li>$d_P = d \mod p - 1$</li>
 <li>$d_Q = d \mod q - 1$</li>
@@ -870,6 +930,7 @@ Et donc pour limiter le nombre de requêtes, vérifier d&rsquo;abord en local !<
 </li>
 </ul>
 <p>La clé à construire doit être valide et donc il faut la générer en suivant les étapes ci-dessus. Pour pouvoir intégrer le motif <code>/jeannedhackctf/</code>, il va donc falloir qu&rsquo;un des paramètres de la clé soit égale à celui-ci. Le plus simple et qui engendre le moins de contraintes et de placer ce motif en tant qu&rsquo;exposant publique ($e$) de notre clé.</p>
+<h3 id="implémentation">Implémentation</h3>
 <p>Au format PEM, la clé est stockée en base64, donc pour obtenir la valeur de notre exposant publique, il faut décoder le motif en base64 et le convertir en entier :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> base64
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> target <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/jeannedhackctf/&#34;</span>
@@ -916,7 +977,7 @@ Et donc pour limiter le nombre de requêtes, vérifier d&rsquo;abord en local !<
 </span></span></code></pre></div><p>Et voilà ! Maintenant nous avons tous les éléments pour résoudre le challenge. Il manque juste une dernière étape et de générer des clés au format PEM en boucle jusqu&rsquo;à ce que le motif apparaisse correctement dans la clé.</p>
 <p>En effet, en fonction de la taille des paramètres, une fois encodé le motif peut ne pas apparaître si les octets ne sont pas correctement alignés, car en base64 on encode 3 octets avec 4 caractères :</p>
 <div style="text-align: center;">
-    <img src="/images/writeup_crypto_2025/base64.png">
+    <img src="/images/2025/writeups/crypto/base64.png">
 </div>
 <p>Il faut donc que les octets représentant l&rsquo;entier $e$ soient alignés avec le début d&rsquo;un cycle de 3 octets / 4 caractères, pour qu&rsquo;il soit correctement affiché.</p>
 <h3 id="script-de-solve-2">Script de solve</h3>
@@ -976,7 +1037,7 @@ Et donc pour limiter le nombre de requêtes, vérifier d&rsquo;abord en local !<
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;key.pem&#34;</span>, <span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">as</span> keyfile:
 </span></span><span style="display:flex;"><span>        keyfile<span style="color:#f92672">.</span>write(key)
 </span></span></code></pre></div><p>En soumettant une clé générée sur le service, on récupère enfin le flag :</p>
-<p><img src="/images/writeup_crypto_2025/solve-pemp-my-key.png" alt="solve"></p>
+<p><img alt="solve" src="/images/2025/writeups/crypto/solve-pemp-my-key.png"></p>
 <ul class="pa0">
   
 </ul>
@@ -984,28 +1045,57 @@ Et donc pour limiter le nombre de requêtes, vérifier d&rsquo;abord en local !<
       
       
       </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
+    </div><aside class="w-30-l mt6-l">
 
 
 
 
-</aside>
 
-  </article>
+
+
+
+</aside></article>
 
     </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+    <footer class="bg-black-90 bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 no-underline white-70 dn dib-ns pv2 ph3" >
-    &copy;  2025  Jeanne d'Hack CTF. Tous droits réservés. 
-  </a>
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/legal/" >
-      Mentions légales
-  </a>
+    <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://jeanned-hack-ctf.github.io/" >
+      &copy;  Jeanne d'Hack CTF. Tous droits réservés. 2025 
+    </a>
+    <div class="flex">
+      <div class="f4 fw4 white-70 dn dib-ns pv2 ph3">
+        
+          <a class="hover-white white-70 no-underline" href="/legal/">Mentions légales</a>
+          &nbsp;&nbsp;&centerdot;
+        
+      </div>
+      <div>
+        <div class="ananke-socials"><a href="https://www.instagram.com/jeannedhackctf/" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition instagram link dib z-999 pt3 pt0-l mr1"
+        title="follow on Instagram - Opens in a new window"
+        aria-label="follow on Instagram - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            
+          </span></a><a href="http://linkedin.com/company/jeanne-d-hack-ctf" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition linkedin link dib z-999 pt3 pt0-l mr1"
+        title="follow on LinkedIn - Opens in a new window"
+        aria-label="follow on LinkedIn - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+            
+          </span></a><a href="https://github.com/JeanneD-Hack-CTF/" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1"
+        title="follow on GitHub - Opens in a new window"
+        aria-label="follow on GitHub - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+            
+          </span></a></div>
+
+      </div>
+    </div>
   </div>
 </footer>
-
   </body>
 </html>

@@ -2,19 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jeanned-hack-ctf.github.io/en/</loc>
-    <lastmod>2025-01-31T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr-FR"
-                href="https://jeanned-hack-ctf.github.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://jeanned-hack-ctf.github.io/en/"
-                />
-  </url><url>
     <loc>https://jeanned-hack-ctf.github.io/en/post/2025/</loc>
     <lastmod>2025-01-31T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -26,6 +13,19 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="https://jeanned-hack-ctf.github.io/en/post/2025/"
+                />
+  </url><url>
+    <loc>https://jeanned-hack-ctf.github.io/en/</loc>
+    <lastmod>2025-01-31T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://jeanned-hack-ctf.github.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://jeanned-hack-ctf.github.io/en/"
                 />
   </url><url>
     <loc>https://jeanned-hack-ctf.github.io/en/post/</loc>

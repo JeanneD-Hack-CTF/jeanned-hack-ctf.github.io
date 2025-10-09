@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Write-ups 2024 on Jeanne d&#39;Hack CTF</title>
+    <link>https://jeanned-hack-ctf.github.io/writeups/2024/</link>
+    <description>Recent content in Write-ups 2024 on Jeanne d&#39;Hack CTF</description>
+    <generator>Hugo</generator>
+    <language>fr-FR</language>
+    <copyright>Jeanne d&#39;Hack CTF. Tous droits réservés.</copyright>
+    <atom:link href="https://jeanned-hack-ctf.github.io/writeups/2024/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crypto - Collines et matrices</title>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2024/crypto/colline_et_matrices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2024/crypto/colline_et_matrices/</guid>
+      <description>Catégorie : Crypto Difficulté : Moyen Points : 95 Description Jeanne d&amp;rsquo;Arc traverse les collines escarpées de la France médiévale, découvrant des runes gravées dans la pierre renfermant des secrets anciens.&#xA;Découverte du challenge Le challenge consistait en un serveur distant qui permettait à n&amp;rsquo;importe qui s&amp;rsquo;y connectant de chiffrer des messages. Il s&amp;rsquo;agit donc d&amp;rsquo;un oracle de chiffrement. Lorsqu&amp;rsquo;on s&amp;rsquo;y connecte le serveur affiche le message suivant, puis nous propose de chiffrer un message :</description>
+    </item>
+    <item>
+      <title>OSINT</title>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2024/osint/writeups/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2024/osint/writeups/</guid>
+      <description>Les write-ups des challenges d&amp;rsquo;OSINT sont accessibles en PDF aux liens suivants :&#xA;Main verte Web et amie Détente au bar Intro Armorique Sticker quelque part StreetArt Aliens </description>
+    </item>
+    <item>
+      <title>Reverse - Clé enchantée</title>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2024/reverse/keygen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2024/reverse/keygen/</guid>
+      <description>Le but de ce challenge n&amp;rsquo;est pas de trouver un mot de passe mais de générer un fichier avec le nom correct pour que le programme vienne écrire le flag dedans. Le but n&amp;rsquo;est pas de reverser la fonction write_flag. Le binaire est strippé pour rendre encore plus difficile la compréhension de cette fonction. A l&amp;rsquo;inverse, un SRE comme Ghidra identifiera les appels aux fonctions importées de la libc et les affichera correctement, même stripper.</description>
+    </item>
+    <item>
+      <title>Reverse - Intro</title>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2024/reverse/intro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2024/reverse/intro/</guid>
+      <description>Ce premier challenge était une introduction aux techniques de rétro-ingénieurie. Le programme était compilé avec les symbolss (noms des fonctions) et de manière dynamique, on avait donc accès à facilement aux fonctions externes telles que strncmp.&#xA;Solution I - Statique En ouvrant le binaire dans un logiciel de SRE comme Ghidra, on obtenait le pseudo-code suivant:&#xA;undefined8 main(int param_1,undefined8 *param_2) { int iVar1; undefined8 uVar2; if (param_1 == 2) { iVar1 = check_password(param_2[1]); if (iVar1 == 0) { uVar2 = 0; } else { puts(&amp;#34;Wrong password&amp;#34;); uVar2 = 0xffffffd6; } } else { printf(&amp;#34;Usage: %s &amp;lt;password&amp;gt;\n&amp;#34;,*param_2); uVar2 = 0xffffffd6; } return uVar2; } Le programme attend un paramètre passé par la ligne de commande, et le passe à la fonction check_password.</description>
+    </item>
+    <item>
+      <title>Web - Réseau social Y - 1/3</title>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2024/web/social_network_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2024/web/social_network_1/</guid>
+      <description>Catégorie : Web Difficulté : Moyen Points : 916 Premier challenge de la série sur Y, le nouveau réseau social.&#xA;Réseau social Y - 2/3 Réseau social Y - 3/3 Étape 1 : Connexion en tant qu&amp;rsquo;utilisateur Premièrement, on arrive sur une page d&amp;rsquo;accueil avec plusieurs onglets, un formulaire de connexion, une page de profil et un espace d&amp;rsquo;administration.&#xA;On peut supposer que la première étape va être de se connecter.</description>
+    </item>
+    <item>
+      <title>Web - Réseau social Y - 2/3</title>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2024/web/social_network_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2024/web/social_network_2/</guid>
+      <description>Catégorie : Web Difficulté : Moyen Points : 995 La suite du premier challenge sur Y, le nouveau réseau social.&#xA;Réseau social Y - 1/3 Réseau social Y - 3/3 Étape 1 : JWT algorithm confusion On part donc de la même application, avec le même menu de connexion, mais cette fois-ci un formulaire d&amp;rsquo;enregistrement est disponible. En créant un compte et se connectant on se rend compte que l&amp;rsquo;authentification se fait maintenant en utilisant des JWT (JSON Web Tokens).</description>
+    </item>
+    <item>
+      <title>Web - Réseau social Y - 3/3</title>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2024/web/social_network_3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2024/web/social_network_3/</guid>
+      <description>Catégorie : Web Difficulté : Difficile Points : 995 Le dernier challenge sur la plateforme Y, le nouveau réseau social.&#xA;Réseau social Y - 1/3 Réseau social Y - 2/3 Exploitation d&amp;rsquo;une SSTI (Server-Side Template Injection) Cette fois, un compte administrateur est fourni pour avoir accès à toute la plateforme. Suite à un problème ce compte a été désactivé mais chaque nouveau compte créé était administrateur.&#xA;Après quelques recherches, on peut remarquer qu&amp;rsquo;il n&amp;rsquo;y a qu&amp;rsquo;une seule nouvelle fonctionnalité :</description>
+    </item>
+    <item>
+      <title>Windows - Seigneurs, Manoirs et Batailles</title>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2024/windows/seigneursmanoirsbatailles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2024/windows/seigneursmanoirsbatailles/</guid>
+      <description>Catégorie : Windows Difficulté : Moyen Points : 989 Description Vous avez intercepté des communications des pigeons voyageurs ennemis. Essayez de déchiffrer cette série de communications et d&amp;rsquo;y retrouver le mot de passe de l&amp;rsquo;utilisateur sur cette machine Windows.&#xA;Fichier attaché : capture.pcap&#xA;Writeup Le fichier fourni est une capture réseau PCAP. On peut l&amp;rsquo;ouvrir avec un logiciel comme Wireshark pour l&amp;rsquo;analyser. Le but est de retrouver le mot de passe d&amp;rsquo;un utilisateur Windows à partir de ce fichier.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+.container {
+    margin: auto;
+    width: 18em;
+    height: 10em;
+    position: relative;
+    perspective: 70em;
+}
+
+.carousel {
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1.2s;
+}
+
+.item {
+    display: block;
+    position: absolute;
+    width: 100%;
+    line-height: 8em;
+    opacity: 0.98;
+    border-radius: 10px;
+    background-color: #F4F4F4;
+}
+
+.item img {
+    max-height: 8em;
+    vertical-align: middle;
+}
