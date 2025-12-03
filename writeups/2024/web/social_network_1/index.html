@@ -6,10 +6,21 @@
     
     <title>Web - Réseau social Y - 1/3 | Jeanne d&#39;Hack CTF</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Catégorie : Web Difficulté : Moyen Points : 916 Premier challenge de la série sur Y, le nouveau réseau social.
-Réseau social Y - 2/3 Réseau social Y - 3/3 Étape 1 : Connexion en tant qu&rsquo;utilisateur Premièrement, on arrive sur une page d&rsquo;accueil avec plusieurs onglets, un formulaire de connexion, une page de profil et un espace d&rsquo;administration.
-On peut supposer que la première étape va être de se connecter.">
-    <meta name="generator" content="Hugo 0.131.0">
+    <meta name="description" content="
+Catégorie : Web
+Difficulté : Moyen
+Points : 916
+
+Premier challenge de la série sur Y, le nouveau réseau social.
+
+Réseau social Y - 2/3
+Réseau social Y - 3/3
+
+Étape 1 : Connexion en tant qu&rsquo;utilisateur
+Premièrement, on arrive sur une page d&rsquo;accueil avec plusieurs onglets, un formulaire de connexion, une page de profil et un espace d&rsquo;administration.
+
+On peut supposer que la première étape va être de se connecter. Cette première étape est très simple, en se rendant sur la page de connexion on peut trouver des identifiants oubliés dans les commentaires :">
+    <meta name="generator" content="Hugo 0.152.2">
     
     
     
@@ -18,7 +29,7 @@ On peut supposer que la première étape va être de se connecter.">
     
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.efe4d852f731d5d1fbb87718387202a97aafd768cdcdaed0662bbe6982e91824.css" >
 
 
 
@@ -56,7 +67,7 @@ On peut supposer que la première étape va être de se connecter.">
   <meta property="og:title" content="Web - Réseau social Y - 1/3">
   <meta property="og:description" content="Catégorie : Web Difficulté : Moyen Points : 916 Premier challenge de la série sur Y, le nouveau réseau social.
 Réseau social Y - 2/3 Réseau social Y - 3/3 Étape 1 : Connexion en tant qu’utilisateur Premièrement, on arrive sur une page d’accueil avec plusieurs onglets, un formulaire de connexion, une page de profil et un espace d’administration.
-On peut supposer que la première étape va être de se connecter.">
+On peut supposer que la première étape va être de se connecter. Cette première étape est très simple, en se rendant sur la page de connexion on peut trouver des identifiants oubliés dans les commentaires :">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
@@ -64,18 +75,15 @@ On peut supposer que la première étape va être de se connecter.">
   <meta itemprop="name" content="Web - Réseau social Y - 1/3">
   <meta itemprop="description" content="Catégorie : Web Difficulté : Moyen Points : 916 Premier challenge de la série sur Y, le nouveau réseau social.
 Réseau social Y - 2/3 Réseau social Y - 3/3 Étape 1 : Connexion en tant qu’utilisateur Premièrement, on arrive sur une page d’accueil avec plusieurs onglets, un formulaire de connexion, une page de profil et un espace d’administration.
-On peut supposer que la première étape va être de se connecter.">
+On peut supposer que la première étape va être de se connecter. Cette première étape est très simple, en se rendant sur la page de connexion on peut trouver des identifiants oubliés dans les commentaires :">
   <meta itemprop="wordCount" content="525">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Web - Réseau social Y - 1/3">
   <meta name="twitter:description" content="Catégorie : Web Difficulté : Moyen Points : 916 Premier challenge de la série sur Y, le nouveau réseau social.
 Réseau social Y - 2/3 Réseau social Y - 3/3 Étape 1 : Connexion en tant qu’utilisateur Premièrement, on arrive sur une page d’accueil avec plusieurs onglets, un formulaire de connexion, une page de profil et un espace d’administration.
-On peut supposer que la première étape va être de se connecter.">
+On peut supposer que la première étape va être de se connecter. Cette première étape est très simple, en se rendant sur la page de connexion on peut trouver des identifiants oubliés dans les commentaires :">
 
       
-  
-
-
     
 	<script type="text/javascript">
     
@@ -199,6 +207,13 @@ On peut supposer que la première étape va être de se connecter.">
       <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
             
+          </span></a><a href="https://discord.gg/@3t4Q8UQQ" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition discord link dib z-999 pt3 pt0-l mr1"
+        title="follow on Discord - Opens in a new window"
+        aria-label="follow on Discord - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/></svg>
+            
           </span></a><a href="https://github.com/JeanneD-Hack-CTF/" target="_blank" rel="noopener"
         class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1"
         title="follow on GitHub - Opens in a new window"
@@ -256,40 +271,40 @@ On peut supposer que la première étape va être de se connecter.">
 </ul>
 <h2 id="étape-1--connexion-en-tant-quutilisateur">Étape 1 : Connexion en tant qu&rsquo;utilisateur</h2>
 <p>Premièrement, on arrive sur une page d&rsquo;accueil avec plusieurs onglets, un formulaire de connexion, une page de profil et un espace d&rsquo;administration.</p>
-<p><img alt="Page d&rsquo;accueil" src="/images/2024/writeups/web/y1/home.png"></p>
+<p><img src="/images/2024/writeups/web/y1/home.png" alt="Page d’accueil"></p>
 <p>On peut supposer que la première étape va être de se connecter. Cette première étape est très simple, en se rendant sur la page de connexion on peut trouver des identifiants oubliés dans les commentaires :</p>
-<p><img alt="Identifiants en commentaires" src="/images/2024/writeups/web/y1/creds.png"></p>
+<p><img src="/images/2024/writeups/web/y1/creds.png" alt="Identifiants en commentaires"></p>
 <p>On peut donc maintenant se connecter en tant que <code>johndoe</code>. Cependant cette utilisateur n&rsquo;est pas administrateur. Le flag est probablement dans l&rsquo;onglet admin, il faut donc trouver un moyen maintenant de devenir admin.</p>
 <h2 id="étape-2--accès-à-la-fonctionnalité-en-développement">Étape 2 : Accès à la fonctionnalité en développement</h2>
 <p>En arrivant sur la page de profil, un message nous indique que le site est en construction mais qu&rsquo;il sera bientôt possible de rechercher d&rsquo;autres utilisateurs :</p>
 <pre tabindex="0"><code>Our social network is under construction, you will be able soon to search for others users ! 
 </code></pre><p>En inspectant le code source on peut trouver comme évoqué un lien vers une page de recherche : <code>/search</code>.</p>
-<p><img alt="Recherche" src="/images/2024/writeups/web/y1/search.png"></p>
+<p><img src="/images/2024/writeups/web/y1/search.png" alt="Recherche"></p>
 <p>Cependant en s&rsquo;y rendant on obtient une erreur <code>404 NOT FOUND</code> :</p>
-<p><img alt="404" src="/images/2024/writeups/web/y1/404.png"></p>
+<p><img src="/images/2024/writeups/web/y1/404.png" alt="404"></p>
 <p>Cette page est inaccessible mais les messages laissent à penser qu&rsquo;elle pourrait être intéressante.</p>
 <p>Sur la page de profile, on peut trouver deux liens vers d&rsquo;autres pages utilisant le chemin <code>/profile?p=&lt;param&gt;</code>. Ce paramètre semble être utilisé pour charger différentes pages de l&rsquo;application. On peut donc tenter d&rsquo;accéder à la page de recherche via ce paramètre <code>p</code> :</p>
 <pre tabindex="0"><code>http://&lt;ip_challenge&gt;/profile?p=search
-</code></pre><p><img alt="Search page" src="/images/2024/writeups/web/y1/search2.png"></p>
+</code></pre><p><img src="/images/2024/writeups/web/y1/search2.png" alt="Search page"></p>
 <h2 id="étape-3--exploitation-dune-injection-sql">Étape 3 : Exploitation d&rsquo;une injection SQL</h2>
 <p>Grâce à cette vulnérabilité, on a maintenant accès à la fonctionnalité de recherche d&rsquo;utilisateurs. On peut supposer que l&rsquo;application utilise une base de données et que ce formulaire va rechercher des utilisateurs dans celle-ci. Étant donné que la page n&rsquo;est pas terminé, cette page est peut être vulnérable à une injection SQL.</p>
 <p>En envoyant dans via le formulaire le caractère <code>'</code> on obtient une erreur 500, ce qui confirme cette hypothèse. Lorsque l&rsquo;on fait une recherche légitime on récupère 2 informations, la requête SQL doit donc récupérer 2 champs.</p>
 <p>On peut vérifier en envoyant la valeur suivante :</p>
 <pre tabindex="0"><code>&#39; union select &#34;sqli&#34;,&#34;test&#34; -- -
-</code></pre><p><img alt="SQLi 1" src="/images/2024/writeups/web/y1/sqli1.png"></p>
+</code></pre><p><img src="/images/2024/writeups/web/y1/sqli1.png" alt="SQLi 1"></p>
 <p>L&rsquo;injection est confirmée et elle est exploitable, on va donc maintenant tenter de récupérer le mot de passe de l&rsquo;administrateur.</p>
 <p>Il faut maintenant trouver la technologie de base de données utilisée. Après plusieurs essais on peut voir que la requête suivante renvoie un numéro de version :</p>
 <pre tabindex="0"><code>&#39; union select &#34;sqli&#34;,sqlite_version() -- -
-</code></pre><p><img alt="SQLi 2" src="/images/2024/writeups/web/y1/sqli2.png"></p>
+</code></pre><p><img src="/images/2024/writeups/web/y1/sqli2.png" alt="SQLi 2"></p>
 <p>Cela indique que le type de base de données utilisé est <strong>SQLite</strong>.</p>
 <p>On peut maintenant rechercher le schéma de la DB pour retrouver la ou les tables utilisées :</p>
 <pre tabindex="0"><code>&#39; union select 1,sql from sqlite_master -- -
-</code></pre><p><img alt="SQLi 3" src="/images/2024/writeups/web/y1/sqli3.png"></p>
+</code></pre><p><img src="/images/2024/writeups/web/y1/sqli3.png" alt="SQLi 3"></p>
 <p>Il y a donc une table <code>users</code> avec les colonnes <code>username</code>, <code>password</code> et <code>role</code>. On peut alors extraire les noms d&rsquo;utilisateurs et mots de passes :</p>
 <pre tabindex="0"><code>&#39; union select username,password from users -- -
-</code></pre><p><img alt="SQLi 4" src="/images/2024/writeups/web/y1/sqli4.png"></p>
+</code></pre><p><img src="/images/2024/writeups/web/y1/sqli4.png" alt="SQLi 4"></p>
 <p>Grâce au mot de passe de l&rsquo;administrateur on peut enfin accéder à la section d&rsquo;administration et récupérer le flag :</p>
-<p><img alt="Flag" src="/images/2024/writeups/web/y1/flag.png"></p>
+<p><img src="/images/2024/writeups/web/y1/flag.png" alt="Flag"></p>
 <ul class="pa0">
   
 </ul>
@@ -335,6 +350,13 @@ On peut supposer que la première étape va être de se connecter.">
         aria-label="follow on LinkedIn - Opens in a new window">
       <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+            
+          </span></a><a href="https://discord.gg/@3t4Q8UQQ" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition discord link dib z-999 pt3 pt0-l mr1"
+        title="follow on Discord - Opens in a new window"
+        aria-label="follow on Discord - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/></svg>
             
           </span></a><a href="https://github.com/JeanneD-Hack-CTF/" target="_blank" rel="noopener"
         class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1"

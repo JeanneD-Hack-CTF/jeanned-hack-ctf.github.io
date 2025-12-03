@@ -6,12 +6,31 @@
     
     <title>Writeup Reverse Engineering - Edition 2025 | Jeanne d&#39;Hack CTF</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&rsquo;Hack CTF 2025 pour la catégorie Reverse.
-Rev My Snake I Les sources du challenge sont disponibles ici.
+    <meta name="description" content="Dans cet article, nous vous présenterons les différentes solutions aux challenges
+du Jeanne d&rsquo;Hack CTF 2025 pour la catégorie Reverse.
+Rev My Snake I
+Les sources du challenge sont disponibles ici.
 Writeup by Tourte
-Description Ce challenge est le premier challenge de reverse de la série &ldquo;Rev my snake&rdquo;. Il est classé facile et n&rsquo;a pas posé beaucoup de problèmes à la majorité des participants.
-Outils nécessaires Un éditeur de texte classique Python (pour pouvoir exécuter le script) Fichiers fournis chall.">
-    <meta name="generator" content="Hugo 0.131.0">
+Description
+Ce challenge est le premier challenge de reverse de la série &ldquo;Rev my snake&rdquo;. Il est
+classé facile et n&rsquo;a pas posé beaucoup de problèmes à la majorité des participants.
+Outils nécessaires
+
+Un éditeur de texte classique
+Python (pour pouvoir exécuter le script)
+
+Fichiers fournis
+
+chall.py : Le script python à analyser
+
+Résolution
+Si on regarde __init__, qui représente le point d&rsquo;entrée du script, on voit que celui-ci
+exécute la fonction main (ce qui est logiquement ce que font énormément de scripts Python).
+Si vous avez lancé le script, vous avez dû voir qu&rsquo;à un moment on vous demande de rentrer
+un mot de passe. La majorité du temps dans ce genre de challenge, l&rsquo;objectif est de trouver
+le point d&rsquo;entrée (là où le script va prendre ce que vous allez entrer) et de suivre toutes
+les étapes pour comprendre comment le script va traiter votre entrée et à quoi elle va être comparée.">
+    <meta name="generator" content="Hugo 0.152.2">
     
     
     
@@ -20,7 +39,7 @@ Outils nécessaires Un éditeur de texte classique Python (pour pouvoir exécute
     
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.efe4d852f731d5d1fbb87718387202a97aafd768cdcdaed0662bbe6982e91824.css" >
 
 
 
@@ -60,7 +79,7 @@ Outils nécessaires Un éditeur de texte classique Python (pour pouvoir exécute
 Rev My Snake I Les sources du challenge sont disponibles ici.
 Writeup by Tourte
 Description Ce challenge est le premier challenge de reverse de la série “Rev my snake”. Il est classé facile et n’a pas posé beaucoup de problèmes à la majorité des participants.
-Outils nécessaires Un éditeur de texte classique Python (pour pouvoir exécuter le script) Fichiers fournis chall.">
+Outils nécessaires Un éditeur de texte classique Python (pour pouvoir exécuter le script) Fichiers fournis chall.py : Le script python à analyser Résolution Si on regarde __init__, qui représente le point d’entrée du script, on voit que celui-ci exécute la fonction main (ce qui est logiquement ce que font énormément de scripts Python). Si vous avez lancé le script, vous avez dû voir qu’à un moment on vous demande de rentrer un mot de passe. La majorité du temps dans ce genre de challenge, l’objectif est de trouver le point d’entrée (là où le script va prendre ce que vous allez entrer) et de suivre toutes les étapes pour comprendre comment le script va traiter votre entrée et à quoi elle va être comparée.">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
@@ -72,7 +91,7 @@ Outils nécessaires Un éditeur de texte classique Python (pour pouvoir exécute
 Rev My Snake I Les sources du challenge sont disponibles ici.
 Writeup by Tourte
 Description Ce challenge est le premier challenge de reverse de la série “Rev my snake”. Il est classé facile et n’a pas posé beaucoup de problèmes à la majorité des participants.
-Outils nécessaires Un éditeur de texte classique Python (pour pouvoir exécuter le script) Fichiers fournis chall.">
+Outils nécessaires Un éditeur de texte classique Python (pour pouvoir exécuter le script) Fichiers fournis chall.py : Le script python à analyser Résolution Si on regarde __init__, qui représente le point d’entrée du script, on voit que celui-ci exécute la fonction main (ce qui est logiquement ce que font énormément de scripts Python). Si vous avez lancé le script, vous avez dû voir qu’à un moment on vous demande de rentrer un mot de passe. La majorité du temps dans ce genre de challenge, l’objectif est de trouver le point d’entrée (là où le script va prendre ce que vous allez entrer) et de suivre toutes les étapes pour comprendre comment le script va traiter votre entrée et à quoi elle va être comparée.">
   <meta itemprop="datePublished" content="2025-02-19T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-02-19T00:00:00+00:00">
   <meta itemprop="wordCount" content="7049">
@@ -82,12 +101,9 @@ Outils nécessaires Un éditeur de texte classique Python (pour pouvoir exécute
 Rev My Snake I Les sources du challenge sont disponibles ici.
 Writeup by Tourte
 Description Ce challenge est le premier challenge de reverse de la série “Rev my snake”. Il est classé facile et n’a pas posé beaucoup de problèmes à la majorité des participants.
-Outils nécessaires Un éditeur de texte classique Python (pour pouvoir exécuter le script) Fichiers fournis chall.">
+Outils nécessaires Un éditeur de texte classique Python (pour pouvoir exécuter le script) Fichiers fournis chall.py : Le script python à analyser Résolution Si on regarde __init__, qui représente le point d’entrée du script, on voit que celui-ci exécute la fonction main (ce qui est logiquement ce que font énormément de scripts Python). Si vous avez lancé le script, vous avez dû voir qu’à un moment on vous demande de rentrer un mot de passe. La majorité du temps dans ce genre de challenge, l’objectif est de trouver le point d’entrée (là où le script va prendre ce que vous allez entrer) et de suivre toutes les étapes pour comprendre comment le script va traiter votre entrée et à quoi elle va être comparée.">
 
       
-  
-
-
     
 	<script type="text/javascript">
     
@@ -210,6 +226,13 @@ Outils nécessaires Un éditeur de texte classique Python (pour pouvoir exécute
         aria-label="follow on LinkedIn - Opens in a new window">
       <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+            
+          </span></a><a href="https://discord.gg/@3t4Q8UQQ" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition discord link dib z-999 pt3 pt0-l mr1"
+        title="follow on Discord - Opens in a new window"
+        aria-label="follow on Discord - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/></svg>
             
           </span></a><a href="https://github.com/JeanneD-Hack-CTF/" target="_blank" rel="noopener"
         class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1"
@@ -639,7 +662,7 @@ format cible (ici, Python list).</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MazeSolver</span>:
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
 </span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>Maze <span style="color:#f92672">=</span> [ <span style="color:#f92672">...</span> ]
 </span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
@@ -1635,7 +1658,7 @@ par ouvrir notre fichier <code>fs.packed</code> avec un éditeur hexadécimal. J
 <p>Nous savons que la valeur de hachage est située juste avant le nom de notre fichier. Nous cherchons donc
 maintenant <code>F1 12 56 7C E7 25 03 D5</code> dans l&rsquo;onglet <em>Binary Pattern</em> de la fenêtre <em>Find</em>. Nous obtenons
 alors deux occurrences : le nom du fichier et son contenu.</p>
-<p><img src="/images/2025/writeups/reverse/customfs_content.png"></p>
+<p><img src="/images/2025/writeups/reverse/customfs_content.png" alt=""></p>
 <p>On peut voir sur la capture que la taille du fichier (située après la valeur de hachage) est égale à <code>\x00\x02\x00\x00\x00\x00\x00\x00</code>,
 soit 512 en little endian. Nous pouvons extraire le fichier grâce à la commande <code>dd</code> suivante :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>fs.packed bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> skip<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#ae81ff">0</span>x7771<span style="color:#66d9ef">))</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">512</span> | sha256sum 
@@ -1687,6 +1710,13 @@ depuis le repository GitHub et utiliser la commande <code>unpack</code>.</p>
         aria-label="follow on LinkedIn - Opens in a new window">
       <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+            
+          </span></a><a href="https://discord.gg/@3t4Q8UQQ" target="_blank" rel="noopener"
+        class="ananke-social-link link-transition discord link dib z-999 pt3 pt0-l mr1"
+        title="follow on Discord - Opens in a new window"
+        aria-label="follow on Discord - Opens in a new window">
+      <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/></svg>
             
           </span></a><a href="https://github.com/JeanneD-Hack-CTF/" target="_blank" rel="noopener"
         class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1"
