@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/Users/lboivin/CTF/JDHACK/website",
+	"sourceRoot": "/home/sami/Projects/Perso/Jeanne-Hack/JeanneHackCtf-website",
 	"sources": [
 		"ananke/css/main.css"
 	],
