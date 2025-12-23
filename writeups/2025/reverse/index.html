@@ -30,7 +30,7 @@ Si vous avez lancé le script, vous avez dû voir qu&rsquo;à un moment on vous 
 un mot de passe. La majorité du temps dans ce genre de challenge, l&rsquo;objectif est de trouver
 le point d&rsquo;entrée (là où le script va prendre ce que vous allez entrer) et de suivre toutes
 les étapes pour comprendre comment le script va traiter votre entrée et à quoi elle va être comparée.">
-    <meta name="generator" content="Hugo 0.152.2">
+    <meta name="generator" content="Hugo 0.153.0">
     
     
     
@@ -855,11 +855,11 @@ Cette fonction possède le code suivant:</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (_Var1 <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (_Var1 <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {
 </span></span><span style="display:flex;"><span>      <span style="color:#75715e">// Parent
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">wait</span>((<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)<span style="color:#ae81ff">0x0</span>);
+</span></span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">wait</span>((<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)<span style="color:#ae81ff">0x0</span>);
 </span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Child
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    uVar2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">ptrace</span>(PTRACE_TRACEME,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>);
+</span></span></span><span style="display:flex;"><span>    uVar2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">ptrace</span>(PTRACE_TRACEME,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ((<span style="color:#66d9ef">int</span>)uVar2 <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
 </span></span><span style="display:flex;"><span>      fd <span style="color:#f92672">=</span> <span style="color:#a6e22e">memfd_create</span>(<span style="color:#e6db74">&#34;&#34;</span>,<span style="color:#ae81ff">0</span>);
 </span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (fd <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span>) {
@@ -910,30 +910,30 @@ en place :</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">ssize_t</span> <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, <span style="color:#66d9ef">size_t</span> count) {
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Resolve bind if necessary
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">ssize_t</span> (<span style="color:#f92672">*</span>_write)(<span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>, <span style="color:#66d9ef">size_t</span>) <span style="color:#f92672">=</span> NULL;
+</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">ssize_t</span> (<span style="color:#f92672">*</span>_write)(<span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>, <span style="color:#66d9ef">size_t</span>) <span style="color:#f92672">=</span> NULL;
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (_write <span style="color:#f92672">==</span> NULL) {
 </span></span><span style="display:flex;"><span>    _write <span style="color:#f92672">=</span> <span style="color:#a6e22e">dlsym</span>(RTLD_NEXT, <span style="color:#e6db74">&#34;write&#34;</span>);
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Generate a different filename for each level
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">char</span> filename[<span style="color:#ae81ff">1024</span>] <span style="color:#f92672">=</span> { <span style="color:#ae81ff">0</span> };
+</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">char</span> filename[<span style="color:#ae81ff">1024</span>] <span style="color:#f92672">=</span> { <span style="color:#ae81ff">0</span> };
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">snprintf</span>(filename, <span style="color:#ae81ff">1024</span>, <span style="color:#e6db74">&#34;a.out.%d&#34;</span>, <span style="color:#a6e22e">getpid</span>());
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Open the file to write the copied data
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span> copy <span style="color:#f92672">=</span> <span style="color:#a6e22e">open</span>(filename, O_WRONLY <span style="color:#f92672">|</span> O_CREAT, <span style="color:#ae81ff">0644</span>);
+</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> copy <span style="color:#f92672">=</span> <span style="color:#a6e22e">open</span>(filename, O_WRONLY <span style="color:#f92672">|</span> O_CREAT, <span style="color:#ae81ff">0644</span>);
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (copy <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Write the data to the copy file
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">ssize_t</span> written <span style="color:#f92672">=</span> <span style="color:#a6e22e">_write</span>(copy, buf, count);
+</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">ssize_t</span> written <span style="color:#f92672">=</span> <span style="color:#a6e22e">_write</span>(copy, buf, count);
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Close the copy file
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">close</span>(copy);
+</span></span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">close</span>(copy);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Call the original write function
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">_write</span>(fd, buf, count);
+</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">_write</span>(fd, buf, count);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>On peut ensuite compiler et utiliser notre hook comme ceci :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ gcc -shared -fPIC -o hook.so hook.c -ldl
@@ -1007,10 +1007,10 @@ solution finale de ce challenge.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>__    __                 __
 </span></span><span style="display:flex;"><span>|  <span style="color:#ae81ff">\ </span> /  <span style="color:#ae81ff">\ </span>              |  <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>| $$ /  $$__    __   ____| $$  ______
+</span></span></span><span style="display:flex;"><span>| $$ /  $$__    __   ____| $$  ______
 </span></span><span style="display:flex;"><span>| $$/  $$|  <span style="color:#ae81ff">\ </span> |  <span style="color:#ae81ff">\ </span>/      $$ /      <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>| $$  $$ | $$  | $$|  $$$$$$$|  $$$$$$<span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>| $$$$$<span style="color:#ae81ff">\ </span>| $$  | $$| $$  | $$| $$  | $$
+</span></span></span><span style="display:flex;"><span>| $$  $$ | $$  | $$|  $$$$$$$|  $$$$$$<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>| $$$$$<span style="color:#ae81ff">\ </span>| $$  | $$| $$  | $$| $$  | $$
 </span></span><span style="display:flex;"><span>| $$ <span style="color:#ae81ff">\$</span>$<span style="color:#ae81ff">\|</span> $$__/ $$| $$__| $$| $$__/ $$
 </span></span><span style="display:flex;"><span>| $$  <span style="color:#ae81ff">\$</span>$<span style="color:#ae81ff">\\</span>$$    $$ <span style="color:#ae81ff">\$</span>$    $$ <span style="color:#ae81ff">\$</span>$    $$
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">\$</span>$   <span style="color:#ae81ff">\$</span>$ <span style="color:#ae81ff">\$</span>$$$$$   <span style="color:#ae81ff">\$</span>$$$$$$  <span style="color:#ae81ff">\$</span>$$$$$
@@ -1189,7 +1189,7 @@ paramètre est un pointeur vers la fonction <code>main</code>, que l&rsquo;on pe
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc,<span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv) {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (argc <span style="color:#f92672">!=</span> <span style="color:#ae81ff">4</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Show help
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">goto</span> LAB_00102820;
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">goto</span> LAB_00102820;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>  iVar2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">strcmp</span>(<span style="color:#e6db74">&#34;pack&#34;</span>,argv[<span style="color:#ae81ff">1</span>]);
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (iVar2 <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {
