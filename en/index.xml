@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Jeanne d&#39;Hack CTF</title>
-    <link>http://localhost:1313/en/</link>
+    <link>https://jeanned-hack-ctf.github.io/en/</link>
     <description>Recent content in Home on Jeanne d&#39;Hack CTF</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Jeanne d&#39;Hack CTF. All rights reserved.</copyright>
     <lastBuildDate>Fri, 31 Jan 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jeanned-hack-ctf.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2025 edition</title>
-      <link>http://localhost:1313/en/post/2025/</link>
+      <link>https://jeanned-hack-ctf.github.io/en/post/2025/</link>
       <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/post/2025/</guid>
-      <description>&lt;div style=&#34;text-align: center;&#34;&gt;&#xA;    &lt;img src=&#34;http://localhost:1313/images/2025/logo-2025.svg&#34; style=&#34;width: auto; height: 400px;&#34;/&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;On January 31, 2025, the second edition of the &lt;strong&gt;Jeanne d&amp;rsquo;Hack CTF&lt;/strong&gt; took place at the University of Rouen. This competition&#xA;tested the skills of students through a series of varied challenges. Participants had the opportunity to tackle challenges&#xA;in Cryptography, OSINT, Pwn, Reverse Engineering, Web, and Windows!&lt;/p&gt;&#xA;&lt;p&gt;This edition brought together 150 participants divided into 55 teams, all coming to test their skills on 45 challenges.&lt;/p&gt;</description>
+      <guid>https://jeanned-hack-ctf.github.io/en/post/2025/</guid>
+      <description>&lt;div style=&#34;text-align: center;&#34;&gt;&#xA;    &lt;img src=&#34;https://jeanned-hack-ctf.github.io/images/2025/logo-2025.svg&#34; style=&#34;width: auto; height: 400px;&#34;/&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;On January 31, 2025, the second edition of the &lt;strong&gt;Jeanne d&amp;rsquo;Hack CTF&lt;/strong&gt; took place at the University of Rouen. This competition&#xA;tested the skills of students through a series of varied challenges. Participants had the opportunity to tackle challenges&#xA;in Cryptography, OSINT, Pwn, Reverse Engineering, Web, and Windows!&lt;/p&gt;&#xA;&lt;p&gt;This edition brought together 150 participants divided into 55 teams, all coming to test their skills on 45 challenges.&lt;/p&gt;</description>
     </item>
     <item>
       <title>2024 edition</title>
-      <link>http://localhost:1313/en/post/2024/</link>
+      <link>https://jeanned-hack-ctf.github.io/en/post/2024/</link>
       <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/post/2024/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2024/jdhack-logo-2024.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;On January 31, 2024, the first edition of the Jeanne d&amp;rsquo;Hack CTF took place at the University of Rouen.&#xA;This competition tested the skills of students through a series of varied challenges. Participants had the&#xA;opportunity to compete in challenges related to cryptography, OSINT, Pwn, reverse engineering, web, Windows, and hardware!&lt;/p&gt;&#xA;&lt;p&gt;For those who wish to explore further, the GitHub for the CTF is available at this &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2024&#34;&gt;address&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;We would like to express our sincere thanks to all the teams that participated in this event, to the teachers&#xA;who helped us organize the CTF, and to all the members of the association.&lt;/p&gt;</description>
+      <guid>https://jeanned-hack-ctf.github.io/en/post/2024/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://jeanned-hack-ctf.github.io/images/2024/jdhack-logo-2024.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;On January 31, 2024, the first edition of the Jeanne d&amp;rsquo;Hack CTF took place at the University of Rouen.&#xA;This competition tested the skills of students through a series of varied challenges. Participants had the&#xA;opportunity to compete in challenges related to cryptography, OSINT, Pwn, reverse engineering, web, Windows, and hardware!&lt;/p&gt;&#xA;&lt;p&gt;For those who wish to explore further, the GitHub for the CTF is available at this &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2024&#34;&gt;address&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;We would like to express our sincere thanks to all the teams that participated in this event, to the teachers&#xA;who helped us organize the CTF, and to all the members of the association.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Inscriptions</title>
-      <link>http://localhost:1313/en/inscriptions/</link>
+      <link>https://jeanned-hack-ctf.github.io/en/inscriptions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/inscriptions/</guid>
+      <guid>https://jeanned-hack-ctf.github.io/en/inscriptions/</guid>
       <description>&lt;h2 id=&#34;jeanne-dhack-ctf-2026--registration-is-open&#34;&gt;Jeanne D&amp;rsquo;Hack CTF 2026 – Registration is open&lt;/h2&gt;&#xA;&lt;p&gt;The third edition of the Jeanne D&amp;rsquo;Hack CTF will be held soon.&#xA;Registration will open on &lt;strong&gt;December 15 at 12 PM&lt;/strong&gt; and all necessary information is detailed below.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;To register on CTFd, go &lt;a href=&#34;https://ctf.jeanne-hack-ctf.org/&#34;&gt;here&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;To register in person, go &lt;a href=&#34;https://www.helloasso.com/associations/jeanne-d-hack-ctf/evenements/jeanne-d-hack-ctf-2026&#34;&gt;there&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;registration-online-and-in-person&#34;&gt;Registration: Online and In-Person&lt;/h3&gt;&#xA;&lt;p&gt;The CTF is accessible both online and in-person.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;All participants&lt;/strong&gt;, whether playing online or on-site, must register on the &lt;strong&gt;CTFd platform&lt;/strong&gt;.&#xA;Those wishing to participate in &lt;strong&gt;person&lt;/strong&gt; must also register through the &lt;strong&gt;dedicated ticketing system&lt;/strong&gt;.&#xA;As in-person spots are limited, please only reserve a ticket if you are certain you can attend.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Legal notices</title>
-      <link>http://localhost:1313/en/legal/</link>
+      <link>https://jeanned-hack-ctf.github.io/en/legal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/legal/</guid>
+      <guid>https://jeanned-hack-ctf.github.io/en/legal/</guid>
       <description>&lt;p&gt;This website is published by the Jeanne d&amp;rsquo;Hack CTF association.&lt;/p&gt;&#xA;&lt;p&gt;You can contact us at the address:&lt;/p&gt;&#xA;&lt;p&gt;contact [ at ] jeanne-hack-ctf [ dot ] org.&lt;/p&gt;&#xA;&lt;h2 id=&#34;personal-data-protection&#34;&gt;Personal Data Protection&lt;/h2&gt;&#xA;&lt;p&gt;This website does not collect any personal data.&lt;/p&gt;</description>
     </item>
   </channel>

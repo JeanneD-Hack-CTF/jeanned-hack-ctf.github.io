@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Write-ups 2025 on Jeanne d&#39;Hack CTF</title>
-    <link>http://localhost:1313/writeups/2025/</link>
+    <link>https://jeanned-hack-ctf.github.io/writeups/2025/</link>
     <description>Recent content in Write-ups 2025 on Jeanne d&#39;Hack CTF</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <copyright>Jeanne d&#39;Hack CTF. Tous droits réservés.</copyright>
     <lastBuildDate>Sat, 08 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/writeups/2025/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jeanned-hack-ctf.github.io/writeups/2025/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Writeup PWN - Edition 2025</title>
-      <link>http://localhost:1313/writeups/2025/pwn/</link>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2025/pwn/</link>
       <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/2025/pwn/</guid>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2025/pwn/</guid>
       <description>&lt;p&gt;Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&amp;rsquo;Hack CTF 2025&#xA;pour la catégorie &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/pwn&#34;&gt;PWN&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;echo-service&#34;&gt;Echo Service&lt;/h2&gt;&#xA;&lt;p&gt;Les sources du challenge sont disponibles &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/blob/main/pwn/Echo_Service&#34;&gt;ici&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Énoncé&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Vous avez été embauché comme pirate informatique dans un monde dystopique où les technologies avancées ont créé une société&#xA;divisée entre les riches et les pauvres. Un de vos objectifs est d&amp;rsquo;accéder à la puissance de l&amp;rsquo;élite en exploitant un logiciel&#xA;python vulnérable qui se trouve sur un serveur distant.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Writeup Reverse Engineering - Edition 2025</title>
-      <link>http://localhost:1313/writeups/2025/reverse/</link>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2025/reverse/</link>
       <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/2025/reverse/</guid>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2025/reverse/</guid>
       <description>&lt;p&gt;Dans cet article, nous vous présenterons les différentes solutions aux challenges&#xA;du Jeanne d&amp;rsquo;Hack CTF 2025 pour la catégorie &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/reverse&#34;&gt;Reverse&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;rev-my-snake-i&#34;&gt;Rev My Snake I&lt;/h2&gt;&#xA;&lt;p&gt;Les sources du challenge sont disponibles &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/reverse/Rev_My_Snake_I&#34;&gt;ici&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Writeup by &lt;a href=&#34;https://www.linkedin.com/in/lucas-coussement-73bb0927b&#34;&gt;Tourte&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;&#xA;&lt;p&gt;Ce challenge est le premier challenge de reverse de la série &lt;strong&gt;&amp;ldquo;Rev my snake&amp;rdquo;&lt;/strong&gt;. Il est&#xA;classé &lt;strong&gt;facile&lt;/strong&gt; et n&amp;rsquo;a pas posé beaucoup de problèmes à la majorité des participants.&lt;/p&gt;&#xA;&lt;h3 id=&#34;outils-nécessaires&#34;&gt;Outils nécessaires&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Un éditeur de texte classique&lt;/li&gt;&#xA;&lt;li&gt;Python (pour pouvoir exécuter le script)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;fichiers-fournis&#34;&gt;Fichiers fournis&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;chall.py&lt;/code&gt; : Le script python à analyser&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;résolution&#34;&gt;Résolution&lt;/h3&gt;&#xA;&lt;p&gt;Si on regarde &lt;code&gt;__init__&lt;/code&gt;, qui représente le point d&amp;rsquo;entrée du script, on voit que celui-ci&#xA;exécute la fonction &lt;code&gt;main&lt;/code&gt; (ce qui est logiquement ce que font énormément de scripts Python).&#xA;Si vous avez lancé le script, vous avez dû voir qu&amp;rsquo;à un moment on vous demande de rentrer&#xA;un mot de passe. La majorité du temps dans ce genre de challenge, l&amp;rsquo;objectif est de trouver&#xA;le &lt;strong&gt;point d&amp;rsquo;entrée&lt;/strong&gt; (là où le script va prendre ce que vous allez entrer) et de suivre toutes&#xA;les étapes pour comprendre comment le script va traiter votre entrée et à quoi elle va être comparée.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Writeup OSINT - Edition 2025</title>
-      <link>http://localhost:1313/writeups/2025/osint/</link>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2025/osint/</link>
       <pubDate>Tue, 18 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/2025/osint/</guid>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2025/osint/</guid>
       <description>&lt;p&gt;Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&amp;rsquo;Hack CTF 2025 pour la catégorie &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/osint&#34;&gt;OSINT&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;rue-oubliée&#34;&gt;Rue oubliée&lt;/h2&gt;&#xA;&lt;p&gt;Les sources du challenge sont disponibles &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/osint/Intro&#34;&gt;ici&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Ce challenge est un challenge d&amp;rsquo;introduction permettant aux débutants de s&amp;rsquo;initier à l&amp;rsquo;OSINT.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Énoncé&lt;/strong&gt;&#xA;Dans un monde où se mêlent chevaliers et machines, une image mystérieuse a refait surface.&#xA;Elle contient un indice crucial : le nom d&amp;rsquo;une rue oubliée.&#xA;En vous appuyant sur vos compétences d&amp;rsquo;enquêteur cyber-médiéval, analysez l&amp;rsquo;image pour retrouver ce lieu.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Writeup Cryptographie - Edition 2025</title>
-      <link>http://localhost:1313/writeups/2025/crypto/</link>
+      <link>https://jeanned-hack-ctf.github.io/writeups/2025/crypto/</link>
       <pubDate>Sat, 01 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/2025/crypto/</guid>
+      <guid>https://jeanned-hack-ctf.github.io/writeups/2025/crypto/</guid>
       <description>&lt;p&gt;Dans cet article, nous vous présenterons les différentes solutions aux challenges du Jeanne d&amp;rsquo;Hack CTF 2025 pour la catégorie &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/crypto&#34;&gt;Cryptographie&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;fantome-de-tchernobyl&#34;&gt;Fantome de Tchernobyl&lt;/h2&gt;&#xA;&lt;p&gt;Les sources du challenge sont disponibles &lt;a href=&#34;https://github.com/JeanneD-Hack-CTF/JeanneD-Hack-CTF-2025/tree/main/crypto/Intro-Fantome_de_Tchernobyl&#34;&gt;ici&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Ce challenge est un challenge d&amp;rsquo;introduction permettant aux débutants de s&amp;rsquo;initier à la cryptographie, ou en tout cas,&#xA;aux challenges que l&amp;rsquo;on retrouve souvent dans cette catégorie.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Il existe une vieille légende selon laquelle les sous-sols de la capitale seraient hantés par GOST le fantôme.&#xA;Il passerait son temps à répéter les mêmes choses : « La clé, c&amp;rsquo;est l&amp;rsquo;alphabet ! »&#xA;Et cette suite de chiffres et de lettres qui n&amp;rsquo;a aucun sens : « 207e0810ae62fb7fd69c94e6bb6104c9d4ed35b2d8e0581d5327896414020b0e ».&#xA;À l&amp;rsquo;aide de l&amp;rsquo;outil CyberChef, tentez de découvrir ce qui se cache derrière les paroles du fantôme.&#xA;Lien vers l&amp;rsquo;outil : &lt;a href=&#34;https://gchq.github.io/CyberChef/&#34;&gt;https://gchq.github.io/CyberChef/&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>

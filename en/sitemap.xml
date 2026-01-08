@@ -2,104 +2,104 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/en/post/2025/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/en/post/2025/</loc>
     <lastmod>2025-01-31T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://localhost:1313/post/2025/"
+                href="https://jeanned-hack-ctf.github.io/post/2025/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/en/post/2025/"
+                href="https://jeanned-hack-ctf.github.io/en/post/2025/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/en/</loc>
     <lastmod>2025-01-31T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://localhost:1313/"
+                href="https://jeanned-hack-ctf.github.io/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/en/"
+                href="https://jeanned-hack-ctf.github.io/en/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/post/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/en/post/</loc>
     <lastmod>2025-01-31T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://localhost:1313/post/"
+                href="https://jeanned-hack-ctf.github.io/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/en/post/"
+                href="https://jeanned-hack-ctf.github.io/en/post/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/post/2024/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/en/post/2024/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://localhost:1313/post/2024/"
+                href="https://jeanned-hack-ctf.github.io/post/2024/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/en/post/2024/"
+                href="https://jeanned-hack-ctf.github.io/en/post/2024/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/categories/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://localhost:1313/categories/"
+                href="https://jeanned-hack-ctf.github.io/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/en/categories/"
+                href="https://jeanned-hack-ctf.github.io/en/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/inscriptions/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/en/inscriptions/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://localhost:1313/inscriptions/"
+                href="https://jeanned-hack-ctf.github.io/inscriptions/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/en/inscriptions/"
+                href="https://jeanned-hack-ctf.github.io/en/inscriptions/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/legal/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/en/legal/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://localhost:1313/legal/"
+                href="https://jeanned-hack-ctf.github.io/legal/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/en/legal/"
+                href="https://jeanned-hack-ctf.github.io/en/legal/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/tags/</loc>
+    <loc>https://jeanned-hack-ctf.github.io/en/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="http://localhost:1313/tags/"
+                href="https://jeanned-hack-ctf.github.io/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/en/tags/"
+                href="https://jeanned-hack-ctf.github.io/en/tags/"
                 />
   </url>
 </urlset>
